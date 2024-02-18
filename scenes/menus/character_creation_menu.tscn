@@ -1,0 +1,157 @@
+[gd_scene load_steps=7 format=3 uid="uid://2wdoeqqhne1p"]
+
+[ext_resource type="Texture2D" uid="uid://c2lgfgvblgybs" path="res://graphics/charactercreationmenu/background/background_1.png" id="1_2erfd"]
+[ext_resource type="Texture2D" uid="uid://bgfbc0ee8ii53" path="res://graphics/charactercreationmenu/background/background_2.png" id="2_layhk"]
+[ext_resource type="Texture2D" uid="uid://bjrttghqwlahq" path="res://graphics/charactercreationmenu/background/background_3.png" id="3_chns1"]
+[ext_resource type="Texture2D" uid="uid://cklwqs3fkas2m" path="res://graphics/charactercreationmenu/background/background_4.png" id="4_w7uij"]
+[ext_resource type="Texture2D" uid="uid://bfaxtxjx83g7a" path="res://graphics/charactercreationmenu/background/background_5.png" id="5_qd5gx"]
+[ext_resource type="Texture2D" uid="uid://c2isgv70ba1sa" path="res://graphics/charactercreationmenu/buttons/left_button.png" id="6_xgc5i"]
+
+[node name="CharacterCreationMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+modulate = Color(0.333333, 0.996078, 1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2erfd")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_layhk")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_chns1")
+
+[node name="TextureRect4" type="TextureRect" parent="Background/TextureRect/TextureRect2/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w7uij")
+
+[node name="TextureRect5" type="TextureRect" parent="Background/TextureRect/TextureRect2/TextureRect3/TextureRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qd5gx")
+
+[node name="TextBox" type="Node" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="TextBox"]
+offset_left = 43.0
+offset_top = 65.0
+offset_right = 471.0
+offset_bottom = 286.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextBox/ColorRect2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 419.0
+offset_bottom = 63.0
+text = "Please Describe Your Character Below:"
+
+[node name="LineEdit" type="LineEdit" parent="TextBox"]
+offset_left = 43.0
+offset_top = 107.0
+offset_right = 469.0
+offset_bottom = 283.0
+
+[node name="SettingsBox" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SettingsBox"]
+offset_left = 730.0
+offset_top = 110.0
+offset_right = 1083.0
+offset_bottom = 259.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="SettingsBox/ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 20.0
+offset_right = 61.0
+offset_bottom = 43.0
+text = "Name: "
+
+[node name="LineEdit" type="LineEdit" parent="SettingsBox/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 13.0
+offset_right = 347.0
+offset_bottom = 52.0
+
+[node name="GridContainer" type="GridContainer" parent="SettingsBox/ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 357.0
+offset_bottom = 154.0
+theme_override_constants/h_separation = 30
+columns = 4
+
+[node name="Label" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Gender: 
+"
+
+[node name="TextureButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+
+[node name="Label2" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Male
+"
+
+[node name="TextureButton2" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+flip_h = true
+
+[node name="Label3" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Hair:
+"
+
+[node name="TextureButton3" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+
+[node name="Label4" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Afro
+"
+
+[node name="TextureButton4" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+flip_h = true
