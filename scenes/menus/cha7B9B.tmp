@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://2wdoeqqhne1p"]
+[gd_scene load_steps=12 format=3 uid="uid://2wdoeqqhne1p"]
 
 [ext_resource type="Texture2D" uid="uid://c2lgfgvblgybs" path="res://graphics/charactercreationmenu/background/background_1.png" id="1_2erfd"]
 [ext_resource type="Script" path="res://scenes/menus/character_creation_menu.gd" id="1_mdyim"]
@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cklwqs3fkas2m" path="res://graphics/charactercreationmenu/background/background_4.png" id="4_w7uij"]
 [ext_resource type="Texture2D" uid="uid://bfaxtxjx83g7a" path="res://graphics/charactercreationmenu/background/background_5.png" id="5_qd5gx"]
 [ext_resource type="Texture2D" uid="uid://c2isgv70ba1sa" path="res://graphics/charactercreationmenu/buttons/left_button.png" id="6_xgc5i"]
-[ext_resource type="PackedScene" uid="uid://bbrlj75jmuo1e" path="res://scenes/player/animated_sprite_2d.tscn" id="8_14db2"]
-[ext_resource type="Texture2D" uid="uid://cfr85dkkjc1dt" path="res://graphics/charactercreationmenu/buttons/left_button_pressed.png" id="8_86cpk"]
+[ext_resource type="PackedScene" uid="uid://dstg0c1k4vhb1" path="res://scenes/player/player.tscn" id="8_x43ky"]
 
 [sub_resource type="Theme" id="Theme_ee3cm"]
 
@@ -91,23 +90,18 @@ offset_right = 419.0
 offset_bottom = 42.0
 text = "Please Describe Your Character Below:"
 
-[node name="TextBoxInput" type="TextEdit" parent="TextBox/ColorRect2"]
-unique_name_in_owner = true
+[node name="LineEdit" type="LineEdit" parent="TextBox/ColorRect2"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 38.0
-offset_right = 428.0
-offset_bottom = 224.0
-wrap_mode = 1
-scroll_smooth = true
-caret_blink = true
+offset_top = 42.0
+offset_right = 427.0
+offset_bottom = 222.0
 
 [node name="CreateButton" type="Button" parent="TextBox/ColorRect2"]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 187.0
-offset_right = 427.0
-offset_bottom = 221.0
+offset_left = 344.0
+offset_top = 185.0
+offset_right = 426.0
+offset_bottom = 219.0
 theme = SubResource("Theme_ee3cm")
 theme_override_colors/font_color = Color(0.976471, 0.980392, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_3dm84")
@@ -155,7 +149,6 @@ text = "Gender:
 [node name="GenderLeftButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_xgc5i")
-texture_pressed = ExtResource("8_86cpk")
 
 [node name="CurrentGenderLabel" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
 unique_name_in_owner = true
@@ -166,7 +159,6 @@ text = "Male
 [node name="GenderRightButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_xgc5i")
-texture_pressed = ExtResource("8_86cpk")
 flip_h = true
 
 [node name="Hair" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
@@ -177,7 +169,6 @@ text = "Hair:
 [node name="HairLeftButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_xgc5i")
-texture_pressed = ExtResource("8_86cpk")
 
 [node name="CurrentHairLabel" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
 unique_name_in_owner = true
@@ -188,7 +179,6 @@ text = "Afro
 [node name="HairRightButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_xgc5i")
-texture_pressed = ExtResource("8_86cpk")
 flip_h = true
 
 [node name="Continue" type="Node" parent="."]
@@ -202,29 +192,10 @@ theme_override_colors/font_color = Color(0.929412, 0.929412, 0.929412, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yxgmg")
 text = "Continue"
 
-[node name="PlayerAnimation" type="Node" parent="."]
+[node name="Player" type="Node" parent="."]
 
-[node name="PlayerAnimation" parent="PlayerAnimation" instance=ExtResource("8_14db2")]
-unique_name_in_owner = true
-position = Vector2(611, 577)
-scale = Vector2(2, 2)
-
-[node name="DirectionLeftButton" type="TextureButton" parent="PlayerAnimation/PlayerAnimation"]
-offset_left = -93.0
-offset_top = -21.5
-offset_right = -43.0
-offset_bottom = 18.5
-texture_normal = ExtResource("6_xgc5i")
-texture_pressed = ExtResource("8_86cpk")
-
-[node name="DirectionRightButton" type="TextureButton" parent="PlayerAnimation/PlayerAnimation"]
-offset_left = 36.0
-offset_top = -20.5
-offset_right = 86.0
-offset_bottom = 19.5
-texture_normal = ExtResource("6_xgc5i")
-texture_pressed = ExtResource("8_86cpk")
-flip_h = true
+[node name="player" parent="Player" instance=ExtResource("8_x43ky")]
+position = Vector2(544, 520)
 
 [connection signal="pressed" from="TextBox/ColorRect2/CreateButton" to="." method="_on_create_button_pressed"]
 [connection signal="pressed" from="SettingsBox/ColorRect/GridContainer/GenderLeftButton" to="." method="_on_gender_left_button_pressed"]
@@ -232,5 +203,3 @@ flip_h = true
 [connection signal="pressed" from="SettingsBox/ColorRect/GridContainer/HairLeftButton" to="." method="_on_hair_left_button_pressed"]
 [connection signal="pressed" from="SettingsBox/ColorRect/GridContainer/HairRightButton" to="." method="_on_hair_right_button_pressed"]
 [connection signal="pressed" from="Continue/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="PlayerAnimation/PlayerAnimation/DirectionLeftButton" to="." method="_on_direction_left_button_pressed"]
-[connection signal="pressed" from="PlayerAnimation/PlayerAnimation/DirectionRightButton" to="." method="_on_direction_right_button_pressed"]
