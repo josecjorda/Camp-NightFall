@@ -8,7 +8,7 @@ var currGender
 var currHair
 var currDirection
 
-# Name: file of synonyms
+# Abbreviated Name: file of synonyms
 var genders = {"M": "MALE_syns.txt", "F": "FEMALE_syns.txt"}
 var hairStyles = {"FADE": "FADE_syns.txt", "FRO": "FRO_syns.txt", "LH": "LH_syns.txt", "PT": "PT_syns.txt"
 				 , "SH": "SH_syns.txt", "TT": "TT_syns.txt"}
@@ -32,9 +32,6 @@ func _ready():
 	%CurrentHairLabel.text = visibleHairStyles[currHair]
 	%PlayerAnimation.play(animationName())
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 # Chooses player apperance based on entered text
 func _on_create_button_pressed():
@@ -177,6 +174,7 @@ func animationName():
 # Moves to next scene
 func _on_continue_pressed():
 	var Name = %NameEntry.text
+	if Name == "" : Name = "Counselor"
 	createCharacter.emit(currGender, currHair, Name)
 	
 	var next_scene = "res://scenes/player/player.tscn"
