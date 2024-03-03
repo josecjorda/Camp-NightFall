@@ -8,28 +8,31 @@ var currGender
 var currHair
 var currDirection
 
+# Abbreviated Name: Full Name
+var genders = Global.genders
+var hairStyles = Global.hairStyles
+
 # Abbreviated Name: file of synonyms
-var genders = {"M": "MALE_syns.txt", "F": "FEMALE_syns.txt"}
-var hairStyles = {"FADE": "FADE_syns.txt", "FRO": "FRO_syns.txt", "LH": "LH_syns.txt", "PT": "PT_syns.txt"
+var genderFiles = {"M": "MALE_syns.txt", "F": "FEMALE_syns.txt"}
+var hairStyleFiles = {"FADE": "FADE_syns.txt", "FRO": "FRO_syns.txt", "LH": "LH_syns.txt", "PT": "PT_syns.txt"
 				 , "SH": "SH_syns.txt", "TT": "TT_syns.txt"}
 
+
 # Arrays to keep track of positions for left and right buttons
-var gendersArr = genders.keys()
-var hairStylesArr = hairStyles.keys()
-var directionsArr = ["Forward", "Right", "Backward", "Left"]
+var genderKeys = genders.keys()
+var hairStyleKeys = hairStyles.keys()
+var directionKeys = ["Forward", "Right", "Backward", "Left"]
 
-# Full name of genders and hair styles that will show up in menu
-var visibleGenders = {"M": "Male", "F": "Female"}
-var visibleHairStyles = {"FADE": "Fade", "FRO": "Afro", "LH": "Long Hair", "PT": "Pony Tail"
-				 , "SH": "Short Hair", "TT": "Twisted Tail"}
+var defaultPlayerName = "Counselor"
+var defaultGender = "M"
+var defaultHair = "SH"
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	currGender = "M"
-	currHair = "SH"
+	currGender = defaultGender
+	currHair = defaultHair
 	currDirection = "Forward"
-	%CurrentGenderLabel.text = visibleGenders[currGender]
-	%CurrentHairLabel.text = visibleHairStyles[currHair]
+	%CurrentGenderLabel.text = genders[currGender]
+	%CurrentHairLabel.text = hairStyles[currHair]
 	%PlayerAnimation.play(animationName())
 
 
@@ -48,7 +51,7 @@ func _on_create_button_pressed():
 	var genderFolder = "res://synonyms/gender"
 	for word in textInput:
 		for gender in genders.keys():
-			var file = FileAccess.open(genderFolder + "/" + genders[gender], FileAccess.READ)
+			var file = FileAccess.open(genderFolder + "/" + genderFiles[gender], FileAccess.READ)
 			var synonyms = file.get_as_text(true).split("\n")
 			file.close()
 			for synonym in synonyms:
@@ -63,7 +66,7 @@ func _on_create_button_pressed():
 	var hairFolder = "res://synonyms/hair"
 	for word in textInput:
 		for hair in hairStyles.keys():
-			var file = FileAccess.open(hairFolder + "/" + hairStyles[hair], FileAccess.READ)
+			var file = FileAccess.open(hairFolder + "/" + hairStyleFiles[hair], FileAccess.READ)
 			var synonyms = file.get_as_text(true).split("\n")
 			file.close()
 			for synonym in synonyms:
@@ -74,95 +77,59 @@ func _on_create_button_pressed():
 			if foundHair == true : break
 		if foundHair == true : break
 		
-	# Change current gender and hair name on settings box
+	# Change current gender and hair
 	currGender = chosenGender
 	currHair = chosenHair
-	%CurrentGenderLabel.text = visibleGenders[chosenGender]
-	%CurrentHairLabel.text = visibleHairStyles[chosenHair]
-	
-	# Show animation
+	%CurrentGenderLabel.text = genders[chosenGender]
+	%CurrentHairLabel.text = hairStyles[chosenHair]
 	%PlayerAnimation.play(animationName())
 	
 	
-# SettingsBox buttons
+# Change gender
 func _on_gender_left_button_pressed():
-	# Change gender
-	var gendIndex = gendersArr.find(currGender) 
-	var newIndex = gendIndex - 1
-	if newIndex == -1:
-		newIndex = gendersArr.size() - 1
-	currGender = gendersArr[newIndex]
-	
-	# Change current gender on settings box
-	%CurrentGenderLabel.text = visibleGenders[currGender]
-	
-	# Show animation
+	var currIndex = genderKeys.find(currGender) 
+	var newIndex = (currIndex - 1) % genderKeys.size()
+	currGender = genderKeys[newIndex]
+	%CurrentGenderLabel.text = genders[currGender]
 	%PlayerAnimation.play(animationName())
 	
+# Change gender
 func _on_gender_right_button_pressed():
-	# Change gender
-	var gendIndex = gendersArr.find(currGender) 
-	var newIndex = gendIndex + 1
-	if newIndex == gendersArr.size():
-		newIndex = 0
-	currGender = gendersArr[newIndex]
-	
-	# Change current gender on settings box
-	%CurrentGenderLabel.text = visibleGenders[currGender]
-	
-	# Show animation
+	var currIndex = genderKeys.find(currGender) 
+	var newIndex = (currIndex + 1) % genderKeys.size()
+	currGender = genderKeys[newIndex]
+	%CurrentGenderLabel.text = genders[currGender]
 	%PlayerAnimation.play(animationName())
-	
+
+# Change hair
 func _on_hair_left_button_pressed():
-	# Change hair
-	var hairIndex = hairStylesArr.find(currHair) 
-	var newIndex = hairIndex - 1
-	if newIndex == -1:
-		newIndex = hairStylesArr.size() - 1
-	currHair = hairStylesArr[newIndex]
-	
-	# Change current hair name on settings box
-	%CurrentHairLabel.text = visibleHairStyles[currHair]
-	
-	# Show animation
+	var currIndex = hairStyleKeys.find(currHair) 
+	var newIndex = (currIndex - 1) % hairStyleKeys.size()
+	currHair = hairStyleKeys[newIndex]
+	%CurrentHairLabel.text = hairStyles[currHair]
 	%PlayerAnimation.play(animationName())
 	
+# Change hair
 func _on_hair_right_button_pressed():
-	# Change hair
-	var hairIndex = hairStylesArr.find(currHair) 
-	var newIndex = hairIndex + 1
-	if newIndex == hairStylesArr.size():
-		newIndex = 0
-	currHair = hairStylesArr[newIndex]
-	
-	# Change current hair name on settings box
-	%CurrentHairLabel.text = visibleHairStyles[currHair]
-	
-	# Show animation
+	var currIndex = hairStyleKeys.find(currHair) 
+	var newIndex = (currIndex + 1) % hairStyleKeys.size()
+	currHair = hairStyleKeys[newIndex]
+	%CurrentHairLabel.text = hairStyles[currHair]
 	%PlayerAnimation.play(animationName())
 	
 
-# Facing direction buttons	
+# Change direction
 func _on_direction_left_button_pressed():
-	# Change direction
-	var directionIndex = directionsArr.find(currDirection) 
-	var newIndex = directionIndex - 1
-	if newIndex == -1:
-		newIndex = directionsArr.size() - 1
-	currDirection = directionsArr[newIndex]
-	
-	# Show animation
+	var currIndex = directionKeys.find(currDirection) 
+	var newIndex = (currIndex - 1) % directionKeys.size()
+	currDirection = directionKeys[newIndex]
 	%PlayerAnimation.play(animationName())
 	
+# Change direction
 func _on_direction_right_button_pressed():
-	# Change direction
-	var directionIndex = directionsArr.find(currDirection) 
-	var newIndex = directionIndex + 1
-	if newIndex == directionsArr.size():
-		newIndex = 0
-	currDirection = directionsArr[newIndex]
-	
-	# Show animation
+	var currIndex = directionKeys.find(currDirection) 
+	var newIndex = (currIndex + 1) % directionKeys.size()
+	currDirection = directionKeys[newIndex]
 	%PlayerAnimation.play(animationName())
 	
 	
@@ -173,9 +140,11 @@ func animationName():
 
 # Moves to next scene
 func _on_continue_pressed():
-	var Name = %NameEntry.text
-	if Name == "" : Name = "Counselor"
-	createCharacter.emit(currGender, currHair, Name)
+	var playerName = %NameEntry.text
+	if playerName == "" : playerName = defaultPlayerName
+	Global.playerName = playerName
+	Global.gender = currGender
+	Global.hair = currHair
 	
-	var next_scene = "res://scenes/player/player.tscn"
+	var next_scene = "res://scenes/main.tscn"
 	get_tree().change_scene_to_file(next_scene)
