@@ -1,6 +1,6 @@
 extends Control
 
-# Sends signal to player to set character apperance and name
+## Sends signal to player to set character apperance and name
 signal createCharacter(Gender, Hair, Name)
 
 # Current Appearance
@@ -146,5 +146,5 @@ func _on_continue_pressed():
 	Global.gender = currGender
 	Global.hair = currHair
 	
-	var next_scene = "res://scenes/main.tscn"
+	var next_scene = "res://scenes/player/player.tscn"
 	get_tree().change_scene_to_file(next_scene)
