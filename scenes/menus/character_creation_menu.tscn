@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://2wdoeqqhne1p"]
 
 [ext_resource type="Texture2D" uid="uid://c2lgfgvblgybs" path="res://graphics/charactercreationmenu/background/background_1.png" id="1_2erfd"]
-[ext_resource type="Script" path="res://scenes/menus/character_creation_menu.gd" id="1_mdyim"]
+[ext_resource type="Script" path="res://scripts/menus/character_creation_menu.gd" id="1_mdyim"]
 [ext_resource type="Texture2D" uid="uid://bgfbc0ee8ii53" path="res://graphics/charactercreationmenu/background/background_2.png" id="2_layhk"]
 [ext_resource type="Texture2D" uid="uid://bjrttghqwlahq" path="res://graphics/charactercreationmenu/background/background_3.png" id="3_chns1"]
 [ext_resource type="Texture2D" uid="uid://cklwqs3fkas2m" path="res://graphics/charactercreationmenu/background/background_4.png" id="4_w7uij"]
