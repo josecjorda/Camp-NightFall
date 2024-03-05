@@ -10,7 +10,10 @@ size = Vector2(50, 78)
 script = ExtResource("1_khy8f")
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("2_dgolf")]
+animation = &"M-SH-Run-Forward-Animation"
 
 [node name="player_hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_y2t2d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
