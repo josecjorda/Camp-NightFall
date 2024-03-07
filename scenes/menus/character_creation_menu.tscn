@@ -1,0 +1,258 @@
+[gd_scene load_steps=15 format=3 uid="uid://2wdoeqqhne1p"]
+
+[ext_resource type="Texture2D" uid="uid://c2lgfgvblgybs" path="res://graphics/charactercreationmenu/background/background_1.png" id="1_2erfd"]
+[ext_resource type="Script" path="res://scripts/menus/character_creation_menu.gd" id="1_mdyim"]
+[ext_resource type="Texture2D" uid="uid://bgfbc0ee8ii53" path="res://graphics/charactercreationmenu/background/background_2.png" id="2_layhk"]
+[ext_resource type="Texture2D" uid="uid://bjrttghqwlahq" path="res://graphics/charactercreationmenu/background/background_3.png" id="3_chns1"]
+[ext_resource type="Texture2D" uid="uid://cklwqs3fkas2m" path="res://graphics/charactercreationmenu/background/background_4.png" id="4_w7uij"]
+[ext_resource type="Texture2D" uid="uid://bfaxtxjx83g7a" path="res://graphics/charactercreationmenu/background/background_5.png" id="5_qd5gx"]
+[ext_resource type="Texture2D" uid="uid://c2isgv70ba1sa" path="res://graphics/charactercreationmenu/buttons/left_button.png" id="6_xgc5i"]
+[ext_resource type="Texture2D" uid="uid://cb5hc7oaubkxn" path="res://graphics/charactercreationmenu/signs/wooden_background.png" id="7_saavy"]
+[ext_resource type="PackedScene" uid="uid://bbrlj75jmuo1e" path="res://scenes/player/animated_sprite_2d.tscn" id="8_14db2"]
+[ext_resource type="Texture2D" uid="uid://cfr85dkkjc1dt" path="res://graphics/charactercreationmenu/buttons/left_button_pressed.png" id="8_86cpk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8o03"]
+bg_color = Color(1, 1, 1, 0.101961)
+
+[sub_resource type="Theme" id="Theme_ee3cm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dm84"]
+bg_color = Color(0.482353, 0.34902, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yff0u"]
+bg_color = Color(1, 1, 1, 0.101961)
+
+[node name="CharacterCreationMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mdyim")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+modulate = Color(0.333333, 0.996078, 1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2erfd")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_layhk")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_chns1")
+
+[node name="TextureRect4" type="TextureRect" parent="Background/TextureRect/TextureRect2/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w7uij")
+
+[node name="TextureRect5" type="TextureRect" parent="Background/TextureRect/TextureRect2/TextureRect3/TextureRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qd5gx")
+
+[node name="TextBox" type="Node" parent="."]
+
+[node name="ColorRect2" type="TextureRect" parent="TextBox"]
+self_modulate = Color(0.533333, 0.533333, 0.533333, 1)
+offset_right = 423.0
+offset_bottom = 195.0
+texture = ExtResource("7_saavy")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextBox/ColorRect2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 419.0
+offset_bottom = 42.0
+text = "Please Describe Your Character Below:"
+
+[node name="TextBoxInput" type="TextEdit" parent="TextBox/ColorRect2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 40.0
+offset_right = 414.0
+offset_bottom = 157.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_q8o03")
+wrap_mode = 1
+scroll_smooth = true
+caret_blink = true
+
+[node name="CreateButton" type="Button" parent="TextBox/ColorRect2"]
+self_modulate = Color(0.701961, 0.701961, 0.701961, 1)
+layout_mode = 0
+offset_left = 332.0
+offset_top = 159.0
+offset_right = 414.0
+offset_bottom = 193.0
+theme = SubResource("Theme_ee3cm")
+theme_override_colors/font_color = Color(0.976471, 0.980392, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3dm84")
+text = "Create"
+
+[node name="SettingsBox" type="Node" parent="."]
+
+[node name="ColorRect" type="TextureRect" parent="SettingsBox"]
+self_modulate = Color(0.533333, 0.533333, 0.533333, 1)
+offset_left = 777.0
+offset_right = 1152.0
+offset_bottom = 195.0
+size_flags_horizontal = 10
+texture = ExtResource("7_saavy")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="SettingsBox/ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 20.0
+offset_right = 61.0
+offset_bottom = 43.0
+text = "Name: "
+
+[node name="NameEntry" type="LineEdit" parent="SettingsBox/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 13.0
+offset_right = 362.0
+offset_bottom = 52.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yff0u")
+
+[node name="GridContainer" type="GridContainer" parent="SettingsBox/ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 364.0
+offset_bottom = 154.0
+theme_override_constants/h_separation = 20
+columns = 4
+
+[node name="Gender" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Gender: 
+"
+
+[node name="GenderLeftButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+texture_pressed = ExtResource("8_86cpk")
+
+[node name="CurrentGenderLabel" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Male
+"
+horizontal_alignment = 1
+
+[node name="GenderRightButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+texture_pressed = ExtResource("8_86cpk")
+flip_h = true
+
+[node name="Hair" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Hair:
+"
+
+[node name="HairLeftButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+texture_pressed = ExtResource("8_86cpk")
+
+[node name="CurrentHairLabel" type="Label" parent="SettingsBox/ColorRect/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "Afro
+"
+horizontal_alignment = 1
+
+[node name="HairRightButton" type="TextureButton" parent="SettingsBox/ColorRect/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_xgc5i")
+texture_pressed = ExtResource("8_86cpk")
+flip_h = true
+
+[node name="Continue" type="Node" parent="."]
+
+[node name="Continue" type="TextureButton" parent="Continue"]
+self_modulate = Color(0.533333, 0.533333, 0.533333, 1)
+offset_left = 905.0
+offset_top = 558.0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture_normal = ExtResource("7_saavy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Continue/Continue"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 22.0
+offset_right = 197.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="PlayerAnimation" type="Node" parent="."]
+
+[node name="PlayerAnimation" parent="PlayerAnimation" instance=ExtResource("8_14db2")]
+unique_name_in_owner = true
+position = Vector2(611, 577)
+scale = Vector2(2, 2)
+
+[node name="DirectionLeftButton" type="TextureButton" parent="PlayerAnimation/PlayerAnimation"]
+offset_left = -93.0
+offset_top = -21.5
+offset_right = -43.0
+offset_bottom = 18.5
+texture_normal = ExtResource("6_xgc5i")
+texture_pressed = ExtResource("8_86cpk")
+
+[node name="DirectionRightButton" type="TextureButton" parent="PlayerAnimation/PlayerAnimation"]
+offset_left = 36.0
+offset_top = -20.5
+offset_right = 86.0
+offset_bottom = 19.5
+texture_normal = ExtResource("6_xgc5i")
+texture_pressed = ExtResource("8_86cpk")
+flip_h = true
+
+[connection signal="pressed" from="TextBox/ColorRect2/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="SettingsBox/ColorRect/GridContainer/GenderLeftButton" to="." method="_on_gender_left_button_pressed"]
+[connection signal="pressed" from="SettingsBox/ColorRect/GridContainer/GenderRightButton" to="." method="_on_gender_right_button_pressed"]
+[connection signal="pressed" from="SettingsBox/ColorRect/GridContainer/HairLeftButton" to="." method="_on_hair_left_button_pressed"]
+[connection signal="pressed" from="SettingsBox/ColorRect/GridContainer/HairRightButton" to="." method="_on_hair_right_button_pressed"]
+[connection signal="pressed" from="Continue/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PlayerAnimation/PlayerAnimation/DirectionLeftButton" to="." method="_on_direction_left_button_pressed"]
+[connection signal="pressed" from="PlayerAnimation/PlayerAnimation/DirectionRightButton" to="." method="_on_direction_right_button_pressed"]
