@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciup8qftrwho6"]
+[gd_scene load_steps=6 format=3 uid="uid://ciup8qftrwho6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_khy8f"]
 [ext_resource type="PackedScene" uid="uid://bbrlj75jmuo1e" path="res://scenes/player/animated_sprite_2d.tscn" id="2_dgolf"]
+[ext_resource type="Resource" uid="uid://yppossesyuyq" path="res://scripts/inventory/playerinv_res/playerinv.tres" id="2_ybtgj"]
+[ext_resource type="PackedScene" uid="uid://w2tf0qcqr5fb" path="res://scenes/inventory/inv_ui.tscn" id="4_s83e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2t2d"]
 size = Vector2(50, 78)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_khy8f")
+inv = ExtResource("2_ybtgj")
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("2_dgolf")]
 animation = &"M-SH-Run-Forward-Animation"
@@ -17,3 +20,5 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_y2t2d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Inv_UI" parent="." instance=ExtResource("4_s83e3")]

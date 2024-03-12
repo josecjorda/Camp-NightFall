@@ -4,6 +4,7 @@ extends CharacterBody2D
 # speed in pixels/sec
 @export var speed = 350
 @onready var _animated_sprite = $AnimatedSprite2D 
+@export var inv: Inv
 
 # characteristics
 var playerName = Global.playerName
