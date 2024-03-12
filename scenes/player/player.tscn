@@ -22,3 +22,7 @@ shape = SubResource("RectangleShape2D_y2t2d")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Inv_UI" parent="." instance=ExtResource("4_s83e3")]
+offset_left = -575.0
+offset_top = 92.0
+offset_right = -489.0
+offset_bottom = 324.0
