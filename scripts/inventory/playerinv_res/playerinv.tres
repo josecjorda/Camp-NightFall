@@ -1,8 +1,56 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=3 format=3 uid="uid://yppossesyuyq"]
+[gd_resource type="Resource" script_class="Inv" load_steps=15 format=3 uid="uid://yppossesyuyq"]
 
-[ext_resource type="Resource" uid="uid://dkwort1rhl346" path="res://scripts/inventory/items_res/alcohol.tres" id="1_6mrhq"]
+[ext_resource type="Script" path="res://scripts/inventory/inv_slot.gd" id="2_mfu24"]
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="2_qbbkk"]
+
+[sub_resource type="Resource" id="Resource_dflk1"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_mwh44"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_cmki8"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_507q3"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_8284j"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_jx3t6"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_axx02"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_rchs6"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_e10e2"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_nbip0"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_4lnr7"]
+script = ExtResource("2_mfu24")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_rrrsl"]
+script = ExtResource("2_mfu24")
+amount = 0
 
 [resource]
 script = ExtResource("2_qbbkk")
-items = Array[Resource("res://scripts/inventory/inventory_item.gd")]([ExtResource("1_6mrhq"), null, null, null, null, null, ExtResource("1_6mrhq"), ExtResource("1_6mrhq"), null, null, null, ExtResource("1_6mrhq")])
+slots = Array[ExtResource("2_mfu24")]([SubResource("Resource_dflk1"), SubResource("Resource_mwh44"), SubResource("Resource_cmki8"), SubResource("Resource_507q3"), SubResource("Resource_8284j"), SubResource("Resource_jx3t6"), SubResource("Resource_axx02"), SubResource("Resource_rchs6"), SubResource("Resource_e10e2"), SubResource("Resource_nbip0"), SubResource("Resource_4lnr7"), SubResource("Resource_rrrsl")])
