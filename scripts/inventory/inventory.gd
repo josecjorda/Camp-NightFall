@@ -2,7 +2,7 @@ extends Resource
 
 class_name Inv
 
-@export var slots: Array[InvSlot]
+@export var items: Array[InvItem]
 
 func insert(item: InvItem):
 	pass

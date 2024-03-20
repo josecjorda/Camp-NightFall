@@ -154,5 +154,5 @@ func _on_continue_pressed():
 	Global.gender = currGender
 	Global.hair = currHair
 	
-	var next_scene = "res://scenes/player/player.tscn"
+	var next_scene = "res://scenes/world/overworld.tscn"
 	get_tree().change_scene_to_file(next_scene)
