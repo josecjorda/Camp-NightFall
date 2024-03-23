@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://b6qu3o77yl485"]
+[gd_scene load_steps=22 format=3 uid="uid://b6qu3o77yl485"]
 
+[ext_resource type="Script" path="res://scripts/combat/combat.gd" id="1_01vdh"]
 [ext_resource type="Texture2D" uid="uid://ce5jpmohkekuf" path="res://graphics/combat/layers/parallax-demon-woods-bg.png" id="1_y1pa5"]
 [ext_resource type="Texture2D" uid="uid://cu6prlq3iacg3" path="res://graphics/combat/layers/parallax-demon-woods-far-trees.png" id="2_7bvm6"]
 [ext_resource type="Texture2D" uid="uid://cptafrt2itnu5" path="res://graphics/combat/layers/parallax-demon-woods-mid-trees.png" id="3_2pjn0"]
@@ -30,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_01vdh")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.309804, 1, 1)
@@ -202,7 +204,7 @@ offset_right = 1031.0
 offset_bottom = 66.0
 value = 90.0
 
-[node name="EnemyHp" type="Label" parent="EnemyHealthBar"]
+[node name="Label" type="Label" parent="EnemyHealthBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,7 +223,7 @@ offset_top = 575.0
 offset_right = 169.0
 offset_bottom = 616.0
 
-[node name="PlayerHp" type="Label" parent="PlayerHealthBar"]
+[node name="Label" type="Label" parent="PlayerHealthBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -9,9 +9,11 @@ var genders = {"M": "Male", "F": "Female"}
 var hairStyles = {"FADE": "Fade", "FRO": "Afro", "LH": "Long Hair", "PT": "Pony Tail"
 				 , "SH": "Short Hair", "TT": "Twisted Tail"}
 
-# Characteristics. Stored as abbreviated name excluding playerName.
+# Characteristics
 var playerName = "" ## Stores player name
 var gender = "" ## Stores player abbreviated gender
 var hair = "" ## Stores player abbreviated hair style
+var player_max_health = 100 ## Max health that the player can have
+var player_health = 100 ## Stores current player health
 
 
