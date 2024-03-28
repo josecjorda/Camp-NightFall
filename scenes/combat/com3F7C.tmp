@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6qu3o77yl485"]
+[gd_scene load_steps=22 format=3 uid="uid://b6qu3o77yl485"]
 
 [ext_resource type="Script" path="res://scripts/combat/combat.gd" id="1_01vdh"]
 [ext_resource type="Texture2D" uid="uid://ce5jpmohkekuf" path="res://graphics/combat/layers/parallax-demon-woods-bg.png" id="1_y1pa5"]
@@ -6,9 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://cptafrt2itnu5" path="res://graphics/combat/layers/parallax-demon-woods-mid-trees.png" id="3_2pjn0"]
 [ext_resource type="Texture2D" uid="uid://dy4pvnniebuhs" path="res://graphics/combat/layers/parallax-demon-woods-close-trees.png" id="4_d5a1p"]
 [ext_resource type="Texture2D" uid="uid://cukv6b1e1530x" path="res://graphics/enemy/Demon.png" id="5_k3ndu"]
+[ext_resource type="Texture2D" uid="uid://ccsacnil65soy" path="res://graphics/items/Alcohol.png" id="6_8s4ms"]
 [ext_resource type="Texture2D" uid="uid://daoepyu8edxuf" path="res://graphics/combat/Item_Bar.png" id="6_kyhtt"]
 [ext_resource type="PackedScene" uid="uid://hkpankg5fn8t" path="res://scenes/combat/enemy_health_bar.tscn" id="6_wl4x3"]
+[ext_resource type="Texture2D" uid="uid://di2ededw002if" path="res://graphics/items/Axe.png" id="7_0ityk"]
+[ext_resource type="Texture2D" uid="uid://bgfqbry6qmu6v" path="res://graphics/items/Bandages.png" id="8_5tt7w"]
 [ext_resource type="PackedScene" uid="uid://c6quxq47bsybe" path="res://scenes/combat/player_health_bar.tscn" id="8_hohhx"]
+[ext_resource type="Texture2D" uid="uid://djutv8cx24owh" path="res://graphics/items/Boltcutters.png" id="9_dmpeg"]
+[ext_resource type="Texture2D" uid="uid://cn1t1bq1m6hor" path="res://graphics/items/Chocolate.png" id="10_w6fhb"]
+[ext_resource type="Texture2D" uid="uid://b4iqnxlmfye2y" path="res://graphics/items/Crackers.png" id="11_3jepc"]
+[ext_resource type="Texture2D" uid="uid://cpps076tbs1r6" path="res://graphics/items/knife.png" id="12_rthm6"]
+[ext_resource type="Texture2D" uid="uid://ihebr3u3kkqj" path="res://graphics/items/Lighter.png" id="13_xpm3x"]
+[ext_resource type="Texture2D" uid="uid://cfidpdv7ceqnh" path="res://graphics/items/Rope.png" id="14_7p1dn"]
+[ext_resource type="Texture2D" uid="uid://d0raqxwaoyud8" path="res://graphics/items/Shotgun.png" id="15_uane1"]
+[ext_resource type="Texture2D" uid="uid://cvg3ifujtl3cu" path="res://graphics/items/Soda.png" id="16_p3o2t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw43b"]
 bg_color = Color(0, 0, 0, 1)
@@ -92,72 +103,86 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureButton" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+tooltip_text = "Test
+"
+texture_normal = ExtResource("6_8s4ms")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton2" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("7_0ityk")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton3" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("8_5tt7w")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton4" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("9_dmpeg")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton5" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("10_w6fhb")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton6" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("11_3jepc")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton7" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("12_rthm6")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton8" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("13_xpm3x")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton9" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("14_7p1dn")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton10" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("15_uane1")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton11" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("16_p3o2t")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextureButton12" type="TextureButton" parent="Itembar/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+texture_normal = ExtResource("6_8s4ms")
 ignore_texture_size = true
 stretch_mode = 5
 
