@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciup8qftrwho6"]
+[gd_scene load_steps=6 format=3 uid="uid://ciup8qftrwho6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_khy8f"]
 [ext_resource type="PackedScene" uid="uid://bbrlj75jmuo1e" path="res://scenes/player/animated_sprite_2d.tscn" id="2_dgolf"]
@@ -7,9 +7,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmcgy"]
 radius = 24.0208
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vcxlc"]
-radius = 67.0075
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_khy8f")
@@ -29,33 +26,3 @@ offset_left = -288.0
 offset_top = 253.0
 offset_right = 287.0
 offset_bottom = 316.0
-
-[node name="interaction_components" type="Node2D" parent="."]
-z_index = 1
-
-[node name="interaction_area" type="Area2D" parent="interaction_components"]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_components/interaction_area"]
-shape = SubResource("CircleShape2D_vcxlc")
-
-[node name="interact_label" type="Label" parent="interaction_components"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = -74.0
-offset_right = 147.0
-offset_bottom = -51.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "test"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="area_entered" from="interaction_components/interaction_area" to="." method="_on_interaction_area_area_entered"]
-[connection signal="area_exited" from="interaction_components/interaction_area" to="." method="_on_interaction_area_area_exited"]

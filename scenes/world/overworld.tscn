@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=15 format=3 uid="uid://cvb5qbjy87lv0"]
 
 [ext_resource type="Texture2D" uid="uid://c2s4pgnhup732" path="res://graphics/map/placeholder.png" id="1_e0aux"]
 [ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="2_kxnnq"]
-[ext_resource type="PackedScene" uid="uid://dx58jebp081r5" path="res://scenes/interact_area.tscn" id="3_qw3sc"]
-[ext_resource type="Texture2D" uid="uid://ccsacnil65soy" path="res://graphics/items/Alcohol.png" id="4_b8547"]
-[ext_resource type="Texture2D" uid="uid://di2ededw002if" path="res://graphics/items/Axe.png" id="5_i367b"]
+[ext_resource type="PackedScene" uid="uid://mqscuu5jrscj" path="res://scenes/item_interactions/alcohol_collectable.tscn" id="4_xchrw"]
+[ext_resource type="PackedScene" uid="uid://ba5801no31bsn" path="res://scenes/item_interactions/axe_collectable.tscn" id="5_gvg1s"]
+[ext_resource type="PackedScene" uid="uid://jg7qhn88l0nt" path="res://scenes/item_interactions/boltcutters_collectable.tscn" id="6_4euah"]
+[ext_resource type="PackedScene" uid="uid://cen3dhul4tlj5" path="res://scenes/item_interactions/bandages_collectable.tscn" id="6_24aex"]
+[ext_resource type="PackedScene" uid="uid://bd7n3k8fd30tw" path="res://scenes/item_interactions/chocolate.tscn" id="7_8wiv5"]
+[ext_resource type="PackedScene" uid="uid://cnpkyybc5phdt" path="res://scenes/item_interactions/crackers_collectable.tscn" id="8_tuwf7"]
+[ext_resource type="PackedScene" uid="uid://byfap8pf4f5us" path="res://scenes/item_interactions/knife_collectable.tscn" id="9_7fgub"]
+[ext_resource type="PackedScene" uid="uid://ce8iq2pqx1dj4" path="res://scenes/item_interactions/lighter_collectable.tscn" id="10_l7u41"]
+[ext_resource type="PackedScene" uid="uid://gyeru4qey21r" path="res://scenes/item_interactions/machete_collectable.tscn" id="11_e24gv"]
+[ext_resource type="PackedScene" uid="uid://mx36pos08tto" path="res://scenes/item_interactions/rope_collectable.tscn" id="12_o346d"]
+[ext_resource type="PackedScene" uid="uid://du4qgpfn6osqj" path="res://scenes/item_interactions/shotgun_collectable.tscn" id="13_drgjb"]
+[ext_resource type="PackedScene" uid="uid://ubareqsij5wv" path="res://scenes/item_interactions/soda_collectable.tscn" id="14_ij2cn"]
 
 [node name="overworld" type="Node2D"]
 
@@ -15,21 +24,39 @@ texture = ExtResource("1_e0aux")
 
 [node name="item_components" type="Node2D" parent="."]
 
-[node name="alcohol_interact" parent="item_components" instance=ExtResource("3_qw3sc")]
-position = Vector2(470, -184)
-interact_label = "Alcohol? How did this get in here?"
-interact_type = "print_text"
-interact_value = "Yay! It worked"
+[node name="axe_collectable" parent="item_components" instance=ExtResource("5_gvg1s")]
+position = Vector2(232, 53)
+scale = Vector2(1.47485, 1.44628)
 
-[node name="Sprite2D2" type="Sprite2D" parent="item_components/alcohol_interact"]
-texture = ExtResource("4_b8547")
+[node name="alcohol_collectable" parent="item_components" instance=ExtResource("4_xchrw")]
+position = Vector2(279, -175)
 
-[node name="axe_interact" parent="item_components" instance=ExtResource("3_qw3sc")]
-position = Vector2(158, 0)
-interact_label = "An axe... this looks like it could deal some damage..."
-interact_type = "print_text"
-interact_value = "Yay! It worked"
+[node name="boltcutters_collectable" parent="item_components" instance=ExtResource("6_4euah")]
+position = Vector2(142, -88)
 
-[node name="Sprite2D2" type="Sprite2D" parent="item_components/axe_interact"]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("5_i367b")
+[node name="bandages_collectable" parent="item_components" instance=ExtResource("6_24aex")]
+position = Vector2(-259, -105)
+
+[node name="chocolate_collectable" parent="item_components" instance=ExtResource("7_8wiv5")]
+position = Vector2(-29, -202)
+
+[node name="crackers_collectable" parent="item_components" instance=ExtResource("8_tuwf7")]
+position = Vector2(-245, 102)
+
+[node name="knife_collectable" parent="item_components" instance=ExtResource("9_7fgub")]
+position = Vector2(-49, 142)
+
+[node name="lighter_collectable" parent="item_components" instance=ExtResource("10_l7u41")]
+position = Vector2(-475, -184)
+
+[node name="machete_collectable" parent="item_components" instance=ExtResource("11_e24gv")]
+position = Vector2(-536, 211)
+
+[node name="rope_collectable" parent="item_components" instance=ExtResource("12_o346d")]
+position = Vector2(183, 231)
+
+[node name="shotgun_collectable" parent="item_components" instance=ExtResource("13_drgjb")]
+position = Vector2(-343, 21)
+
+[node name="soda_collectable" parent="item_components" instance=ExtResource("14_ij2cn")]
+position = Vector2(438, -11)

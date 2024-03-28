@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://jg7qhn88l0nt"]
+
+[ext_resource type="Script" path="res://scripts/interactions/boltcutters_collectable.gd" id="1_wxvto"]
+[ext_resource type="Resource" uid="uid://bnnfop32u1hq6" path="res://scripts/inventory/items_res/boltcutters.tres" id="2_dmprq"]
+[ext_resource type="Texture2D" uid="uid://djutv8cx24owh" path="res://graphics/items/Boltcutters.png" id="2_wkb8k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0x6y2"]
+radius = 20.025
+
+[node name="boltcutters_collectable" type="StaticBody2D"]
+script = ExtResource("1_wxvto")
+item = ExtResource("2_dmprq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.28701, 1.16573)
+texture = ExtResource("2_wkb8k")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_0x6y2")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

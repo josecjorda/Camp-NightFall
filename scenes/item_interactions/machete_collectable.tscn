@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://gyeru4qey21r"]
+
+[ext_resource type="Script" path="res://scripts/interactions/machete_collectable.gd" id="1_pyrc4"]
+[ext_resource type="Resource" uid="uid://cucnjrp4x3378" path="res://scripts/inventory/items_res/machete.tres" id="2_88j28"]
+[ext_resource type="Texture2D" uid="uid://cm53va7k65w8n" path="res://graphics/items/Machete.png" id="3_d07ne"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uxpm"]
+radius = 22.0
+
+[node name="machete_collectable" type="StaticBody2D"]
+script = ExtResource("1_pyrc4")
+item = ExtResource("2_88j28")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_d07ne")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_6uxpm")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

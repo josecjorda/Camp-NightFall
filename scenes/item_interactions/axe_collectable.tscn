@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba5801no31bsn"]
+
+[ext_resource type="Script" path="res://scripts/interactions/axe_collectable.gd" id="1_1vd0g"]
+[ext_resource type="Texture2D" uid="uid://di2ededw002if" path="res://graphics/items/Axe.png" id="2_6d2rx"]
+[ext_resource type="Resource" uid="uid://bre1gmy2insb3" path="res://scripts/inventory/items_res/axe.tres" id="2_37nfy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ub6q0"]
+radius = 17.2627
+
+[node name="axe_collectable" type="StaticBody2D"]
+script = ExtResource("1_1vd0g")
+item = ExtResource("2_37nfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.13385, 1.04019)
+texture = ExtResource("2_6d2rx")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_ub6q0")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

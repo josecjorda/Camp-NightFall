@@ -7,9 +7,6 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D 
 @export var inv: Inv
 
-@onready var all_interactions = []
-@onready var interactLabel = $interaction_components/interact_label
-
 # characteristics
 var playerName = Global.playerName
 var gender = Global.gender
@@ -17,7 +14,6 @@ var hair = Global.hair
 var prefix = gender + "-" + hair + "-"
 func _ready():
 	$AnimatedSprite2D.animation = prefix + "Run-Right-Animation"
-	update_interactions()
 	
 func get_input():
 # setup direction of movement
@@ -48,8 +44,6 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("interact"):
-		execute_interaction()
 	
 
 
@@ -57,23 +51,11 @@ func _physics_process(delta):
 
 # Interaction methods
 ########################################################################
-
-func _on_interaction_area_area_entered(area):
-	all_interactions.insert(0, area)
-	update_interactions()
-
-func _on_interaction_area_area_exited(area):
-	all_interactions.erase(area)
-	update_interactions()
 	
-func update_interactions():
-	if all_interactions:
-		interactLabel.text = all_interactions[0].interact_label
-	else:
-		interactLabel.text = ""
+func player():
+	pass
 
-func execute_interaction():
-	if all_interactions:
-		var curr_interaction = all_interactions[0]
-		match curr_interaction.interact_type:
-			"print_text" : print(curr_interaction.interact_value)
+func collect(item):
+	inv.insert(item)
+
+

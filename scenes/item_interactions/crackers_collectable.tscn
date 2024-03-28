@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnpkyybc5phdt"]
+
+[ext_resource type="Script" path="res://scripts/interactions/crackers_collectable.gd" id="1_kj6ju"]
+[ext_resource type="Resource" uid="uid://dvm43in3lstr5" path="res://scripts/inventory/items_res/crackers.tres" id="2_s1kxp"]
+[ext_resource type="Texture2D" uid="uid://b4iqnxlmfye2y" path="res://graphics/items/Crackers.png" id="3_xbpej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ap6yg"]
+radius = 13.0
+
+[node name="crackers_collectable" type="StaticBody2D"]
+script = ExtResource("1_kj6ju")
+item = ExtResource("2_s1kxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_xbpej")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_ap6yg")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

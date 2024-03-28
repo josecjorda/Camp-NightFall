@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://byfap8pf4f5us"]
+
+[ext_resource type="Script" path="res://scripts/interactions/knife_collectable.gd" id="1_kt11p"]
+[ext_resource type="Resource" uid="uid://cheyyao212b1u" path="res://scripts/inventory/items_res/knife.tres" id="2_foqu5"]
+[ext_resource type="Texture2D" uid="uid://cpps076tbs1r6" path="res://graphics/items/knife.png" id="3_vqm28"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cy7os"]
+radius = 17.0294
+
+[node name="knife_collectable" type="StaticBody2D"]
+script = ExtResource("1_kt11p")
+item = ExtResource("2_foqu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_vqm28")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_cy7os")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

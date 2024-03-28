@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://mqscuu5jrscj"]
+
+[ext_resource type="Script" path="res://scripts/interactions/alcohol_collectable.gd" id="1_dpqyq"]
+[ext_resource type="Texture2D" uid="uid://ccsacnil65soy" path="res://graphics/items/Alcohol.png" id="1_wu1fw"]
+[ext_resource type="Resource" uid="uid://dkwort1rhl346" path="res://scripts/inventory/items_res/alcohol.tres" id="2_tid50"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljx6o"]
+radius = 18.0278
+
+[node name="alcohol_collectable" type="StaticBody2D"]
+script = ExtResource("1_dpqyq")
+item = ExtResource("2_tid50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wu1fw")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_ljx6o")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]
