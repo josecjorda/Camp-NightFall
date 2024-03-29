@@ -14,4 +14,7 @@ var playerName = "" ## Stores player name
 var gender = "" ## Stores player abbreviated gender
 var hair = "" ## Stores player abbreviated hair style
 
+# Inventory array that will be passed on to the final boss fight
+var invArr = []
+
 
