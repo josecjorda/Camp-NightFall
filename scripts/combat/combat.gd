@@ -1,12 +1,14 @@
 extends Control
 ## Combat stuff
 ## dots activate at beginning of a entitiy's turn
+## code is written so only player has buffs and debuffs. if wanting to add them to enemy, 
+##will have to change some code.
 
 ## Boss class. Didn't make a resource script just because we only have one enemy.
 class boss_class:
 	var name = "Enemy"
 	var health_name = "Enemy" ## Correlates to health bar name
-	var max_health = 1000
+	var max_health = 100
 	var health = max_health
 	var buffs = []
 	var debuffs = []
@@ -15,7 +17,7 @@ class boss_class:
 			"damage" : null,
 			"effect" : null,
 			"heal" : null,
-			"debuff" : {"name" : "fear", "turns" : 2, "roll_disadvantage" : 2},
+			"debuff" : {"name" : "fear", "turns" : 2, "roll_decrease" : 2},
 			"buff" : null,
 			"cleanse" : null
 		},
@@ -143,6 +145,9 @@ var player = player_class.new()
 ## Array of items in inventory
 var item_bar = ["Fist", "Axe", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
+var player_turn = true
+
+
 func _ready():
 	hide_text()
 	set_health($EnemyHealthBar, enemy.health, enemy.max_health)
@@ -158,11 +163,16 @@ func _ready():
 		button.texture_normal = image
 
 
-## Closes text box when input is received
+## Looks for input. Is used as a way to close textboxes and switch between player and enemy turn.
 func _input(event):
-	# Closes textbox
+	## Closes textbox and goes to enemy turn if was players turn
 	if ((Input.is_action_just_released("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $TextBox.visible):
 		hide_text()
+		if player_turn:
+			player_turn = false
+			enemy_action_choice()
+		elif not player_turn:
+			player_turn = true
 
 
 ## Sets health of an entity
@@ -192,20 +202,75 @@ func player_action_choice(action_name):
 		action(player, player, action, action_name)
 	else:
 		action(player, enemy, action, action_name)
-	enemy_action_choice()
 	proc_dots(enemy)
 
 ## Chooses enemy action
 func enemy_action_choice():
-	var action_name = roll(enemy.actions.keys())
+	var action_name = enemy.actions.keys()[randi()%enemy.actions.keys().size()]
 	var action = enemy.actions.get(action_name)
 	display_text("Enemy used " + action_name + ". ")
 	action(enemy, player, action, action_name)
 	proc_dots(player)
 
-# Rolls dice to see action effects
-func roll(roll_values):
-	return roll_values[randi()%roll_values.size()]
+
+## Rolls dice to choose damage amount
+func roll(source, roll_values):
+	var roll = randi()%roll_values.size()
+	for debuff in source.debuffs:
+		if "roll_decrease" in debuff:
+			roll -= debuff.roll_decrease
+			debuff.turns -= 1
+			var debuff_icon = get_node("StatusBar/" + debuff.name)
+			print(debuff_icon)
+			print(debuff)
+			print(debuff.name)
+			print(debuff.turns)
+			debuff_icon.tooltip_text = debuff.name + " has " + str(debuff.turns) + " turns left"
+			if debuff.turns == 0:
+				debuff_icon.queue_free()
+				source.debuffs.erase(debuff)
+	for buff in source.buffs:
+		if "roll_increase" in buff:
+			roll += buff.roll_increase
+			buff.turns -= 1
+			var buff_icon = get_node("StatusBar/" + buff.name)
+			buff_icon.tooltip_text = buff.name + " has " + str(buff.turns) + " turns left"
+			if buff.turns == 0:
+				buff_icon.queue_free()
+				source.buffs.erase(buff)
+	if roll < 0:
+		roll = 0
+	elif roll > 7:
+		roll = 7
+	return roll_values[roll]
+
+
+## Rolls dice to choose effects
+func break_roll(source, roll_values):
+	var roll = randi()%roll_values.size()
+	for debuff in source.debuffs:
+		if "break_roll_decrease" in debuff:
+			roll -= debuff.break_roll_decrease
+			debuff.turns -= 1
+			var debuff_icon = get_node("StatusBar/" + debuff.name)
+			debuff_icon.tooltip_text = debuff.name + " has " + str(debuff.turns) + " turns left"
+			if debuff.turns == 0:
+				debuff_icon.queue_free()
+				source.debuffs.erase(debuff)
+	for buff in source.buffs:
+		if "break_roll_increase" in buff:
+			roll += buff.break_roll_increase
+			buff.turns -= 1
+			var buff_icon = get_node("StatusBar/" + buff.name)
+			buff_icon.tooltip_text = buff.name + " has " + str(buff.turns) + " turns left"
+			if buff.turns == 0:
+				buff_icon.queue_free()
+				source.buffs.erase(buff)
+	if roll < 0:
+		roll = 0
+	elif roll > 7:
+		roll = 7
+	return roll_values[roll]
 
 
 ## Activates damage over time debuffs
@@ -215,7 +280,13 @@ func proc_dots(target):
 		if "dot" in dict:
 			target.health -= dict.dot 
 			dict.turns -= 1
-			print(dict.name + " activated on " + target.health_name)
+			var debuff_icon = get_node("StatusBar/" + dict.name)
+			debuff_icon.tooltip_text = dict.name + " has " + str(dict.turns) + " turns left"
+			if dict.turns == 0:
+				debuff_icon.queue_free()
+				target.debuffs.erase(dict)
+			display_text(dict.name + " activated on " + target.health_name)
+
 
 ## Damages target by set amount until 0 hp reached.
 func damage(target, amount):
@@ -249,16 +320,34 @@ func remove_item(action_name):
 	var item = $Itembar/HBoxContainer.get_node(action_name)
 	item.visible = false
 
+
+## Calculates damage target takes
+func calculate_damage(source, target, action_info, action_name):
+	var damage = roll(source, action_info.damage)
+	if action_info.effect != null:
+		var effect = break_roll(source, action_info.effect)
+		if effect == "Double Damage":
+			damage *= 2
+		elif effect == "Break":
+			remove_item(action_name)
+	for buff in source.buffs:
+		if "damage_increase" in buff:
+			damage += buff.damage_increase
+			buff.turns -= 1
+			var buff_icon = get_node("StatusBar/" + buff.name)
+			buff_icon.tooltip_text = buff.name + " has " + str(buff.turns) + " turns left"
+			if buff.turns == 0:
+				buff_icon.queue_free()
+				source.buffs.erase(buff)
+	return damage
+
+
 ## Applys effects from action and activates effects already on target such as debuffs, dots, buffs, etc.
 func action(source, target, action_info, action_name):
+	print(action_info)
+	print(player.debuffs)
 	if action_info.damage != null:
-		var damage = roll(action_info.damage)
-		if action_info.effect != null:
-			var effect = roll(action_info.effect)
-			if effect == "Double Damage":
-				damage *= 2
-			elif effect == "Break":
-				remove_item(action_name)
+		var damage = calculate_damage(source, target, action_info, action_name)
 		damage(target, damage)
 		display_text("Dealt " + str(damage) + " damage. ")
 	if action_info.heal != null:
@@ -267,12 +356,29 @@ func action(source, target, action_info, action_name):
 		display_text("Healed " + str(heal) + " health. ")
 	if action_info.debuff != null:
 		if not_in_arr(action_info.debuff.name, target.debuffs):
-			target.debuffs.append(action_info.debuff)
-		display_text("Applied " + action_info.debuff.name + ". ")
+			target.debuffs.append(action_info.debuff.duplicate())
+			display_text("Applied " + action_info.debuff.name + ". ")
+			var debuff_icon = ColorRect.new() ## Adds debuff icon
+			debuff_icon.name = action_info.debuff.name
+			debuff_icon.color = Color.PURPLE
+			debuff_icon.custom_minimum_size = Vector2(25,0)
+			debuff_icon.tooltip_text = action_info.debuff.name + " has " + str(action_info.debuff.turns) + " turns left"
+			$StatusBar.add_child(debuff_icon)
 	if action_info.buff != null:
 		if not_in_arr(action_info.buff.name, target.buffs):
-			target.buffs.append(action_info.buff)
-		display_text("Applied " + action_info.buff.name + ". ")
-		
+			target.buffs.append(action_info.buff.duplicate())
+			display_text("Applied " + action_info.buff.name + ". ")
+			var buff_icon = ColorRect.new() ## Adds buff icon
+			buff_icon.name = action_info.buff.name
+			buff_icon.color = Color.LAWN_GREEN
+			buff_icon.custom_minimum_size = Vector2(25,0)
+			buff_icon.tooltip_text = action_info.buff.name + " has " + str(action_info.buff.turns) + " turns left"
+			$StatusBar.add_child(buff_icon)
+	if action_info.cleanse != null:
+		for debuff in target.debuffs:
+			if action_info.cleanse == debuff.name:
+				var debuff_icon = get_node("StatusBar/" + action_info.cleanse)
+				target.debuffs.erase(debuff)
+				debuff_icon.queue_free()
 	if action_name in consumables: ## Removes player consumables after used
 		remove_item(action_name)

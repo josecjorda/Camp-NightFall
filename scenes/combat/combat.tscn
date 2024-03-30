@@ -219,7 +219,15 @@ offset_bottom = 564.0
 text = "Counselor
 "
 
+[node name="StatusBar" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 618.0
+offset_right = 170.0
+offset_bottom = 641.0
+
 [node name="TextBox" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
