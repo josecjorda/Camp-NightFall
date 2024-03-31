@@ -10,7 +10,7 @@ var hairStyles = {"FADE": "Fade", "FRO": "Afro", "LH": "Long Hair", "PT": "Pony 
 				 , "SH": "Short Hair", "TT": "Twisted Tail"}
 
 # Characteristics
-var playerName = "" ## Stores player name
+var playerName = "Counselor"  ## Stores player name
 var gender = "" ## Stores player abbreviated gender
 var hair = "" ## Stores player abbreviated hair style
 var player_max_health = 100 ## Max health that the player can have

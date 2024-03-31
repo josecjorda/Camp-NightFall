@@ -1,147 +1,36 @@
 extends Control
-## Combat stuff
-## dots activate at beginning of a entitiy's turn
-## code is written so only player has buffs and debuffs. if wanting to add them to enemy, 
-##will have to change some code.
+## An implementation of a turn based combat system. Very DnD esc combat system, 
+## where each weapon has their own damage troika table and a die for breaking.
+##
+## [b]Combat flow[/b]:[br]
+## - Turns are determined by the player_turn variable. When a textbox is clicked and removed it switches turns.
+## in the _input function. If its the player turn, they have to click an item in the item bar which moves to player_action choice
+## If its enemeies turn then _input automatically moves to enemy_action_choice. Both functions will take an action and
+## call the action function for processing.[br]
+##
+## [b]Rules:[/b][br]
+## - Can only do 1 thing per turn (attack or use item)
+## - When the weapon is used, the Break Die is rolled and if lands on effect break, the weapon breaks and can no longer be used (disappears from the item bar). 
+## - Each Troika roll is a D8
+## - Dice rolls effect outcome of damage and action effects
+## - Dots activate at beginning of a entitiy's turn[br]
+## - Enemy action is chosen based off moves that aren't on cooldown. Moves that are off cooldown are randomly selected.[br]
+##
+## [b]Notes:[/b][br]
+## - Different object classes are imported from entities.gd
+## - Code is written so only player has buffs and debuffs. if wanting to add them to enemy, 
+## will have to change some code. Some of the codes assumes target is player/enemy so probably 
+## will have to be more exact.[br]
+## - Code could use some cleaning up as something aren't very intuitive. Such as buff/debuff removal code being 
+## repeated in different functions instead of being its own function.
+## - Could maybe incentivize player to use weaker items by adding a buff for each item broken
 
-## Boss class. Didn't make a resource script just because we only have one enemy.
-class boss_class:
-	var name = "Enemy"
-	var health_name = "Enemy" ## Correlates to health bar name
-	var max_health = 100
-	var health = max_health
-	var buffs = []
-	var debuffs = []
-	var actions = { ## Index of damage and effect arrays will correlate with dice rolls
-		"spectral_scream": {
-			"damage" : null,
-			"effect" : null,
-			"heal" : null,
-			"debuff" : {"name" : "fear", "turns" : 2, "roll_decrease" : 2},
-			"buff" : null,
-			"cleanse" : null
-		},
-		"revenant_rip": {
-			"damage" : [0, 0, 0, 0, 6, 7, 8, 9],
-			"effect" : null,
-			"heal" : null,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"ghast_blast": {
-			"damage" : [0, 0, 2, 3, 3, 4, 4, 4],
-			"effect" : null,
-			"heal" : null,
-			"debuff" : {"name" : "poison", "turns": 4, "dot": 5},
-			"buff" : null,
-			"cleanse" : null
-		}
-	}
-## Player class
-class player_class:
-	var name = Global.playerName
-	var health_name = "Player" ## Correlates to health bar name
-	var max_health = Global.player_max_health
-	var health = Global.player_health
-	var buffs = []
-	var debuffs = []
-	var actions = { ## Index of damage and effect arrays will correlate with dice rolls
-		"Fist": {
-			"damage" : [0, 0, 1, 1, 1, 1, 2, 2],
-			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
-			"heal" : null,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"Axe": {
-			"damage" : [0, 0, 0, 6, 6, 7, 8, 9],
-			"effect" : ["Break", "Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
-			"heal" : null,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"Shotgun": {
-			"damage" : [0, 0, 9, 9, 9, 10, 10, 11],
-			"effect" : null,
-			"heal" : null,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"Machete": {
-			"damage" : [0, 0, 3, 3, 4, 4, 4, 5],
-			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
-			"heal" : null,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"knife": {
-			"damage" : [0, 0, 3, 3, 3, 3, 4, 4],
-			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
-			"heal" : null,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"Boltcutters": {
-			"damage" : [0, 0, 3, 3, 3, 3, 4, 4],
-			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
-			"heal" : null,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"Soda": {
-			"damage" : null,
-			"effect" : null,
-			"heal" : 1.0/5.0,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : "poison"
-		},
-		"Crackers": {
-			"damage" : null,
-			"effect" : null,
-			"heal" : 3.0/5.0,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"Bandages": {
-			"damage" : null,
-			"effect" : null,
-			"heal" : 1.0,
-			"debuff" : null,
-			"buff" : null,
-			"cleanse" : null
-		},
-		"Alcohol": {
-			"damage" : null,
-			"effect" : null,
-			"heal" : null,
-			"debuff" : null,
-			"buff" : {"name" : "alcohol", "turns": 1, "damage_increase": 1},
-			"cleanse" : "fear"
-		},
-		"Chocolate": {
-			"damage" : null,
-			"effect" : null,
-			"heal" : 2.0/5.0,
-			"debuff" : null,
-			"buff" : {"name" : "chocolate bar", "turns": 1, "break_roll_increase": 1},
-			"cleanse" : null
-		}
-		
-	}
+var entities = preload("res://scripts/combat/entities.gd")
 
 
 ## Enemy object
-var enemy = boss_class.new() 
-var player = player_class.new()
+var enemy = entities.monster_class.new() 
+var player = entities.player_class.new()
 ## Array of items in inventory
 var item_bar = ["Fist", "Axe", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
@@ -149,7 +38,10 @@ var player_turn = true
 
 
 func _ready():
+	$Enemy.play("default")
+	$Player.play("default")
 	hide_text()
+	$PlayerName.text = player.name
 	set_health($EnemyHealthBar, enemy.health, enemy.max_health)
 	set_health($PlayerHealthBar, player.health, player.max_health)
 	var item_buttons = $Itembar/HBoxContainer.get_children() 
@@ -161,6 +53,7 @@ func _ready():
 		var image_path = "res://graphics/items/" + item + ".png"
 		var image = load(image_path)
 		button.texture_normal = image
+		button.tooltip_text = player.actions.get(item).get("tool_tip")
 
 
 ## Looks for input. Is used as a way to close textboxes and switch between player and enemy turn.
@@ -206,9 +99,16 @@ func player_action_choice(action_name):
 
 ## Chooses enemy action
 func enemy_action_choice():
-	var action_name = enemy.actions.keys()[randi()%enemy.actions.keys().size()]
+	var possible_actions = enemy.actions.keys()
+	for action in possible_actions: ## Removes actions on cooldown and adds a turn to last used
+		if "debuff" in enemy.actions.get(action):
+			if enemy.actions.get(action).last_used < enemy.actions.get(action).cool_down:
+				possible_actions.erase(action)
+	for action in enemy.actions:
+		enemy.actions.get(action).last_used +=1
+	var action_name = possible_actions[randi()%possible_actions.size()]
 	var action = enemy.actions.get(action_name)
-	display_text("Enemy used " + action_name + ". ")
+	action.last_used = 0
 	action(enemy, player, action, action_name)
 	proc_dots(player)
 
@@ -221,11 +121,9 @@ func roll(source, roll_values):
 			roll -= debuff.roll_decrease
 			debuff.turns -= 1
 			var debuff_icon = get_node("StatusBar/" + debuff.name)
-			print(debuff_icon)
-			print(debuff)
-			print(debuff.name)
-			print(debuff.turns)
-			debuff_icon.tooltip_text = debuff.name + " has " + str(debuff.turns) + " turns left"
+			debuff_icon.tooltip_text = ""
+			for key in debuff.keys():
+				debuff_icon.tooltip_text += key + ": " +  str(debuff[key]) + "\n"
 			if debuff.turns == 0:
 				debuff_icon.queue_free()
 				source.debuffs.erase(debuff)
@@ -234,7 +132,9 @@ func roll(source, roll_values):
 			roll += buff.roll_increase
 			buff.turns -= 1
 			var buff_icon = get_node("StatusBar/" + buff.name)
-			buff_icon.tooltip_text = buff.name + " has " + str(buff.turns) + " turns left"
+			buff_icon.tooltip_text = ""
+			for key in buff.keys():
+				buff_icon.tooltip_text += key + ": " +  str(buff[key]) + "\n"
 			if buff.turns == 0:
 				buff_icon.queue_free()
 				source.buffs.erase(buff)
@@ -253,7 +153,9 @@ func break_roll(source, roll_values):
 			roll -= debuff.break_roll_decrease
 			debuff.turns -= 1
 			var debuff_icon = get_node("StatusBar/" + debuff.name)
-			debuff_icon.tooltip_text = debuff.name + " has " + str(debuff.turns) + " turns left"
+			debuff_icon.tooltip_text = ""
+			for key in debuff.keys():
+				debuff_icon.tooltip_text += key + ": " +  str(debuff[key]) + "\n"
 			if debuff.turns == 0:
 				debuff_icon.queue_free()
 				source.debuffs.erase(debuff)
@@ -262,7 +164,9 @@ func break_roll(source, roll_values):
 			roll += buff.break_roll_increase
 			buff.turns -= 1
 			var buff_icon = get_node("StatusBar/" + buff.name)
-			buff_icon.tooltip_text = buff.name + " has " + str(buff.turns) + " turns left"
+			buff_icon.tooltip_text = ""
+			for key in buff.keys():
+				buff_icon.tooltip_text += key + ": " +  str(buff[key]) + "\n"
 			if buff.turns == 0:
 				buff_icon.queue_free()
 				source.buffs.erase(buff)
@@ -281,12 +185,17 @@ func proc_dots(target):
 			target.health -= dict.dot 
 			dict.turns -= 1
 			var debuff_icon = get_node("StatusBar/" + dict.name)
-			debuff_icon.tooltip_text = dict.name + " has " + str(dict.turns) + " turns left"
+			debuff_icon.tooltip_text = ""
+			for key in dict.keys():
+				debuff_icon.tooltip_text += key + ": " +  str(dict[key]) + "\n"
 			if dict.turns == 0:
 				debuff_icon.queue_free()
 				target.debuffs.erase(dict)
-			display_text(dict.name + " activated on " + target.health_name)
-
+			display_text(dict.name + " dealt " + str(dict.dot) + " damage to " + target.health_name +". ")
+	if target.health <= 0:
+		target.health = 0
+	var target_health_bar = get_node(target.health_name + "HealthBar")
+	set_health(target_health_bar, target.health, target.max_health)
 
 ## Damages target by set amount until 0 hp reached.
 func damage(target, amount):
@@ -327,15 +236,19 @@ func calculate_damage(source, target, action_info, action_name):
 	if action_info.effect != null:
 		var effect = break_roll(source, action_info.effect)
 		if effect == "Double Damage":
+			display_text("Rolled double damage. ")
 			damage *= 2
 		elif effect == "Break":
+			display_text(action_name + " broke :(. ")
 			remove_item(action_name)
 	for buff in source.buffs:
 		if "damage_increase" in buff:
 			damage += buff.damage_increase
 			buff.turns -= 1
 			var buff_icon = get_node("StatusBar/" + buff.name)
-			buff_icon.tooltip_text = buff.name + " has " + str(buff.turns) + " turns left"
+			buff_icon.tooltip_text = ""
+			for key in buff.keys():
+				buff_icon.tooltip_text += key + ": " +  str(buff[key]) + "\n"
 			if buff.turns == 0:
 				buff_icon.queue_free()
 				source.buffs.erase(buff)
@@ -344,8 +257,7 @@ func calculate_damage(source, target, action_info, action_name):
 
 ## Applys effects from action and activates effects already on target such as debuffs, dots, buffs, etc.
 func action(source, target, action_info, action_name):
-	print(action_info)
-	print(player.debuffs)
+	display_text(source.name + " used " + action_name + ". ")
 	if action_info.damage != null:
 		var damage = calculate_damage(source, target, action_info, action_name)
 		damage(target, damage)
@@ -357,22 +269,26 @@ func action(source, target, action_info, action_name):
 	if action_info.debuff != null:
 		if not_in_arr(action_info.debuff.name, target.debuffs):
 			target.debuffs.append(action_info.debuff.duplicate())
-			display_text("Applied " + action_info.debuff.name + ". ")
+			display_text("Applied " + action_info.debuff.name + " debuff. ")
 			var debuff_icon = ColorRect.new() ## Adds debuff icon
 			debuff_icon.name = action_info.debuff.name
 			debuff_icon.color = Color.PURPLE
 			debuff_icon.custom_minimum_size = Vector2(25,0)
-			debuff_icon.tooltip_text = action_info.debuff.name + " has " + str(action_info.debuff.turns) + " turns left"
+			debuff_icon.tooltip_text = ""
+			for key in action_info.debuff.keys():
+				debuff_icon.tooltip_text += key + ": " + str(action_info.debuff[key]) + "\n"
 			$StatusBar.add_child(debuff_icon)
 	if action_info.buff != null:
 		if not_in_arr(action_info.buff.name, target.buffs):
 			target.buffs.append(action_info.buff.duplicate())
-			display_text("Applied " + action_info.buff.name + ". ")
+			display_text("Applied " + action_info.buff.name + " buff. ")
 			var buff_icon = ColorRect.new() ## Adds buff icon
 			buff_icon.name = action_info.buff.name
 			buff_icon.color = Color.LAWN_GREEN
 			buff_icon.custom_minimum_size = Vector2(25,0)
-			buff_icon.tooltip_text = action_info.buff.name + " has " + str(action_info.buff.turns) + " turns left"
+			buff_icon.tooltip_text = ""
+			for key in action_info.buff.keys():
+				buff_icon.tooltip_text += key + ": " + str(action_info.buff[key]) + "\n"
 			$StatusBar.add_child(buff_icon)
 	if action_info.cleanse != null:
 		for debuff in target.debuffs:
@@ -380,5 +296,17 @@ func action(source, target, action_info, action_name):
 				var debuff_icon = get_node("StatusBar/" + action_info.cleanse)
 				target.debuffs.erase(debuff)
 				debuff_icon.queue_free()
+				display_text("Cleansed " + action_info.cleanse + ". ")
 	if action_name in consumables: ## Removes player consumables after used
 		remove_item(action_name)
+	if target.health == 0:
+		finish_battle(target)
+
+
+## Ends battle and switches to next scene
+func finish_battle(target):
+	if target == player:
+		print(player.name)
+	elif target == enemy:
+		print(enemy.name)
+	print(" Lost")
