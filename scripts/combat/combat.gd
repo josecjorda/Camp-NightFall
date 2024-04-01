@@ -32,7 +32,7 @@ var entities = preload("res://scripts/combat/entities.gd")
 var enemy = entities.monster_class.new() 
 var player = entities.player_class.new()
 ## Array of items in inventory
-var item_bar = ["Fist", "Axe", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
+var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var player_turn = true
 
@@ -45,6 +45,9 @@ func _ready():
 	set_health($EnemyHealthBar, enemy.health, enemy.max_health)
 	set_health($PlayerHealthBar, player.health, player.max_health)
 	var item_buttons = $Itembar/HBoxContainer.get_children() 
+	for item in item_bar: ## Removes unusuable items from item_bar
+		if item not in player.actions.keys():
+			item_bar.erase(item)
 	for index in range(item_bar.size()): ## Connects buttons to signal and adds textures based on inventory
 		var button = item_buttons[index]
 		var item = item_bar[index]
@@ -299,6 +302,10 @@ func action(source, target, action_info, action_name):
 				display_text("Cleansed " + action_info.cleanse + ". ")
 	if action_name in consumables: ## Removes player consumables after used
 		remove_item(action_name)
+	if "attacks_left" in action_info.keys(): ## If ran out of amount of actions
+		action_info.attacks_left -= 1
+		if action_info.attacks_left == 0:
+			remove_item(action_name)
 	if target.health == 0:
 		finish_battle(target)
 

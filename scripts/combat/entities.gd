@@ -58,7 +58,7 @@ class player_class:
 	var actions = { ## Index of damage and effect arrays will correlate with dice rolls
 		"Fist": {
 			"damage" : [0, 0, 1, 1, 1, 1, 2, 2],
-			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
+			"effect" : ["Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
 			"heal" : null,
 			"debuff" : null,
 			"buff" : null,
@@ -81,7 +81,8 @@ class player_class:
 			"debuff" : null,
 			"buff" : null,
 			"cleanse" : null,
-			"tool_tip" : "Consistent weapon"
+			"tool_tip" : "Consistent weapon. Only has 2 shots.",
+			"attacks_left" : 2
 		},
 		"Machete": {
 			"damage" : [0, 0, 3, 3, 4, 4, 4, 5],
