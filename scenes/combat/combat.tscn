@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b6qu3o77yl485"]
+[gd_scene load_steps=55 format=3 uid="uid://b6qu3o77yl485"]
 
 [ext_resource type="Script" path="res://scripts/combat/combat.gd" id="1_01vdh"]
 [ext_resource type="Texture2D" uid="uid://ce5jpmohkekuf" path="res://graphics/combat/layers/parallax-demon-woods-bg.png" id="1_y1pa5"]
@@ -11,9 +11,58 @@
 [ext_resource type="PackedScene" uid="uid://hkpankg5fn8t" path="res://scenes/combat/enemy_health_bar.tscn" id="6_wl4x3"]
 [ext_resource type="PackedScene" uid="uid://c6quxq47bsybe" path="res://scenes/combat/player_health_bar.tscn" id="8_hohhx"]
 [ext_resource type="Texture2D" uid="uid://dvy3io8i7fsrw" path="res://graphics/player/Combat/Counselor_M_Idle_Animation_Sprite_Sheet.png" id="9_6pbrt"]
+[ext_resource type="Texture2D" uid="uid://bog0ogmkj2eab" path="res://graphics/player/Combat/Counselor_F_Idle_Animation_Sprite_Sheet.png" id="10_vqru2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw43b"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5h2l"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(0, 0, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0yc5"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(580, 0, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1x35"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(1160, 0, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxsma"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(1740, 0, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrry5"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(2320, 0, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ios33"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(0, 1300, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym8ss"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(580, 1300, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kftjp"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(1160, 1300, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6x2q"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(1740, 1300, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y47jh"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(2320, 1300, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2d6p"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(0, 2600, 580, 1300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqnqu"]
+atlas = ExtResource("10_vqru2")
+region = Rect2(580, 2600, 580, 1300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6oh4b"]
 atlas = ExtResource("9_6pbrt")
@@ -67,6 +116,47 @@ region = Rect2(580, 2600, 580, 1300)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c5h2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0yc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1x35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxsma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrry5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ios33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym8ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kftjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6x2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y47jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2d6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqnqu")
+}],
+"loop": true,
+"name": &"F_default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6oh4b")
 }, {
 "duration": 1.0,
@@ -103,7 +193,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kt71a")
 }],
 "loop": true,
-"name": &"default",
+"name": &"M_default",
 "speed": 15.0
 }]
 
@@ -454,6 +544,7 @@ vertical_alignment = 1
 position = Vector2(112, 429)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_x2hfl")
+animation = &"F_default"
 
 [node name="Enemy" type="AnimatedSprite2D" parent="."]
 position = Vector2(672, 297)

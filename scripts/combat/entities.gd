@@ -38,7 +38,7 @@ class monster_class:
 			"damage" : [0, 0, 2, 3, 3, 4, 4, 4],
 			"effect" : null,
 			"heal" : null,
-			"debuff" : {"name" : "poison", "turns": 5, "dot": 10},
+			"debuff" : {"name" : "poison", "turns": 5, "dot": 5},
 			"buff" : null,
 			"cleanse" : null,
 			"cool_down" : 8,

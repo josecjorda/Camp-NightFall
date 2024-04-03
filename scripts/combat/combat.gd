@@ -32,14 +32,16 @@ var entities = preload("res://scripts/combat/entities.gd")
 var enemy = entities.monster_class.new() 
 var player = entities.player_class.new()
 ## Array of items in inventory
-var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
+#var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
+var item_bar = Global.invArr
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var player_turn = true
 
 
 func _ready():
+	item_bar.append("Fist") # Adds fist to inventory
 	$Enemy.play("default")
-	$Player.play("default")
+	$Player.play(Global.gender + "_"+ "default")
 	hide_text()
 	$PlayerName.text = player.name
 	set_health($EnemyHealthBar, enemy.health, enemy.max_health)
