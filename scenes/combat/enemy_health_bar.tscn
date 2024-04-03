@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://hkpankg5fn8t"]
+
+[ext_resource type="Texture2D" uid="uid://b4e4k1alvjmt3" path="res://graphics/combat/healthBars/healthbar_progress.PNG" id="1_gfu7v"]
+[ext_resource type="Texture2D" uid="uid://bq88gmbcrcu58" path="res://graphics/combat/healthBars/healthbar_over.PNG" id="2_wxxvu"]
+
+[node name="EnemyHealthBar" type="TextureProgressBar"]
+offset_left = 55.0
+offset_right = 1000.0
+offset_bottom = 31.0
+value = 75.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("1_gfu7v")
+texture_over = ExtResource("2_wxxvu")
+texture_progress = ExtResource("1_gfu7v")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(0.482353, 0, 0, 1)

@@ -1,0 +1,248 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6qu3o77yl485"]
+
+[ext_resource type="Script" path="res://scripts/combat/combat.gd" id="1_01vdh"]
+[ext_resource type="Texture2D" uid="uid://ce5jpmohkekuf" path="res://graphics/combat/layers/parallax-demon-woods-bg.png" id="1_y1pa5"]
+[ext_resource type="Texture2D" uid="uid://cu6prlq3iacg3" path="res://graphics/combat/layers/parallax-demon-woods-far-trees.png" id="2_7bvm6"]
+[ext_resource type="Texture2D" uid="uid://cptafrt2itnu5" path="res://graphics/combat/layers/parallax-demon-woods-mid-trees.png" id="3_2pjn0"]
+[ext_resource type="Texture2D" uid="uid://dy4pvnniebuhs" path="res://graphics/combat/layers/parallax-demon-woods-close-trees.png" id="4_d5a1p"]
+[ext_resource type="Texture2D" uid="uid://cukv6b1e1530x" path="res://graphics/enemy/Demon.png" id="5_k3ndu"]
+[ext_resource type="Texture2D" uid="uid://daoepyu8edxuf" path="res://graphics/combat/Item_Bar.png" id="6_kyhtt"]
+[ext_resource type="PackedScene" uid="uid://hkpankg5fn8t" path="res://scenes/combat/enemy_health_bar.tscn" id="6_wl4x3"]
+[ext_resource type="PackedScene" uid="uid://c6quxq47bsybe" path="res://scenes/combat/player_health_bar.tscn" id="8_hohhx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw43b"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Combat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_01vdh")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.309804, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y1pa5")
+
+[node name="Far" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7bvm6")
+stretch_mode = 4
+
+[node name="Mid" type="TextureRect" parent="Background/Far"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2pjn0")
+stretch_mode = 4
+
+[node name="Close" type="TextureRect" parent="Background/Far/Mid"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_d5a1p")
+stretch_mode = 4
+
+[node name="BottomArea" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 528.0
+offset_right = 1155.0
+offset_bottom = 648.0
+color = Color(0.415686, 0, 0.0196078, 1)
+
+[node name="Itembar" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 555.0
+offset_right = 6280.0
+offset_bottom = 1055.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("6_kyhtt")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Itembar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00377049
+anchor_top = 0.094
+anchor_right = 0.99459
+anchor_bottom = 0.934
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton4" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton5" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton6" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton7" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton8" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton9" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton10" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton11" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton12" type="TextureButton" parent="Itembar/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Enemy" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 403.0
+offset_top = 68.0
+offset_right = 873.0
+offset_bottom = 527.0
+texture = ExtResource("5_k3ndu")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EnemyHealthBar" parent="." instance=ExtResource("6_wl4x3")]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 28.0
+offset_right = 1031.0
+offset_bottom = 66.0
+value = 90.0
+
+[node name="Label" type="Label" parent="EnemyHealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 900/1000
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerHealthBar" parent="." instance=ExtResource("8_hohhx")]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 575.0
+offset_right = 169.0
+offset_bottom = 616.0
+
+[node name="Label" type="Label" parent="PlayerHealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 50/100
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 541.0
+offset_right = 129.0
+offset_bottom = 564.0
+text = "Counselor
+"
+
+[node name="StatusBar" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 618.0
+offset_right = 170.0
+offset_bottom = 641.0
+
+[node name="TextBox" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 528.0
+offset_right = 1155.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iw43b")
+
+[node name="Label" type="Label" parent="TextBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You've been poisoned"
+horizontal_alignment = 1
+vertical_alignment = 1
