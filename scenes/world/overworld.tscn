@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvb5qbjy87lv0"]
+
+[ext_resource type="Texture2D" uid="uid://c2s4pgnhup732" path="res://graphics/map/placeholder.png" id="1_e0aux"]
+[ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="2_kxnnq"]
+[ext_resource type="PackedScene" uid="uid://dx58jebp081r5" path="res://scenes/interact_area.tscn" id="3_qw3sc"]
+[ext_resource type="Texture2D" uid="uid://ccsacnil65soy" path="res://graphics/items/Alcohol.png" id="4_b8547"]
+[ext_resource type="Texture2D" uid="uid://di2ededw002if" path="res://graphics/items/Axe.png" id="5_i367b"]
+
+[node name="overworld" type="Node2D"]
+
+[node name="map" type="Sprite2D" parent="."]
+texture = ExtResource("1_e0aux")
+
+[node name="player" parent="." instance=ExtResource("2_kxnnq")]
+
+[node name="item_components" type="Node2D" parent="."]
+
+[node name="alcohol_interact" parent="item_components" instance=ExtResource("3_qw3sc")]
+position = Vector2(470, -184)
+interact_label = "Alcohol? How did this get in here?"
+interact_type = "print_text"
+interact_value = "Yay! It worked"
+
+[node name="Sprite2D2" type="Sprite2D" parent="item_components/alcohol_interact"]
+texture = ExtResource("4_b8547")
+
+[node name="axe_interact" parent="item_components" instance=ExtResource("3_qw3sc")]
+position = Vector2(158, 0)
+interact_label = "An axe... this looks like it could deal some damage..."
+interact_type = "print_text"
+interact_value = "Yay! It worked"
+
+[node name="Sprite2D2" type="Sprite2D" parent="item_components/axe_interact"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("5_i367b")
