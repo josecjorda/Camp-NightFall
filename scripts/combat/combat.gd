@@ -32,14 +32,15 @@ var entities = preload("res://scripts/combat/entities.gd")
 var enemy = entities.monster_class.new() 
 var player = entities.player_class.new()
 ## Array of items in inventory
-#var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
-var item_bar = Global.invArr
+var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
+#var item_bar = Global.invArr
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var player_turn = true
 
 
 func _ready():
-	item_bar.append("Fist") # Adds fist to inventory
+	if "Fist" not in item_bar:
+		item_bar.append("Fist") # Adds fist to inventory
 	$Enemy.play("default")
 	$Player.play(Global.gender + "_"+ "default")
 	hide_text()
@@ -64,7 +65,8 @@ func _ready():
 ## Looks for input. Is used as a way to close textboxes and switch between player and enemy turn.
 func _input(event):
 	## Closes textbox and goes to enemy turn if was players turn
-	if ((Input.is_action_just_released("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $TextBox.visible):
+	var event_text = event.as_text()
+	if ((Input.is_action_just_released("ui_accept") or (event is InputEventMouseButton and event.button_index == 1 and event.pressed == false)) and $TextBox.visible):
 		hide_text()
 		if player_turn:
 			player_turn = false

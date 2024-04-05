@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=16 format=3 uid="uid://cvb5qbjy87lv0"]
 
 [ext_resource type="Texture2D" uid="uid://c2s4pgnhup732" path="res://graphics/map/placeholder.png" id="1_e0aux"]
 [ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="2_kxnnq"]
+[ext_resource type="PackedScene" uid="uid://d0b2sxn3ou7km" path="res://scenes/world/timer.tscn" id="3_ysgks"]
 [ext_resource type="PackedScene" uid="uid://mqscuu5jrscj" path="res://scenes/item_interactions/alcohol_collectable.tscn" id="4_xchrw"]
 [ext_resource type="PackedScene" uid="uid://ba5801no31bsn" path="res://scenes/item_interactions/axe_collectable.tscn" id="5_gvg1s"]
 [ext_resource type="PackedScene" uid="uid://jg7qhn88l0nt" path="res://scenes/item_interactions/boltcutters_collectable.tscn" id="6_4euah"]
@@ -21,6 +22,10 @@
 texture = ExtResource("1_e0aux")
 
 [node name="player" parent="." instance=ExtResource("2_kxnnq")]
+
+[node name="timer" parent="player" instance=ExtResource("3_ysgks")]
+position = Vector2(438, -296)
+scale = Vector2(0.2, 0.2)
 
 [node name="item_components" type="Node2D" parent="."]
 
