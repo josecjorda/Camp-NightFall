@@ -16,7 +16,7 @@ var hair = "" ## Stores player abbreviated hair style
 var location = ""
 var inventory = []
 var elapsed_time = 0 #https://www.reddit.com/r/godot/comments/9e4bn5/elapsed_time_in_milliseconds/
-var kids_saved = [1,1,1] #Anna is index 0, Beth is index 1, Ethan is index 2, when child is saved, their value turns to 1
+var kids_saved = [0,0,0] #Anna is index 0, Beth is index 1, Ethan is index 2, when child is saved, their value turns to 1
 # Inventory array that will be passed on to the final boss fight
 var invArr = []
 
