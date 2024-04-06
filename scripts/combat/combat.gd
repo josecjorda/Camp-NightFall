@@ -316,8 +316,8 @@ func action(source, target, action_info, action_name):
 
 ## Ends battle and switches to next scene
 func finish_battle(target):
-	if target == player:
-		print(player.name)
-	elif target == enemy:
-		print(enemy.name)
-	print(" Lost")
+	if target == player: ## Lose
+		pass
+	elif target == enemy: ## Win
+		var next_scene = "res://scenes/end_screens/win_screen.tscn"
+		get_tree().change_scene_to_file(next_scene)
