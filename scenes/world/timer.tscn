@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0b2sxn3ou7km"]
+
+[ext_resource type="Texture2D" uid="uid://biag4xsw0erp" path="res://graphics/map/clock/Clock background.png" id="1_pnjm1"]
+[ext_resource type="Script" path="res://scripts/world/timer.gd" id="1_tifab"]
+[ext_resource type="Texture2D" uid="uid://5r5iawwfcjk4" path="res://graphics/map/clock/Clockhand.png" id="2_4qk2y"]
+
+[node name="timer" type="Node2D"]
+script = ExtResource("1_tifab")
+
+[node name="clock_background" type="TextureRect" parent="."]
+offset_right = 500.0
+offset_bottom = 500.0
+texture = ExtResource("1_pnjm1")
+
+[node name="clock_hand" type="TextureRect" parent="."]
+offset_left = 170.0
+offset_top = -250.0
+offset_right = 330.0
+offset_bottom = 250.0
+scale = Vector2(0.34, 0.34)
+pivot_offset = Vector2(80, 500)
+texture = ExtResource("2_4qk2y")

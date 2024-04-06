@@ -9,7 +9,7 @@ extends Node
 class monster_class:
 	var name = "Monster"
 	var health_name = "Enemy" ## Correlates to health bar name
-	var max_health = 100
+	var max_health = 100 + 25*Global.kids_saved.count(1)
 	var health = max_health
 	var buffs = []
 	var debuffs = []
@@ -18,14 +18,14 @@ class monster_class:
 			"damage" : null,
 			"effect" : null,
 			"heal" : null,
-			"debuff" : {"name" : "fear", "turns" : 4, "roll_decrease" : 2},
+			"debuff" : {"name" : "fear", "turns" : 4, "roll_decrease" : 1},
 			"buff" : null,
 			"cleanse" : null,
 			"cool_down" : 8,
 			"last_used" : 100
 		},
 		"Revenant Rip": {
-			"damage" : [0, 0, 0, 5*2, 6*2, 7*2, 8*2, 9*2],
+			"damage" : [0, 0, 0, 0, 6*2, 7*2, 8*2, 9*2],
 			"effect" : null,
 			"heal" : null,
 			"debuff" : null,
@@ -51,8 +51,8 @@ class monster_class:
 class player_class:
 	var name = Global.playerName
 	var health_name = "Player" ## Correlates to health bar name
-	var max_health = Global.player_max_health
-	var health = Global.player_health
+	var max_health = 100
+	var health = max_health
 	var buffs = []
 	var debuffs = []
 	var actions = { ## Index of damage and effect arrays will correlate with dice rolls
@@ -143,7 +143,7 @@ class player_class:
 			"effect" : null,
 			"heal" : null,
 			"debuff" : null,
-			"buff" : {"name" : "alcohol", "turns": 3, "damage_increase": 1},
+			"buff" : {"name" : "alcohol", "turns": 3, "damage_increase": 5},
 			"cleanse" : "fear",
 			"tool_tip" : "Buffs damage rolls and removes fear"
 		},
