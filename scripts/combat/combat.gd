@@ -32,8 +32,8 @@ var entities = preload("res://scripts/combat/entities.gd")
 var enemy = entities.monster_class.new() 
 var player = entities.player_class.new()
 ## Array of items in inventory
-var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
-#var item_bar = Global.invArr
+#var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
+var item_bar = Global.invArr
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var player_turn = true
 
