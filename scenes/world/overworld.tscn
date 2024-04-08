@@ -1,67 +1,75 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=18 format=3 uid="uid://cvb5qbjy87lv0"]
 
-[ext_resource type="Texture2D" uid="uid://c2s4pgnhup732" path="res://graphics/map/placeholder.png" id="1_e0aux"]
-[ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="2_kxnnq"]
-[ext_resource type="PackedScene" uid="uid://d0b2sxn3ou7km" path="res://scenes/world/timer.tscn" id="3_ysgks"]
-[ext_resource type="PackedScene" uid="uid://mqscuu5jrscj" path="res://scenes/item_interactions/alcohol_collectable.tscn" id="4_xchrw"]
-[ext_resource type="PackedScene" uid="uid://ba5801no31bsn" path="res://scenes/item_interactions/axe_collectable.tscn" id="5_gvg1s"]
-[ext_resource type="PackedScene" uid="uid://jg7qhn88l0nt" path="res://scenes/item_interactions/boltcutters_collectable.tscn" id="6_4euah"]
-[ext_resource type="PackedScene" uid="uid://cen3dhul4tlj5" path="res://scenes/item_interactions/bandages_collectable.tscn" id="6_24aex"]
-[ext_resource type="PackedScene" uid="uid://bd7n3k8fd30tw" path="res://scenes/item_interactions/chocolate.tscn" id="7_8wiv5"]
-[ext_resource type="PackedScene" uid="uid://cnpkyybc5phdt" path="res://scenes/item_interactions/crackers_collectable.tscn" id="8_tuwf7"]
-[ext_resource type="PackedScene" uid="uid://byfap8pf4f5us" path="res://scenes/item_interactions/knife_collectable.tscn" id="9_7fgub"]
-[ext_resource type="PackedScene" uid="uid://ce8iq2pqx1dj4" path="res://scenes/item_interactions/lighter_collectable.tscn" id="10_l7u41"]
-[ext_resource type="PackedScene" uid="uid://gyeru4qey21r" path="res://scenes/item_interactions/machete_collectable.tscn" id="11_e24gv"]
-[ext_resource type="PackedScene" uid="uid://mx36pos08tto" path="res://scenes/item_interactions/rope_collectable.tscn" id="12_o346d"]
-[ext_resource type="PackedScene" uid="uid://du4qgpfn6osqj" path="res://scenes/item_interactions/shotgun_collectable.tscn" id="13_drgjb"]
-[ext_resource type="PackedScene" uid="uid://ubareqsij5wv" path="res://scenes/item_interactions/soda_collectable.tscn" id="14_ij2cn"]
+[ext_resource type="Texture2D" uid="uid://c2s4pgnhup732" path="res://graphics/map/placeholder.png" id="1_2r11p"]
+[ext_resource type="Script" path="res://scripts/world/overworld.gd" id="1_6g48g"]
+[ext_resource type="PackedScene" uid="uid://bg885u8xisglu" path="res://scenes/world/buildings/mess_hall/mess_hall.tscn" id="2_g57io"]
+[ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="3_scpwk"]
+[ext_resource type="PackedScene" uid="uid://d0b2sxn3ou7km" path="res://scenes/world/timer.tscn" id="4_526bm"]
+[ext_resource type="PackedScene" uid="uid://ba5801no31bsn" path="res://scenes/item_interactions/axe_collectable.tscn" id="5_t8et1"]
+[ext_resource type="PackedScene" uid="uid://mqscuu5jrscj" path="res://scenes/item_interactions/alcohol_collectable.tscn" id="6_23wwr"]
+[ext_resource type="PackedScene" uid="uid://jg7qhn88l0nt" path="res://scenes/item_interactions/boltcutters_collectable.tscn" id="7_m1aqa"]
+[ext_resource type="PackedScene" uid="uid://cen3dhul4tlj5" path="res://scenes/item_interactions/bandages_collectable.tscn" id="8_7hivn"]
+[ext_resource type="PackedScene" uid="uid://bd7n3k8fd30tw" path="res://scenes/item_interactions/chocolate.tscn" id="9_uy8aj"]
+[ext_resource type="PackedScene" uid="uid://cnpkyybc5phdt" path="res://scenes/item_interactions/crackers_collectable.tscn" id="10_tb8m2"]
+[ext_resource type="PackedScene" uid="uid://byfap8pf4f5us" path="res://scenes/item_interactions/knife_collectable.tscn" id="11_v6npk"]
+[ext_resource type="PackedScene" uid="uid://ce8iq2pqx1dj4" path="res://scenes/item_interactions/lighter_collectable.tscn" id="12_w0nmp"]
+[ext_resource type="PackedScene" uid="uid://gyeru4qey21r" path="res://scenes/item_interactions/machete_collectable.tscn" id="13_ekvpa"]
+[ext_resource type="PackedScene" uid="uid://mx36pos08tto" path="res://scenes/item_interactions/rope_collectable.tscn" id="14_16rxf"]
+[ext_resource type="PackedScene" uid="uid://du4qgpfn6osqj" path="res://scenes/item_interactions/shotgun_collectable.tscn" id="15_dpuib"]
+[ext_resource type="PackedScene" uid="uid://ubareqsij5wv" path="res://scenes/item_interactions/soda_collectable.tscn" id="16_m5mep"]
 
 [node name="overworld" type="Node2D"]
+script = ExtResource("1_6g48g")
 
 [node name="map" type="Sprite2D" parent="."]
-texture = ExtResource("1_e0aux")
+texture = ExtResource("1_2r11p")
 
-[node name="player" parent="." instance=ExtResource("2_kxnnq")]
+[node name="buildings" type="Node2D" parent="."]
 
-[node name="timer" parent="player" instance=ExtResource("3_ysgks")]
+[node name="MessHall" parent="buildings" instance=ExtResource("2_g57io")]
+position = Vector2(-965, -854)
+
+[node name="player" parent="." instance=ExtResource("3_scpwk")]
+
+[node name="timer" parent="player" instance=ExtResource("4_526bm")]
 position = Vector2(438, -296)
 scale = Vector2(0.2, 0.2)
 
 [node name="item_components" type="Node2D" parent="."]
 
-[node name="axe_collectable" parent="item_components" instance=ExtResource("5_gvg1s")]
+[node name="axe_collectable" parent="item_components" instance=ExtResource("5_t8et1")]
 position = Vector2(232, 53)
 scale = Vector2(1.47485, 1.44628)
 
-[node name="alcohol_collectable" parent="item_components" instance=ExtResource("4_xchrw")]
+[node name="alcohol_collectable" parent="item_components" instance=ExtResource("6_23wwr")]
 position = Vector2(279, -175)
 
-[node name="boltcutters_collectable" parent="item_components" instance=ExtResource("6_4euah")]
+[node name="boltcutters_collectable" parent="item_components" instance=ExtResource("7_m1aqa")]
 position = Vector2(142, -88)
 
-[node name="bandages_collectable" parent="item_components" instance=ExtResource("6_24aex")]
+[node name="bandages_collectable" parent="item_components" instance=ExtResource("8_7hivn")]
 position = Vector2(-259, -105)
 
-[node name="chocolate_collectable" parent="item_components" instance=ExtResource("7_8wiv5")]
+[node name="chocolate_collectable" parent="item_components" instance=ExtResource("9_uy8aj")]
 position = Vector2(-29, -202)
 
-[node name="crackers_collectable" parent="item_components" instance=ExtResource("8_tuwf7")]
+[node name="crackers_collectable" parent="item_components" instance=ExtResource("10_tb8m2")]
 position = Vector2(-245, 102)
 
-[node name="knife_collectable" parent="item_components" instance=ExtResource("9_7fgub")]
+[node name="knife_collectable" parent="item_components" instance=ExtResource("11_v6npk")]
 position = Vector2(-49, 142)
 
-[node name="lighter_collectable" parent="item_components" instance=ExtResource("10_l7u41")]
+[node name="lighter_collectable" parent="item_components" instance=ExtResource("12_w0nmp")]
 position = Vector2(-475, -184)
 
-[node name="machete_collectable" parent="item_components" instance=ExtResource("11_e24gv")]
+[node name="machete_collectable" parent="item_components" instance=ExtResource("13_ekvpa")]
 position = Vector2(-536, 211)
 
-[node name="rope_collectable" parent="item_components" instance=ExtResource("12_o346d")]
+[node name="rope_collectable" parent="item_components" instance=ExtResource("14_16rxf")]
 position = Vector2(183, 231)
 
-[node name="shotgun_collectable" parent="item_components" instance=ExtResource("13_drgjb")]
+[node name="shotgun_collectable" parent="item_components" instance=ExtResource("15_dpuib")]
 position = Vector2(-343, 21)
 
-[node name="soda_collectable" parent="item_components" instance=ExtResource("14_ij2cn")]
+[node name="soda_collectable" parent="item_components" instance=ExtResource("16_m5mep")]
 position = Vector2(438, -11)

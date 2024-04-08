@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbbiau8vkl45a"]
+
+[ext_resource type="Texture2D" uid="uid://bp7tyajc7foiy" path="res://graphics/map/Mess_Hall_Upgrade/Fridge.png" id="1_4k2b5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqigl"]
+size = Vector2(329, 1087.5)
+
+[node name="Fridge" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 1.24996)
+shape = SubResource("RectangleShape2D_hqigl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4k2b5")
