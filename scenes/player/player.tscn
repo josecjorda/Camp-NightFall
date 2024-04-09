@@ -9,6 +9,7 @@
 radius = 24.0208
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_khy8f")
 inv = ExtResource("2_ybtgj")
 
@@ -22,6 +23,7 @@ shape = SubResource("CircleShape2D_qmcgy")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Inv_UI" parent="." instance=ExtResource("4_s83e3")]
+visibility_layer = 1
 offset_left = -288.0
 offset_top = 253.0
 offset_right = 287.0

@@ -8,6 +8,7 @@
 radius = 22.0
 
 [node name="shotgun_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_711le")
 item = ExtResource("2_c0hyt")
 

@@ -8,6 +8,7 @@
 radius = 20.0998
 
 [node name="rope_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_37hqu")
 item = ExtResource("2_v064k")
 
