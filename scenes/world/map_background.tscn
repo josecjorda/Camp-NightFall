@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://ceijciv4usyqm"]
+
+[ext_resource type="Texture2D" uid="uid://4vu2sjr2me2r" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence1.png" id="1_qhob3"]
+[ext_resource type="Texture2D" uid="uid://bvbc6am8riw78" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence2.png" id="2_k2au0"]
+[ext_resource type="Texture2D" uid="uid://dwbvdw2h3cm2t" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence3.png" id="3_uwlvh"]
+[ext_resource type="Texture2D" uid="uid://bcec7odf40f4t" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence4.png" id="4_qar2d"]
+[ext_resource type="Texture2D" uid="uid://brtqv6tu00q64" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence5.png" id="5_rdlqx"]
+[ext_resource type="Texture2D" uid="uid://dbxqy1wimu17c" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence6.png" id="6_jdmib"]
+[ext_resource type="Texture2D" uid="uid://bb1t2cmvtra65" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence7.png" id="7_dyixx"]
+[ext_resource type="Texture2D" uid="uid://106ifyaujoky" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence8.png" id="8_4wgu5"]
+[ext_resource type="Texture2D" uid="uid://ektm83kq5aj8" path="res://graphics/map/MapBackground/BackGroundTrees.png" id="9_bnchd"]
+[ext_resource type="Texture2D" uid="uid://8v0h8l5q6jo8" path="res://graphics/map/MapBackground/ForeGroundTrees.png" id="10_8vlsb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2jtc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qhob3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k2au0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uwlvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qar2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rdlqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jdmib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dyixx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4wgu5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ya76"]
+size = Vector2(521, 537)
+
+[node name="MapBackground" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="map" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -9)
+sprite_frames = SubResource("SpriteFrames_v2jtc")
+frame = 3
+
+[node name="BackGroundTrees" type="Sprite2D" parent="."]
+position = Vector2(70, 18)
+texture = ExtResource("9_bnchd")
+
+[node name="ForeGroundTrees" type="Sprite2D" parent="."]
+position = Vector2(-1779, 18)
+texture = ExtResource("10_8vlsb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5799, -1485, -5791, 55, -5778, 422, -5791, 821, -5806, 1079, -5803, 1092, -5807, 1733, -2614, 1737, -2620, 1747, -2599, 1961, 355, 1957, 350, 1449, 450, 1319, 537, 1495, 537, 1750, 1769, 1747, 1774, 1726, 1741, 1465, 1747, 981, 1770, 861, 1848, 761, 1900, 868, 2000, 1165, 2168, 1789, 2094, 1837, 2007, 1850, 2005, 1990, 2569, 1985, 2869, 1993, 2870, 1854, 2830, 1681, 2831, 1554, 2917, 1419, 2855, 1120, 2749, 919, 2807, 782, 2859, 618, 3135, 463, 3365, 310, 3591, 218, 3861, 228, 3958, 309, 4054, 364, 4081, -15, 4080, 379, 4084, 804, 4403, 806, 4404, 343, 4404, -19, 4431, 348, 4731, 344, 4914, 259, 5109, -101, 5187, -277, 5365, -341, 5441, -334, 5602, -440, 5723, -449, 5834, -443, 5904, -433, 5997, -431, 6005, -1116, 3617, -1106, 3630, -1792, 3692, -1918, 3795, -1998, 2776, -2005, 2925, -1744, 2928, -1176, 2801, -965, 1122, -958, 1167, -1821, -945, -1802, -950, -1638, -1705, -1635, -1723, -1292, -1951.96, -1130.97, -2071, -1218, -2153, -1200, -2087, -1036, -2210, -942, -2303, -999, -2284, -1201, -2475, -1230, -2537, -1031, -2695, -1092, -2613, -1413, -2714, -1483, -5787, -1463, -5777, -2040, 6166, -2134, 6159, 2132, -6119, 2140, -6036, -2044, -5785, -1999)
+
+[node name="InnerTreesBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerTreesBorder"]
+position = Vector2(611.5, 931.5)
+shape = SubResource("RectangleShape2D_4ya76")

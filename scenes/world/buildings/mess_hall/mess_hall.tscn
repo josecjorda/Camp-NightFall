@@ -8,14 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://coakq0c1ud4h8" path="res://graphics/map/Mess_Hall_Upgrade/Front Wall.png" id="6_hreb4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4t7kb"]
-size = Vector2(7331, 1582.5)
+size = Vector2(7331, 1572.5)
 
 [node name="MessHall" type="Area2D"]
-scale = Vector2(0.4, 0.4)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(392.001, 353.75)
+position = Vector2(392.001, 348.75)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_4t7kb")
 
@@ -23,39 +22,41 @@ shape = SubResource("RectangleShape2D_4t7kb")
 collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterBorders"]
-polygon = PackedVector2Array(3222.5, 1140, 4185, 1142.5, 4187.5, -837.5, -3320, -842.5, -3317.5, 1200, 2992.5, 1135, -3277.5, 1180, -3275, -72.5, -2927.5, -70, -2925, 20, -897.5, 15, -885, 300, -837.5, 300, -832.5, -27.5, -347.5, -32.5, 4030, -37.5, 4035, 1122.5)
+polygon = PackedVector2Array(3222.5, 1140, 4185, 1142.5, 4194, 349, 4246, 273, 4250, -1075, -3362, -1079, -3370, 273, -3314, 341, -3317.5, 1200, 2992.5, 1135, -3277.5, 1180, -3275, -72.5, -2927.5, -70, -2925, 20, -897.5, 15, -885, 300, -837.5, 300, -832.5, -27.5, -347.5, -32.5, 4030, -37.5, 4035, 1122.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="InnerView" type="Node2D" parent="."]
+
+[node name="Inside" type="Sprite2D" parent="InnerView"]
 position = Vector2(435, 230)
 texture = ExtResource("1_o7rov")
 
-[node name="Fridge" parent="." instance=ExtResource("2_1lu0n")]
+[node name="Fridge" parent="InnerView" instance=ExtResource("2_1lu0n")]
 position = Vector2(-3098, 500)
 
-[node name="Island" parent="." instance=ExtResource("3_t2xgd")]
+[node name="Island" parent="InnerView" instance=ExtResource("3_t2xgd")]
 position = Vector2(-1965, 580)
 scale = Vector2(1.05, 1.05)
 
-[node name="Tables" type="Node2D" parent="."]
+[node name="Tables" type="Node2D" parent="InnerView"]
 position = Vector2(0, 30)
 
-[node name="Table" parent="Tables" instance=ExtResource("4_3cp5q")]
+[node name="Table" parent="InnerView/Tables" instance=ExtResource("4_3cp5q")]
 position = Vector2(500, 110)
 
-[node name="Table2" parent="Tables" instance=ExtResource("4_3cp5q")]
+[node name="Table2" parent="InnerView/Tables" instance=ExtResource("4_3cp5q")]
 position = Vector2(2800, 110)
 
-[node name="Table3" parent="Tables" instance=ExtResource("4_3cp5q")]
+[node name="Table3" parent="InnerView/Tables" instance=ExtResource("4_3cp5q")]
 position = Vector2(500, 700)
 
-[node name="Table4" parent="Tables" instance=ExtResource("4_3cp5q")]
+[node name="Table4" parent="InnerView/Tables" instance=ExtResource("4_3cp5q")]
 position = Vector2(2800, 700)
 
 [node name="OutsideView" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Ceiling" type="Sprite2D" parent="OutsideView"]
-position = Vector2(438.75, -251.25)
-scale = Vector2(0.983903, 0.833928)
+position = Vector2(438.75, -370)
 texture = ExtResource("5_lr3pa")
 
 [node name="FrontWall" type="Sprite2D" parent="OutsideView"]

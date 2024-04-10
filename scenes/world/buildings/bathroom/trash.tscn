@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://77j7sxvgavo"]
+
+[ext_resource type="Texture2D" uid="uid://cq0pp8qouubwk" path="res://graphics/map/BathroomUpgrade/Trash.png" id="1_thftq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixg5x"]
+size = Vector2(101, 151)
+
+[node name="Trash" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ixg5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_thftq")
