@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciup8qftrwho6"]
+[gd_scene load_steps=8 format=3 uid="uid://ciup8qftrwho6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_khy8f"]
 [ext_resource type="PackedScene" uid="uid://bbrlj75jmuo1e" path="res://scenes/player/animated_sprite_2d.tscn" id="2_dgolf"]
 [ext_resource type="Resource" uid="uid://yppossesyuyq" path="res://scripts/inventory/playerinv_res/playerinv.tres" id="2_ybtgj"]
 [ext_resource type="PackedScene" uid="uid://w2tf0qcqr5fb" path="res://scenes/inventory/inv_ui.tscn" id="4_s83e3"]
+[ext_resource type="Texture2D" uid="uid://c0mr86fxx17lx" path="res://graphics/NPC/Anna/forwards/Anna-Forward-0.png" id="5_etrb0"]
+[ext_resource type="Texture2D" uid="uid://v06kyqr38int" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-0.png" id="6_37wlb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmcgy"]
 radius = 24.0208
@@ -28,3 +30,13 @@ offset_left = -288.0
 offset_top = 253.0
 offset_right = 287.0
 offset_bottom = 316.0
+
+[node name="saved_kids_indicator" type="Node2D" parent="."]
+
+[node name="Anna_indicator" type="Sprite2D" parent="saved_kids_indicator"]
+position = Vector2(-537, -283)
+texture = ExtResource("5_etrb0")
+
+[node name="Ethan_indicator" type="Sprite2D" parent="saved_kids_indicator"]
+position = Vector2(-466, -285)
+texture = ExtResource("6_37wlb")

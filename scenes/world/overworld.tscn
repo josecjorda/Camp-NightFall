@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=18 format=3 uid="uid://cvb5qbjy87lv0"]
 
 [ext_resource type="Texture2D" uid="uid://c2s4pgnhup732" path="res://graphics/map/placeholder.png" id="1_e0aux"]
 [ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="2_kxnnq"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://du4qgpfn6osqj" path="res://scenes/item_interactions/shotgun_collectable.tscn" id="13_drgjb"]
 [ext_resource type="PackedScene" uid="uid://ubareqsij5wv" path="res://scenes/item_interactions/soda_collectable.tscn" id="14_ij2cn"]
 [ext_resource type="PackedScene" uid="uid://whg8xgwvsgm5" path="res://scenes/NPCs/npc_anna.tscn" id="16_5pqfb"]
+[ext_resource type="PackedScene" uid="uid://bm7d0hkkhovlp" path="res://scenes/NPCs/npc_ethan.tscn" id="17_xiv6o"]
 
 [node name="overworld" type="Node2D"]
 
@@ -59,7 +60,7 @@ position = Vector2(-475, -184)
 position = Vector2(-536, 211)
 
 [node name="rope_collectable" parent="item_components" instance=ExtResource("12_o346d")]
-position = Vector2(183, 231)
+position = Vector2(-136, -293)
 
 [node name="shotgun_collectable" parent="item_components" instance=ExtResource("13_drgjb")]
 position = Vector2(-343, 21)
@@ -71,3 +72,6 @@ position = Vector2(438, -11)
 
 [node name="NPC_Anna" parent="NPC_components" instance=ExtResource("16_5pqfb")]
 position = Vector2(162, -335)
+
+[node name="NPC_Ethan" parent="NPC_components" instance=ExtResource("17_xiv6o")]
+position = Vector2(-281, -344)

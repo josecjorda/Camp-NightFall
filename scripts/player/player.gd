@@ -12,7 +12,12 @@ var playerName = Global.playerName
 var gender = Global.gender
 var hair = Global.hair
 var prefix = gender + "-" + hair + "-"
+
+
+
 func _ready():
+	$saved_kids_indicator/Anna_indicator.visible = false
+	$saved_kids_indicator/Ethan_indicator.visible = false
 	$AnimatedSprite2D.animation = prefix + "Run-Right-Animation"
 	
 func get_input():
@@ -43,6 +48,12 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+	
+func _process(delta):
+	if Global.kids_saved[0] == 1:
+		$saved_kids_indicator/Anna_indicator.visible = true
+	if Global.kids_saved[2] == 1:
+		$saved_kids_indicator/Ethan_indicator.visible = true
 	
 	
 

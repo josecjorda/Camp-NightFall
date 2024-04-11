@@ -1,14 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://whg8xgwvsgm5"]
+[gd_scene load_steps=20 format=3 uid="uid://whg8xgwvsgm5"]
 
-[ext_resource type="Script" path="res://NPC_Anna.gd" id="1_obski"]
+[ext_resource type="Script" path="res://scripts/NPCs/NPC_Anna.gd" id="1_q4yna"]
 [ext_resource type="Texture2D" uid="uid://dralj5banq2bn" path="res://graphics/NPC/Anna/crying_on_ground/Ann-Crying on Ground-0.png" id="2_d12et"]
 [ext_resource type="Texture2D" uid="uid://dlenm3p5r2sqt" path="res://graphics/NPC/Anna/crying_on_ground/Ann-Crying on Ground-1.png" id="3_kjc1a"]
 [ext_resource type="Texture2D" uid="uid://dd1js0qt34iwm" path="res://graphics/NPC/Anna/crying_on_ground/Ann-Crying on Ground-2.png" id="4_pc14r"]
 [ext_resource type="Texture2D" uid="uid://d1wala5ysgeap" path="res://graphics/NPC/Anna/crying_on_ground/Ann-Crying on Ground-3.png" id="5_y1lue"]
 [ext_resource type="Texture2D" uid="uid://cgnn4lltchxuj" path="res://graphics/NPC/Anna/getting_up/Anna-Getting Up-0.png" id="6_1xvjo"]
+[ext_resource type="Texture2D" uid="uid://c0mr86fxx17lx" path="res://graphics/NPC/Anna/forwards/Anna-Forward-0.png" id="6_8awdb"]
+[ext_resource type="Texture2D" uid="uid://dww114lciagpe" path="res://graphics/NPC/Anna/forwards/Anna-Forward-1.png" id="7_75m6g"]
 [ext_resource type="Texture2D" uid="uid://bql5nufibt74g" path="res://graphics/NPC/Anna/getting_up/Anna-Getting Up-1.png" id="7_xcnnk"]
 [ext_resource type="Texture2D" uid="uid://b4c5x54kig2y8" path="res://graphics/NPC/Anna/getting_up/Anna-Getting Up-2.png" id="8_0ybvg"]
+[ext_resource type="Texture2D" uid="uid://y3iod1cwtvvn" path="res://graphics/NPC/Anna/forwards/Anna-Forward-2.png" id="8_kppud"]
+[ext_resource type="Texture2D" uid="uid://ddbumbqaf3467" path="res://graphics/NPC/Anna/forwards/Anna-Forward-3.png" id="9_br5mb"]
 [ext_resource type="Texture2D" uid="uid://b256vwm68jdtl" path="res://graphics/NPC/Anna/getting_up/Anna-Getting Up-3.png" id="9_dpe61"]
+[ext_resource type="Texture2D" uid="uid://bjyf5wq1g0d2f" path="res://graphics/NPC/Anna/left/Anna-Left-0.png" id="14_8lpmm"]
+[ext_resource type="Texture2D" uid="uid://4yyogxkuvk2k" path="res://graphics/NPC/Anna/left/Anna-Left-1.png" id="15_1utjs"]
+[ext_resource type="Texture2D" uid="uid://c17lcr0mxbmc2" path="res://graphics/NPC/Anna/left/Anna-Left-2.png" id="16_jpmqq"]
+[ext_resource type="Texture2D" uid="uid://y42m2q87vaxr" path="res://graphics/NPC/Anna/left/Anna-Left-3.png" id="17_e4fly"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jn1e8"]
 radius = 52.0865
@@ -34,6 +42,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_8awdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_75m6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kppud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_br5mb")
+}],
+"loop": true,
+"name": &"forwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_1xvjo")
 }, {
 "duration": 1.0,
@@ -48,10 +73,27 @@ animations = [{
 "loop": true,
 "name": &"getting_up",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_8lpmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1utjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jpmqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_e4fly")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
 }]
 
 [node name="NPC_Anna" type="CharacterBody2D"]
-script = ExtResource("1_obski")
+script = ExtResource("1_q4yna")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -62,9 +104,7 @@ shape = SubResource("CircleShape2D_jn1e8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, -4)
 sprite_frames = SubResource("SpriteFrames_2532b")
-animation = &"getting_up"
-frame = 1
-frame_progress = 0.235847
+animation = &"crying_on_ground"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
