@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=24 format=3 uid="uid://cvb5qbjy87lv0"]
 
 [ext_resource type="Script" path="res://scripts/world/overworld.gd" id="1_6g48g"]
 [ext_resource type="PackedScene" uid="uid://bg885u8xisglu" path="res://scenes/world/buildings/mess_hall/mess_hall.tscn" id="2_g57io"]
@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="3_scpwk"]
 [ext_resource type="PackedScene" uid="uid://d0b2sxn3ou7km" path="res://scenes/world/timer.tscn" id="4_526bm"]
 [ext_resource type="PackedScene" uid="uid://cioicps22gsf0" path="res://scenes/world/buildings/bathroom/bathroom.tscn" id="4_lf3i6"]
+[ext_resource type="PackedScene" uid="uid://twyjxbnvjepc" path="res://scenes/world/buildings/boys_cabin/boys_cabin.tscn" id="5_2lcnm"]
 [ext_resource type="PackedScene" uid="uid://ba5801no31bsn" path="res://scenes/item_interactions/axe_collectable.tscn" id="5_t8et1"]
 [ext_resource type="PackedScene" uid="uid://mqscuu5jrscj" path="res://scenes/item_interactions/alcohol_collectable.tscn" id="6_23wwr"]
+[ext_resource type="PackedScene" uid="uid://bsmqhs1u0tj17" path="res://scenes/world/buildings/girls_cabin/girls_cabin.tscn" id="6_oh1y7"]
+[ext_resource type="PackedScene" uid="uid://c0yd8sbbd4o1i" path="res://scenes/world/buildings/counselor_cabin/counselor_cabin.tscn" id="7_7w74k"]
 [ext_resource type="PackedScene" uid="uid://jg7qhn88l0nt" path="res://scenes/item_interactions/boltcutters_collectable.tscn" id="7_m1aqa"]
 [ext_resource type="PackedScene" uid="uid://cen3dhul4tlj5" path="res://scenes/item_interactions/bandages_collectable.tscn" id="8_7hivn"]
+[ext_resource type="PackedScene" uid="uid://bplobu3pyfubu" path="res://scenes/world/other_locations/maze/maze.tscn" id="9_mmkqd"]
 [ext_resource type="PackedScene" uid="uid://bd7n3k8fd30tw" path="res://scenes/item_interactions/chocolate.tscn" id="9_uy8aj"]
 [ext_resource type="PackedScene" uid="uid://cnpkyybc5phdt" path="res://scenes/item_interactions/crackers_collectable.tscn" id="10_tb8m2"]
 [ext_resource type="PackedScene" uid="uid://dapo7ck7k5ex7" path="res://scenes/world/other_locations/archery/archery.tscn" id="11_05xry"]
@@ -34,53 +38,65 @@ position = Vector2(-11120, -3195)
 [node name="Bathroom" parent="buildings" instance=ExtResource("4_lf3i6")]
 position = Vector2(-605, -3900)
 
+[node name="BoysCabin" parent="buildings" instance=ExtResource("5_2lcnm")]
+position = Vector2(1687.5, -3512.5)
+
+[node name="GirlsCabin" parent="buildings" instance=ExtResource("6_oh1y7")]
+position = Vector2(-2927.5, -3275)
+
+[node name="CounselorCabin" parent="buildings" instance=ExtResource("7_7w74k")]
+position = Vector2(3305, 2930)
+
 [node name="other_locations" type="Node2D" parent="."]
 scale = Vector2(0.4, 0.4)
 
 [node name="Archery" parent="other_locations" instance=ExtResource("11_05xry")]
 position = Vector2(-11005, 3540)
 
+[node name="Maze" parent="other_locations" instance=ExtResource("9_mmkqd")]
+position = Vector2(-2800, 2280)
+
 [node name="item_components" type="Node2D" parent="."]
 
 [node name="axe_collectable" parent="item_components" instance=ExtResource("5_t8et1")]
-position = Vector2(1102, -238)
+position = Vector2(1421, 1172)
 scale = Vector2(1.47485, 1.44628)
 
 [node name="alcohol_collectable" parent="item_components" instance=ExtResource("6_23wwr")]
-position = Vector2(874, -276)
+position = Vector2(-2187, 1622)
 
 [node name="boltcutters_collectable" parent="item_components" instance=ExtResource("7_m1aqa")]
-position = Vector2(788, -459)
+position = Vector2(-149, -1614)
 
 [node name="bandages_collectable" parent="item_components" instance=ExtResource("8_7hivn")]
-position = Vector2(622, -255)
+position = Vector2(-5538, -1198)
 
 [node name="chocolate_collectable" parent="item_components" instance=ExtResource("9_uy8aj")]
-position = Vector2(732, -346)
+position = Vector2(-1406, -1084)
 
 [node name="crackers_collectable" parent="item_components" instance=ExtResource("10_tb8m2")]
-position = Vector2(610, -160)
+position = Vector2(-5391, -1191)
 
 [node name="knife_collectable" parent="item_components" instance=ExtResource("11_v6npk")]
-position = Vector2(1305, -403)
+position = Vector2(4230, 726)
 
 [node name="lighter_collectable" parent="item_components" instance=ExtResource("12_w0nmp")]
-position = Vector2(548, -440)
+position = Vector2(-4153, 1229)
 
 [node name="machete_collectable" parent="item_components" instance=ExtResource("13_ekvpa")]
-position = Vector2(719, -176)
+position = Vector2(-3035, 1139)
 
 [node name="rope_collectable" parent="item_components" instance=ExtResource("14_16rxf")]
-position = Vector2(810, -223)
+position = Vector2(-3934, 1140)
 
 [node name="shotgun_collectable" parent="item_components" instance=ExtResource("15_dpuib")]
-position = Vector2(1430, -294)
+position = Vector2(1215, 1169)
 
 [node name="soda_collectable" parent="item_components" instance=ExtResource("16_m5mep")]
-position = Vector2(1279, -299)
+position = Vector2(915, -1215)
 
 [node name="player" parent="." instance=ExtResource("3_scpwk")]
-position = Vector2(-3520, 725)
+position = Vector2(-4411, -3)
 
 [node name="timer" parent="player" instance=ExtResource("4_526bm")]
 position = Vector2(438, -296)

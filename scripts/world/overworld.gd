@@ -2,7 +2,7 @@ extends Node2D
 
 ## All enterable buildings should be area2d nodes under the buildings node. 
 ## They should all have a OutsideView 2dnode that shows the outside view prior to entering 
-## to adjust visibility. Set OutsideView oredering z index to 1 so items/npcs don't appear on top
+## to adjust visibility. Set OutsideView ordering z index to 1 so items/npcs don't appear on top
 ## of the outside layer. Player should appear on top of outside view so keep z index as 2.
 ## When adding buildings, turn off OutsideView visibility for convenience when
 ## placing npcs/items on map.[br]

@@ -24,26 +24,27 @@ collision_layer = 4
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterBorders"]
 polygon = PackedVector2Array(-601, -612, -601, 180, -565, 221, -561, 568, -444, 566, -539, 556, -540, 402, -439, 400, -437, -141, -533, -148, -535, -207, 538, -210, 535, -34, 462, -35, 461, 60, 471, 408, 542, 410, 538, 561, -306, 566, 562, 571, 569, 211, 593, 192, 600, -614)
 
-[node name="InnerView" type="Node2D" parent="."]
+[node name="InsideView" type="Node2D" parent="."]
 
-[node name="Inside" type="Sprite2D" parent="InnerView"]
+[node name="Inside" type="Sprite2D" parent="InsideView"]
 texture = ExtResource("1_3v12a")
 
-[node name="BathroomSink" type="Sprite2D" parent="InnerView"]
+[node name="BathroomSink" type="Sprite2D" parent="InsideView"]
 position = Vector2(-2, 126)
 texture = ExtResource("2_6nvgu")
 
-[node name="Toilet" parent="InnerView" instance=ExtResource("3_6kfih")]
+[node name="Toilet" parent="InsideView" instance=ExtResource("3_6kfih")]
 position = Vector2(455, -204)
 
-[node name="Trash" parent="InnerView" instance=ExtResource("4_hw5j4")]
+[node name="Trash" parent="InsideView" instance=ExtResource("4_hw5j4")]
 position = Vector2(-487, 485)
 
-[node name="StallVertWall" parent="InnerView" instance=ExtResource("5_febso")]
+[node name="StallVertWall" parent="InsideView" instance=ExtResource("5_febso")]
 position = Vector2(-50, -310)
 
 [node name="OutsideView" type="Node2D" parent="."]
 visible = false
+z_index = 1
 
 [node name="FrontWall" type="Sprite2D" parent="OutsideView"]
 position = Vector2(0, 390)

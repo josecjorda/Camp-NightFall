@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ce8bg3jmtm37v" path="res://graphics/map/Archery_Upgrade/ArcheryGround4.png" id="4_x5ld7"]
 [ext_resource type="PackedScene" uid="uid://b1g0p6pykgskl" path="res://scenes/world/other_locations/archery/target.tscn" id="5_ilrj3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp8ux"]
-size = Vector2(7535, 1635)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yun3r"]
+size = Vector2(7483.17, 1582.18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1twi"]
 animations = [{
@@ -34,8 +34,8 @@ scale = Vector2(1.01, 1.01)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.5, -2.5)
-shape = SubResource("RectangleShape2D_kp8ux")
+position = Vector2(0.990151, 2.97028)
+shape = SubResource("RectangleShape2D_yun3r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r1twi")
