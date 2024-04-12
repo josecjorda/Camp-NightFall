@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://dosv0t8rhcn86"]
+
+[ext_resource type="Script" path="res://scripts/minigame/ChaseMinigameMaster.gd" id="1_3bm0v"]
+[ext_resource type="Script" path="res://scripts/minigame/SliderMinigame.gd" id="1_goqic"]
+[ext_resource type="Texture2D" uid="uid://bfaxtxjx83g7a" path="res://graphics/charactercreationmenu/background/background_5.png" id="2_x8ogb"]
+[ext_resource type="Texture2D" uid="uid://bgfbc0ee8ii53" path="res://graphics/charactercreationmenu/background/background_2.png" id="4_sdolq"]
+
+[sub_resource type="Gradient" id="Gradient_4om5m"]
+colors = PackedColorArray(0.568627, 0.678431, 0.835294, 1, 0.721569, 0.466667, 0.807843, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fcptt"]
+gradient = SubResource("Gradient_4om5m")
+fill_from = Vector2(0.983516, 0.549451)
+fill_to = Vector2(1, 0.243902)
+
+[sub_resource type="Gradient" id="Gradient_h88wk"]
+colors = PackedColorArray(0, 0.0156863, 0.180392, 1, 0, 0, 0.407843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6brwi"]
+gradient = SubResource("Gradient_h88wk")
+
+[node name="ChaseMinigame" type="Node2D"]
+script = ExtResource("1_3bm0v")
+
+[node name="Aesthetics" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sky" type="TextureRect" parent="Aesthetics"]
+offset_right = 1152.0
+offset_bottom = 384.0
+texture = SubResource("GradientTexture2D_fcptt")
+
+[node name="Water" type="TextureRect" parent="Aesthetics"]
+offset_left = 1154.0
+offset_top = 384.0
+offset_right = 1419.0
+offset_bottom = 1538.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_6brwi")
+
+[node name="Tree" type="TextureRect" parent="Aesthetics"]
+offset_left = 792.0
+offset_top = 136.0
+offset_right = 1304.0
+offset_bottom = 384.0
+texture = ExtResource("2_x8ogb")
+
+[node name="Grass" type="TextureRect" parent="Aesthetics"]
+offset_left = 784.0
+offset_top = 320.0
+offset_right = 1216.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass2" type="TextureRect" parent="Aesthetics"]
+offset_left = 680.0
+offset_top = 344.0
+offset_right = 840.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass3" type="TextureRect" parent="Aesthetics"]
+offset_left = -24.0
+offset_top = 320.0
+offset_right = 64.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass4" type="TextureRect" parent="Aesthetics"]
+offset_left = -72.0
+offset_top = 344.0
+offset_right = 184.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="PlayAreaBackground" type="TextureRect" parent="Aesthetics"]
+offset_left = 952.0
+offset_top = 56.0
+offset_right = 1096.0
+offset_bottom = 584.0
+texture = SubResource("GradientTexture2D_fcptt")
+
+[node name="SliderMinigame" type="Node2D" parent="."]
+script = ExtResource("1_goqic")
+padding = 200
+targetSize_ = Vector2(20, 50)
+crosshairSize_ = Vector2(50, 10)
+crosshairSpeed = 500
+
+[node name="PlayArea" type="ColorRect" parent="SliderMinigame"]
+modulate = Color(1, 1, 1, 0.254902)
+offset_left = 960.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 573.0
+color = Color(0.666667, 0, 0, 1)
+
+[connection signal="hitTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_hit_timing_target"]
+[connection signal="missedTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_missed_timing_target"]

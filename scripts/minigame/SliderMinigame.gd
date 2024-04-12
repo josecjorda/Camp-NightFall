@@ -5,7 +5,7 @@ extends Node2D
 signal hitTimingTarget ## sent to game master that target has been hit successfully
 signal missedTimingTarget ## sent to game master that input was recieved but not good
 
-@onready var playArea :ColorRect = get_node("PlayArea") ## area where crosshair + targets will be 
+@onready var playArea = get_node("PlayArea") ## area where crosshair + targets will be 
 @onready var isHorizontal :bool = (playArea.size.x >= playArea.size.y) 
 
 @export var padding :int = 10 ## increasing -> shrinks spawnable area of targets within playArea
@@ -84,10 +84,13 @@ func _input(event):
 				fail()
 
 func crosshairInTarget():
+
 	if(crosshairPos.x >= targetPos.x - graceArea \
-		&& crosshairPos.x + crosshairSize.x <= targetPos.x + targetSize.x + graceArea) \
-		&& (crosshairPos.y >= targetPos.y - graceArea \
-		&& crosshairPos.y + crosshairSize.y <= targetPos.y + targetSize.y + graceArea):
+		&& crosshairPos.x + crosshairSize.x <= targetPos.x + targetSize.x + graceArea \
+		&& isHorizontal) \
+		|| (crosshairPos.y >= targetPos.y - graceArea \
+		&& crosshairPos.y + crosshairSize.y <= targetPos.y + targetSize.y + graceArea \
+		&& !isHorizontal):
 			return true
 	return false
 				
