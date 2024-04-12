@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2vehxwx7c1w"]
+
+[ext_resource type="Texture2D" uid="uid://cll6hbfa4276h" path="res://graphics/map/Mess_Hall_Upgrade/Island.png" id="1_frwic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyf6u"]
+size = Vector2(1200, 500)
+
+[node name="Island" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.62939e-05, 9.53674e-06)
+shape = SubResource("RectangleShape2D_dyf6u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_frwic")

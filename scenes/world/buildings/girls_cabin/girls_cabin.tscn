@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsmqhs1u0tj17"]
+
+[ext_resource type="Texture2D" uid="uid://dttai0lmne47x" path="res://graphics/map/Girls_Cabin/InsideGirls.png" id="1_45iyb"]
+[ext_resource type="Texture2D" uid="uid://cb6vk442kq04y" path="res://graphics/map/Boys_Cabin_Upgrade/Front Wall.png" id="2_vajnm"]
+[ext_resource type="Texture2D" uid="uid://b6upgfr4r2bc4" path="res://graphics/map/Boys_Cabin_Upgrade/Door.png" id="3_6nwvw"]
+[ext_resource type="Texture2D" uid="uid://cibj5mweh3wyf" path="res://graphics/map/Boys_Cabin_Upgrade/Roof.png" id="4_k4iaq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx2id"]
+size = Vector2(1846, 1083)
+
+[node name="GirlsCabin" type="Area2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 418.5)
+shape = SubResource("RectangleShape2D_gx2id")
+
+[node name="OuterBorders" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterBorders"]
+polygon = PackedVector2Array(-899, 973, -904, 784, -683, 782, -676, 39, -340, 39, -338, 808, -164, 808, -157, -14, 163, -6, 171, 823, 340, 818, 352, 64, 688, 59, 690, 813, 902, 811, 912, 977, 106, 979, 1075, 980, 1075, 340, 1177, 302, 1181, -1077, 58, -1089, 58, -1209, -66, -1211, -56, -1087, -1178, -1081, -1167, 305, -1073, 340, -1074, 990, -121, 977)
+
+[node name="InsideView" type="Node2D" parent="."]
+
+[node name="Inside" type="Sprite2D" parent="InsideView"]
+texture = ExtResource("1_45iyb")
+
+[node name="OutsideView" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="FrontWall" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, 600)
+texture = ExtResource("2_vajnm")
+
+[node name="Door" type="Sprite2D" parent="OutsideView"]
+position = Vector2(-11, 818)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("3_6nwvw")
+
+[node name="Roof" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, -380)
+texture = ExtResource("4_k4iaq")

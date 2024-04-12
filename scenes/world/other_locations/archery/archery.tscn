@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://dapo7ck7k5ex7"]
+
+[ext_resource type="Texture2D" uid="uid://cshkxhd14hm27" path="res://graphics/map/Archery_Upgrade/ArcheryGround1.png" id="1_cr4n5"]
+[ext_resource type="Texture2D" uid="uid://ey8cpgpo67xk" path="res://graphics/map/Archery_Upgrade/ArcheryGround2.png" id="2_bdg7u"]
+[ext_resource type="Texture2D" uid="uid://du7h0ajd2kh7n" path="res://graphics/map/Archery_Upgrade/ArcheryGround3.png" id="3_rrabc"]
+[ext_resource type="Texture2D" uid="uid://ce8bg3jmtm37v" path="res://graphics/map/Archery_Upgrade/ArcheryGround4.png" id="4_x5ld7"]
+[ext_resource type="PackedScene" uid="uid://b1g0p6pykgskl" path="res://scenes/world/other_locations/archery/target.tscn" id="5_ilrj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yun3r"]
+size = Vector2(7483.17, 1582.18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1twi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cr4n5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bdg7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rrabc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x5ld7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Archery" type="Area2D"]
+scale = Vector2(1.01, 1.01)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.990151, 2.97028)
+shape = SubResource("RectangleShape2D_yun3r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r1twi")
+
+[node name="targets" type="Node2D" parent="."]
+scale = Vector2(0.8, 0.8)
+
+[node name="Target" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, -890)
+
+[node name="Target2" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, -631.25)
+
+[node name="Target3" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, -390)
+
+[node name="Target4" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, -135)
+
+[node name="Target5" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, 123.75)
+
+[node name="Target6" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, 378.75)
+
+[node name="Target7" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, 617.5)
+
+[node name="Target8" parent="targets" instance=ExtResource("5_ilrj3")]
+position = Vector2(-4500, 866.25)

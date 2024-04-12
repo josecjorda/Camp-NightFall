@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://crtcfegw40m8r"]
+
+[ext_resource type="Texture2D" uid="uid://dx55fxhuk2oqg" path="res://graphics/map/BathroomUpgrade/Toilet.png" id="1_8fqtd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iowp"]
+size = Vector2(175, 198)
+
+[node name="Toilet" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, -1)
+shape = SubResource("RectangleShape2D_4iowp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8fqtd")

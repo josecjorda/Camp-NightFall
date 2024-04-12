@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://cioicps22gsf0"]
+
+[ext_resource type="Texture2D" uid="uid://jsmlu0abpcus" path="res://graphics/map/BathroomUpgrade/BathRoomInside.png" id="1_3v12a"]
+[ext_resource type="Texture2D" uid="uid://binhkh1rqmiir" path="res://graphics/map/BathroomUpgrade/BathroomSink.png" id="2_6nvgu"]
+[ext_resource type="PackedScene" uid="uid://crtcfegw40m8r" path="res://scenes/world/buildings/bathroom/toilet.tscn" id="3_6kfih"]
+[ext_resource type="PackedScene" uid="uid://77j7sxvgavo" path="res://scenes/world/buildings/bathroom/trash.tscn" id="4_hw5j4"]
+[ext_resource type="PackedScene" uid="uid://ccjq3h2w8o57l" path="res://scenes/world/buildings/bathroom/stall_vert_wall.tscn" id="5_febso"]
+[ext_resource type="Texture2D" uid="uid://csl3hqqo0864c" path="res://graphics/map/BathroomUpgrade/BathroomFrontWall.png" id="6_wm8ha"]
+[ext_resource type="Texture2D" uid="uid://ddf1dre4o4ihv" path="res://graphics/map/BathroomUpgrade/Bathroom Roof.png" id="7_sft5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7xjw"]
+size = Vector2(1018, 733)
+
+[node name="Bathroom" type="Area2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 174.5)
+shape = SubResource("RectangleShape2D_d7xjw")
+
+[node name="OuterBorders" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterBorders"]
+polygon = PackedVector2Array(-601, -612, -601, 180, -565, 221, -561, 568, -444, 566, -539, 556, -540, 402, -439, 400, -437, -141, -533, -148, -535, -207, 538, -210, 535, -34, 462, -35, 461, 60, 471, 408, 542, 410, 538, 561, -306, 566, 562, 571, 569, 211, 593, 192, 600, -614)
+
+[node name="InsideView" type="Node2D" parent="."]
+
+[node name="Inside" type="Sprite2D" parent="InsideView"]
+texture = ExtResource("1_3v12a")
+
+[node name="BathroomSink" type="Sprite2D" parent="InsideView"]
+position = Vector2(-2, 126)
+texture = ExtResource("2_6nvgu")
+
+[node name="Toilet" parent="InsideView" instance=ExtResource("3_6kfih")]
+position = Vector2(455, -204)
+
+[node name="Trash" parent="InsideView" instance=ExtResource("4_hw5j4")]
+position = Vector2(-487, 485)
+
+[node name="StallVertWall" parent="InsideView" instance=ExtResource("5_febso")]
+position = Vector2(-50, -310)
+
+[node name="OutsideView" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="FrontWall" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, 390)
+texture = ExtResource("6_wm8ha")
+
+[node name="Roof" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, -200)
+texture = ExtResource("7_sft5g")
