@@ -59,17 +59,17 @@ position = Vector2(-2800, 2280)
 [node name="item_components" type="Node2D" parent="."]
 
 [node name="axe_collectable" parent="item_components" instance=ExtResource("5_t8et1")]
-position = Vector2(1421, 1172)
+position = Vector2(3552, -1064)
 scale = Vector2(1.47485, 1.44628)
 
 [node name="alcohol_collectable" parent="item_components" instance=ExtResource("6_23wwr")]
-position = Vector2(-2187, 1622)
+position = Vector2(-617, 1226)
 
 [node name="boltcutters_collectable" parent="item_components" instance=ExtResource("7_m1aqa")]
 position = Vector2(-149, -1614)
 
 [node name="bandages_collectable" parent="item_components" instance=ExtResource("8_7hivn")]
-position = Vector2(-5538, -1198)
+position = Vector2(1348, 1193)
 
 [node name="chocolate_collectable" parent="item_components" instance=ExtResource("9_uy8aj")]
 position = Vector2(-1406, -1084)
@@ -84,13 +84,13 @@ position = Vector2(4230, 726)
 position = Vector2(-4153, 1229)
 
 [node name="machete_collectable" parent="item_components" instance=ExtResource("13_ekvpa")]
-position = Vector2(-3035, 1139)
+position = Vector2(-2729, 1164)
 
 [node name="rope_collectable" parent="item_components" instance=ExtResource("14_16rxf")]
 position = Vector2(-3934, 1140)
 
 [node name="shotgun_collectable" parent="item_components" instance=ExtResource("15_dpuib")]
-position = Vector2(1215, 1169)
+position = Vector2(1290, 1192)
 
 [node name="soda_collectable" parent="item_components" instance=ExtResource("16_m5mep")]
 position = Vector2(915, -1215)
