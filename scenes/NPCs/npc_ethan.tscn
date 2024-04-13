@@ -141,5 +141,12 @@ shape = SubResource("CircleShape2D_ougeg")
 sprite_frames = SubResource("SpriteFrames_udirt")
 animation = &"backwards"
 
+[node name="Label" type="Label" parent="."]
+offset_left = -134.0
+offset_top = -67.0
+offset_right = 134.0
+offset_bottom = -44.0
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

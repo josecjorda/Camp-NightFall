@@ -1,4 +1,8 @@
 extends Panel
+## Describes the underlying logic of how the inventory slots are displayed
+##
+## [b]Notes:[/b][br]
+## - when the update function is called it makes the passed in item visible for the user.
 
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
 

@@ -16,7 +16,7 @@ script = ExtResource("1_khy8f")
 inv = ExtResource("2_ybtgj")
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("2_dgolf")]
-animation = &"M-SH-Run-Forward-Animation"
+animation = &"M-LH-Run-Right-Animation"
 
 [node name="player_hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 30)
