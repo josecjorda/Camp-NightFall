@@ -84,7 +84,6 @@ func _input(event):
 				fail()
 
 func crosshairInTarget():
-
 	if(crosshairPos.x >= targetPos.x - graceArea \
 		&& crosshairPos.x + crosshairSize.x <= targetPos.x + targetSize.x + graceArea \
 		&& isHorizontal) \

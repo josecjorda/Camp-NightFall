@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://dosv0t8rhcn86"]
+[gd_scene load_steps=15 format=3 uid="uid://dosv0t8rhcn86"]
 
 [ext_resource type="Script" path="res://scripts/minigame/ChaseMinigameMaster.gd" id="1_3bm0v"]
 [ext_resource type="Script" path="res://scripts/minigame/SliderMinigame.gd" id="1_goqic"]
+[ext_resource type="AudioStream" uid="uid://cru7lodjlpd5p" path="res://audio/combat/Water1.wav" id="2_nycm0"]
 [ext_resource type="Texture2D" uid="uid://bfaxtxjx83g7a" path="res://graphics/charactercreationmenu/background/background_5.png" id="2_x8ogb"]
+[ext_resource type="AudioStream" uid="uid://b6ekiqpuhxow3" path="res://audio/combat/Victory.wav" id="3_ru71g"]
 [ext_resource type="Texture2D" uid="uid://bgfbc0ee8ii53" path="res://graphics/charactercreationmenu/background/background_2.png" id="4_sdolq"]
+[ext_resource type="Texture2D" uid="uid://c27dhordav5cx" path="res://graphics/player/F_FADE/right/F-FADE-Run-Right-0.png" id="5_gkpp4"]
+[ext_resource type="Texture2D" uid="uid://cukv6b1e1530x" path="res://graphics/enemy/Demon.png" id="5_y208v"]
+[ext_resource type="Texture2D" uid="uid://cb5hc7oaubkxn" path="res://graphics/charactercreationmenu/signs/wooden_background.png" id="7_5a4ss"]
+[ext_resource type="Texture2D" uid="uid://kk38yutqpftg" path="res://victory.jpg" id="10_ulybs"]
 
 [sub_resource type="Gradient" id="Gradient_4om5m"]
 colors = PackedColorArray(0.568627, 0.678431, 0.835294, 1, 0.721569, 0.466667, 0.807843, 1)
@@ -23,6 +29,14 @@ gradient = SubResource("Gradient_h88wk")
 [node name="ChaseMinigame" type="Node2D"]
 script = ExtResource("1_3bm0v")
 
+[node name="SwimSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nycm0")
+volume_db = -20.0
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ru71g")
+volume_db = -20.0
+
 [node name="Aesthetics" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -30,19 +44,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sky" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 384.0
 texture = SubResource("GradientTexture2D_fcptt")
 
 [node name="Water" type="TextureRect" parent="Aesthetics"]
-offset_left = 1154.0
+layout_mode = 0
+offset_left = 1152.0
 offset_top = 384.0
-offset_right = 1419.0
+offset_right = 1417.0
 offset_bottom = 1538.0
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_6brwi")
 
 [node name="Tree" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
 offset_left = 792.0
 offset_top = 136.0
 offset_right = 1304.0
@@ -50,6 +67,7 @@ offset_bottom = 384.0
 texture = ExtResource("2_x8ogb")
 
 [node name="Grass" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
 offset_left = 784.0
 offset_top = 320.0
 offset_right = 1216.0
@@ -59,6 +77,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Grass2" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
 offset_left = 680.0
 offset_top = 344.0
 offset_right = 840.0
@@ -68,6 +87,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Grass3" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
 offset_left = -24.0
 offset_top = 320.0
 offset_right = 64.0
@@ -77,6 +97,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Grass4" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
 offset_left = -72.0
 offset_top = 344.0
 offset_right = 184.0
@@ -86,6 +107,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="PlayAreaBackground" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
 offset_left = 952.0
 offset_top = 56.0
 offset_right = 1096.0
@@ -106,6 +128,43 @@ offset_top = 64.0
 offset_right = 1088.0
 offset_bottom = 573.0
 color = Color(0.666667, 0, 0, 1)
+
+[node name="Actors" type="Node" parent="."]
+
+[node name="You" type="Sprite2D" parent="Actors"]
+position = Vector2(120, 488)
+texture = ExtResource("5_gkpp4")
+
+[node name="Ethan" type="Sprite2D" parent="Actors"]
+position = Vector2(864, 488)
+texture = ExtResource("5_gkpp4")
+flip_h = true
+
+[node name="Monster" type="Sprite2D" parent="Actors"]
+modulate = Color(0, 0, 0, 0.556863)
+position = Vector2(1360, 264)
+scale = Vector2(0.0408505, 0.0416155)
+texture = ExtResource("5_y208v")
+
+[node name="WoodenBackground" type="Sprite2D" parent="."]
+position = Vector2(-133.513, 628.236)
+scale = Vector2(0.477313, 0.668215)
+skew = 1.48353
+texture = ExtResource("7_5a4ss")
+
+[node name="WoodenBackground2" type="Sprite2D" parent="."]
+position = Vector2(-19.0439, 668.72)
+rotation = 1.5708
+scale = Vector2(0.142357, 0.698155)
+skew = -0.0872665
+texture = ExtResource("7_5a4ss")
+
+[node name="VictoryScreen" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(577.5, 326.25)
+scale = Vector2(2.42405, 2.78571)
+texture = ExtResource("10_ulybs")
 
 [connection signal="hitTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_hit_timing_target"]
 [connection signal="missedTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_missed_timing_target"]
