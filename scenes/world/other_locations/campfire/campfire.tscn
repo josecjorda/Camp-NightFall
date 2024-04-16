@@ -19,4 +19,4 @@ shape = SubResource("RectangleShape2D_lcr1i")
 position = Vector2(0, 350)
 
 [node name="BackLogs" parent="." instance=ExtResource("3_evl5q")]
-position = Vector2(0, -200)
+position = Vector2(0, -100)

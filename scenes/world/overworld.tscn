@@ -58,7 +58,8 @@ position = Vector2(-11005, 3540)
 position = Vector2(-2800, 2280)
 
 [node name="Campfire" parent="other_locations" instance=ExtResource("10_0m2ns")]
-position = Vector2(-11005, -55)
+position = Vector2(-11000, -270)
+scale = Vector2(2, 2)
 
 [node name="item_components" type="Node2D" parent="."]
 
