@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b6qu3o77yl485"]
+[gd_scene load_steps=71 format=3 uid="uid://b6qu3o77yl485"]
 
 [ext_resource type="Script" path="res://scripts/combat/combat.gd" id="1_01vdh"]
 [ext_resource type="Texture2D" uid="uid://ce5jpmohkekuf" path="res://graphics/combat/layers/parallax-demon-woods-bg.png" id="1_y1pa5"]
@@ -12,6 +12,21 @@
 [ext_resource type="PackedScene" uid="uid://c6quxq47bsybe" path="res://scenes/combat/player_health_bar.tscn" id="8_hohhx"]
 [ext_resource type="Texture2D" uid="uid://dvy3io8i7fsrw" path="res://graphics/player/Combat/Counselor_M_Idle_Animation_Sprite_Sheet.png" id="9_6pbrt"]
 [ext_resource type="Texture2D" uid="uid://bog0ogmkj2eab" path="res://graphics/player/Combat/Counselor_F_Idle_Animation_Sprite_Sheet.png" id="10_vqru2"]
+[ext_resource type="Texture2D" uid="uid://dg81188p0ri4a" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene1.png" id="13_fmth2"]
+[ext_resource type="Texture2D" uid="uid://d2cydwj8dns1b" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene2.png" id="14_gn6bw"]
+[ext_resource type="Texture2D" uid="uid://ccheimt6yadqx" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene3.png" id="15_l02tn"]
+[ext_resource type="Texture2D" uid="uid://dbs8jsyfrlvhs" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene4.png" id="16_ty0uh"]
+[ext_resource type="Texture2D" uid="uid://cnlju3vqe47tl" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene5.png" id="17_v5720"]
+[ext_resource type="Texture2D" uid="uid://0h33gr5j3b0o" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene6.png" id="18_xut77"]
+[ext_resource type="Texture2D" uid="uid://chlaeqou2ocnf" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene7.png" id="19_masjo"]
+[ext_resource type="Texture2D" uid="uid://jqfw3c3mlufu" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene8.png" id="20_y2o2u"]
+[ext_resource type="Texture2D" uid="uid://66df0eaiwjfk" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene9.png" id="21_ywgdr"]
+[ext_resource type="Texture2D" uid="uid://s70kxo3r8uwn" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene10.png" id="22_pkjr3"]
+[ext_resource type="Texture2D" uid="uid://bse1cc056a8ri" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene11.png" id="23_58m8p"]
+[ext_resource type="Texture2D" uid="uid://c65viwxqaugf6" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene12.png" id="24_qbtj3"]
+[ext_resource type="Texture2D" uid="uid://ckdvvgdttajp6" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene13.png" id="25_j3fr3"]
+[ext_resource type="Texture2D" uid="uid://2umbyqk3cgkm" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene14.png" id="26_o0k16"]
+[ext_resource type="Texture2D" uid="uid://dwwqor0cqac8a" path="res://graphics/cut_scenes/to_combat/PNGs/Campfire Cutscene15.png" id="27_0d4i1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw43b"]
 bg_color = Color(0, 0, 0, 1)
@@ -310,6 +325,59 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ic41v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_fmth2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gn6bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_l02tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ty0uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_v5720")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xut77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_masjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_y2o2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ywgdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_pkjr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_58m8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qbtj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_j3fr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_o0k16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0d4i1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.1
+}]
+
 [node name="Combat" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -550,3 +618,11 @@ animation = &"F_default"
 position = Vector2(672, 297)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_tu00j")
+
+[node name="Cutscene" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(576, 323.5)
+scale = Vector2(0.2316, 0.2596)
+sprite_frames = SubResource("SpriteFrames_ic41v")
+
+[connection signal="animation_finished" from="Cutscene" to="." method="_on_cutscene_animation_finished"]

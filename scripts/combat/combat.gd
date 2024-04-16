@@ -37,8 +37,10 @@ var item_bar = Global.invArr
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var player_turn = true
 
-
+## Plays animations. Adds items to itembar.
 func _ready():
+	$Cutscene.visible = true
+	$Cutscene.play("default")
 	if "Fist" not in item_bar:
 		item_bar.append("Fist") # Adds fist to inventory
 	$Enemy.play("default")
@@ -321,3 +323,8 @@ func finish_battle(target):
 	elif target == enemy: ## Win
 		var next_scene = "res://scenes/end_screens/win_screen.tscn"
 		get_tree().change_scene_to_file(next_scene)
+
+
+## Plays cutscene then removes it
+func _on_cutscene_animation_finished():
+	$Cutscene.queue_free()
