@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=19 format=3 uid="uid://cvb5qbjy87lv0"]
 
 [ext_resource type="Texture2D" uid="uid://c2s4pgnhup732" path="res://graphics/map/placeholder.png" id="1_e0aux"]
 [ext_resource type="PackedScene" uid="uid://ciup8qftrwho6" path="res://scenes/player/player.tscn" id="2_kxnnq"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ubareqsij5wv" path="res://scenes/item_interactions/soda_collectable.tscn" id="14_ij2cn"]
 [ext_resource type="PackedScene" uid="uid://whg8xgwvsgm5" path="res://scenes/NPCs/npc_anna.tscn" id="16_5pqfb"]
 [ext_resource type="PackedScene" uid="uid://bm7d0hkkhovlp" path="res://scenes/NPCs/npc_ethan.tscn" id="17_xiv6o"]
+[ext_resource type="PackedScene" uid="uid://be5tnmn21fans" path="res://scenes/NPCs/npc_beth.tscn" id="18_1myai"]
 
 [node name="overworld" type="Node2D"]
 
@@ -75,3 +76,6 @@ position = Vector2(162, -335)
 
 [node name="NPC_Ethan" parent="NPC_components" instance=ExtResource("17_xiv6o")]
 position = Vector2(-281, -344)
+
+[node name="NPC_Beth" parent="NPC_components" instance=ExtResource("18_1myai")]
+position = Vector2(-55, -560)

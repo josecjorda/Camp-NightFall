@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bm7d0hkkhovlp"]
+[gd_scene load_steps=32 format=3 uid="uid://bm7d0hkkhovlp"]
 
 [ext_resource type="Script" path="res://scripts/NPCs/NPC_Ethan.gd" id="1_eo6y3"]
 [ext_resource type="Texture2D" uid="uid://dk5uv6y6wd2pr" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-0.png" id="2_cidd1"]
@@ -25,6 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://dm3vnkxbmudqb" path="res://graphics/NPC/Ethan/right/Ethan-Right-1.png" id="23_m4iym"]
 [ext_resource type="Texture2D" uid="uid://b1b5mjvxt601k" path="res://graphics/NPC/Ethan/right/Ethan-Right-2.png" id="24_i2red"]
 [ext_resource type="Texture2D" uid="uid://umnw34n2ayvh" path="res://graphics/NPC/Ethan/right/Ethan-Right-3.png" id="25_nhtc1"]
+[ext_resource type="Texture2D" uid="uid://di0l3wxxo6xnb" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-0.png" id="26_5abi8"]
+[ext_resource type="Texture2D" uid="uid://vpwv6h2hql3u" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-1.png" id="27_1rvjd"]
+[ext_resource type="Texture2D" uid="uid://bm5e851qo5cmu" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-2.png" id="28_jydt6"]
+[ext_resource type="Texture2D" uid="uid://bvglr07p6hj4m" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-3.png" id="29_c5e0p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ougeg"]
 radius = 41.3038
@@ -127,6 +131,23 @@ animations = [{
 "loop": true,
 "name": &"right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_5abi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1rvjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_jydt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_c5e0p")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 5.0
 }]
 
 [node name="NPC_Ethan" type="CharacterBody2D"]
@@ -140,11 +161,13 @@ shape = SubResource("CircleShape2D_ougeg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_udirt")
 animation = &"backwards"
+frame = 2
+frame_progress = 0.421522
 
 [node name="Label" type="Label" parent="."]
-offset_left = -134.0
+offset_left = -157.0
 offset_top = -67.0
-offset_right = 134.0
+offset_right = 158.0
 offset_bottom = -44.0
 horizontal_alignment = 1
 
