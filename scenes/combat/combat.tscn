@@ -580,6 +580,13 @@ offset_bottom = 564.0
 text = "Counselor
 "
 
+[node name="EnemyStatusBar" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 73.0
+offset_right = 276.0
+offset_bottom = 96.0
+
 [node name="StatusBar" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 22.0
