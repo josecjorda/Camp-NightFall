@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ba8u4pbfoafyj"]
+[gd_scene load_steps=12 format=3 uid="uid://ba8u4pbfoafyj"]
 
 [ext_resource type="Texture2D" uid="uid://defnhscm3a75r" path="res://graphics/map/Campfire/Campfire_Sprite_Sheet.png" id="1_0rd42"]
+[ext_resource type="Texture2D" uid="uid://d2kofk3ro28ge" path="res://graphics/map/Campfire/light.png" id="2_4y45k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1416l"]
 size = Vector2(200, 428)
@@ -70,3 +71,9 @@ shape = SubResource("RectangleShape2D_1416l")
 
 [node name="fire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r87la")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.886275, 0.345098, 0.133333, 1)
+energy = 2.0
+texture = ExtResource("2_4y45k")
+texture_scale = 2.0

@@ -7,7 +7,11 @@ extends Node2D
 ## When adding buildings, turn off OutsideView visibility for convenience when
 ## placing npcs/items on map.[br]
 ##
-## Make sure to set proper collison layers for nodes other wise buildings might think node is player.
+## Make sure to set proper collison layers for nodes other wise buildings might think node is player.[br]
+##
+## Everythings modulated except for camp fire. other_locations are modulated individually.
+var mod = "#808080" #Current modulation for map
+
 
 func _ready():
 	## Connects signals to buildings.
@@ -41,10 +45,10 @@ func dim_except_for(building):
 		build.get_node("OutsideView").modulate = "black"
 
 
-## Undims world and buildings/locations
+## Undims world and buildings/locations. Don't know why outside view needs white and map needs mod.
 func undim_all():
 	$other_locations.visible = true
-	$MapBackground.modulate = "white"
+	$MapBackground.modulate = mod
 	var buildings = $buildings.get_children()
 	for build in buildings:
 		build.get_node("OutsideView").modulate = "white"

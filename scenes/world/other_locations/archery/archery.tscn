@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dapo7ck7k5ex7"]
+[gd_scene load_steps=14 format=3 uid="uid://dapo7ck7k5ex7"]
 
 [ext_resource type="Texture2D" uid="uid://cshkxhd14hm27" path="res://graphics/map/Archery_Upgrade/ArcheryGround1.png" id="1_cr4n5"]
 [ext_resource type="Texture2D" uid="uid://ey8cpgpo67xk" path="res://graphics/map/Archery_Upgrade/ArcheryGround2.png" id="2_bdg7u"]
 [ext_resource type="Texture2D" uid="uid://du7h0ajd2kh7n" path="res://graphics/map/Archery_Upgrade/ArcheryGround3.png" id="3_rrabc"]
 [ext_resource type="Texture2D" uid="uid://ce8bg3jmtm37v" path="res://graphics/map/Archery_Upgrade/ArcheryGround4.png" id="4_x5ld7"]
 [ext_resource type="PackedScene" uid="uid://b1g0p6pykgskl" path="res://scenes/world/other_locations/archery/target.tscn" id="5_ilrj3"]
+[ext_resource type="Texture2D" uid="uid://dhu63rwxaxcua" path="res://graphics/map/Bloody_Stuff/No.5.png" id="6_3u6d5"]
+[ext_resource type="Texture2D" uid="uid://453rijek5xe3" path="res://graphics/map/Bloody_Stuff/No.1.png" id="7_wrkjx"]
+[ext_resource type="Texture2D" uid="uid://dp72477vux4s6" path="res://graphics/map/Bloody_Stuff/No.6.png" id="8_6ya7b"]
+[ext_resource type="Texture2D" uid="uid://b0f5q1102gikd" path="res://graphics/map/Bloody_Stuff/No.4.png" id="9_aos17"]
+[ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="10_g15wg"]
+[ext_resource type="Texture2D" uid="uid://bwjuom6ktj1xr" path="res://graphics/map/Bloody_Stuff/No.3.png" id="11_hnin3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yun3r"]
 size = Vector2(7483.17, 1582.18)
@@ -66,3 +72,77 @@ position = Vector2(-4500, 617.5)
 
 [node name="Target8" parent="targets" instance=ExtResource("5_ilrj3")]
 position = Vector2(-4500, 866.25)
+
+[node name="Blood" type="Node2D" parent="."]
+
+[node name="No_10" type="Sprite2D" parent="Blood"]
+position = Vector2(-2884.16, -465.347)
+texture = ExtResource("11_hnin3")
+
+[node name="No_11" type="Sprite2D" parent="Blood"]
+position = Vector2(-3073.27, -465.347)
+texture = ExtResource("9_aos17")
+
+[node name="No_12" type="Sprite2D" parent="Blood"]
+position = Vector2(-2779.21, 264.356)
+texture = ExtResource("8_6ya7b")
+
+[node name="No_13" type="Sprite2D" parent="Blood"]
+position = Vector2(-2926.73, 230.693)
+texture = ExtResource("6_3u6d5")
+
+[node name="No_14" type="Sprite2D" parent="Blood"]
+position = Vector2(-2909.9, 285.149)
+texture = ExtResource("11_hnin3")
+
+[node name="No_15" type="Sprite2D" parent="Blood"]
+position = Vector2(-1935.64, 470.297)
+texture = ExtResource("7_wrkjx")
+
+[node name="No_16" type="Sprite2D" parent="Blood"]
+position = Vector2(-1877.23, 470.297)
+texture = ExtResource("10_g15wg")
+
+[node name="No_17" type="Sprite2D" parent="Blood"]
+position = Vector2(-1919.8, 524.753)
+texture = ExtResource("11_hnin3")
+
+[node name="No_18" type="Sprite2D" parent="Blood"]
+position = Vector2(2386.14, 181.188)
+texture = ExtResource("9_aos17")
+
+[node name="No_3" type="Sprite2D" parent="Blood"]
+position = Vector2(2776.24, -386.139)
+texture = ExtResource("11_hnin3")
+
+[node name="No_5" type="Sprite2D" parent="Blood"]
+position = Vector2(3006.93, 549.505)
+texture = ExtResource("6_3u6d5")
+
+[node name="No_1" type="Sprite2D" parent="Blood"]
+position = Vector2(1483.17, -339.604)
+texture = ExtResource("7_wrkjx")
+
+[node name="No_6" type="Sprite2D" parent="Blood"]
+position = Vector2(3393.07, -217.822)
+texture = ExtResource("8_6ya7b")
+
+[node name="No_4" type="Sprite2D" parent="Blood"]
+position = Vector2(2624.75, -641.584)
+texture = ExtResource("9_aos17")
+
+[node name="No_2" type="Sprite2D" parent="Blood"]
+position = Vector2(3200, 134.653)
+texture = ExtResource("10_g15wg")
+
+[node name="No_7" type="Sprite2D" parent="Blood"]
+position = Vector2(2528.71, 524.753)
+texture = ExtResource("8_6ya7b")
+
+[node name="No_9" type="Sprite2D" parent="Blood"]
+position = Vector2(-2972.28, -506.931)
+texture = ExtResource("7_wrkjx")
+
+[node name="No_8" type="Sprite2D" parent="Blood"]
+position = Vector2(711.881, -83.1683)
+texture = ExtResource("6_3u6d5")

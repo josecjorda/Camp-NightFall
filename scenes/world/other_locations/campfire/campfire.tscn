@@ -16,7 +16,9 @@ shape = SubResource("RectangleShape2D_lcr1i")
 [node name="Fire" parent="." instance=ExtResource("1_xl6kt")]
 
 [node name="ForeLogs" parent="." instance=ExtResource("2_wepp7")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 position = Vector2(0, 350)
 
 [node name="BackLogs" parent="." instance=ExtResource("3_evl5q")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 position = Vector2(0, -100)

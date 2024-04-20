@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0yd8sbbd4o1i"]
+[gd_scene load_steps=13 format=3 uid="uid://c0yd8sbbd4o1i"]
 
 [ext_resource type="Texture2D" uid="uid://cchklltq5t0pm" path="res://graphics/map/Counselor_Cabin/CounselorInside.png" id="1_5hehx"]
 [ext_resource type="Texture2D" uid="uid://cb6vk442kq04y" path="res://graphics/map/Boys_Cabin_Upgrade/Front Wall.png" id="2_j33d4"]
 [ext_resource type="Texture2D" uid="uid://b6upgfr4r2bc4" path="res://graphics/map/Boys_Cabin_Upgrade/Door.png" id="3_23oyj"]
 [ext_resource type="Texture2D" uid="uid://cibj5mweh3wyf" path="res://graphics/map/Boys_Cabin_Upgrade/Roof.png" id="4_2haji"]
+[ext_resource type="Texture2D" uid="uid://b0f5q1102gikd" path="res://graphics/map/Bloody_Stuff/No.4.png" id="5_wx800"]
+[ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="6_kdkjt"]
+[ext_resource type="Texture2D" uid="uid://453rijek5xe3" path="res://graphics/map/Bloody_Stuff/No.1.png" id="7_aag03"]
+[ext_resource type="Texture2D" uid="uid://dhu63rwxaxcua" path="res://graphics/map/Bloody_Stuff/No.5.png" id="8_tdta6"]
+[ext_resource type="Texture2D" uid="uid://dp72477vux4s6" path="res://graphics/map/Bloody_Stuff/No.6.png" id="9_6qxk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gx2id"]
 size = Vector2(1846, 1110.5)
@@ -62,3 +67,61 @@ texture = ExtResource("3_23oyj")
 [node name="Roof" type="Sprite2D" parent="OutsideView"]
 position = Vector2(0, -380)
 texture = ExtResource("4_2haji")
+
+[node name="Blood" type="Node2D" parent="."]
+
+[node name="No_4" type="Sprite2D" parent="."]
+position = Vector2(-453, 233)
+texture = ExtResource("5_wx800")
+
+[node name="No_2" type="Sprite2D" parent="."]
+position = Vector2(-520, 293)
+texture = ExtResource("6_kdkjt")
+
+[node name="No_1" type="Sprite2D" parent="."]
+position = Vector2(-440, 296)
+texture = ExtResource("7_aag03")
+
+[node name="No_5" type="Sprite2D" parent="."]
+position = Vector2(535, 859)
+texture = ExtResource("8_tdta6")
+
+[node name="No_6" type="Sprite2D" parent="."]
+position = Vector2(550, 786)
+texture = ExtResource("5_wx800")
+
+[node name="No_3" type="Sprite2D" parent="."]
+position = Vector2(467, 826)
+texture = ExtResource("7_aag03")
+
+[node name="No_7" type="Sprite2D" parent="."]
+position = Vector2(422, 158)
+texture = ExtResource("9_6qxk6")
+
+[node name="No_8" type="Sprite2D" parent="."]
+position = Vector2(515, 203)
+texture = ExtResource("7_aag03")
+
+[node name="No_9" type="Sprite2D" parent="."]
+position = Vector2(427, 226)
+texture = ExtResource("6_kdkjt")
+
+[node name="No_10" type="Sprite2D" parent="."]
+position = Vector2(-402, 859)
+texture = ExtResource("8_tdta6")
+
+[node name="No_11" type="Sprite2D" parent="."]
+position = Vector2(-435, 813)
+texture = ExtResource("7_aag03")
+
+[node name="No_12" type="Sprite2D" parent="."]
+position = Vector2(-473, 843)
+texture = ExtResource("6_kdkjt")
+
+[node name="No_13" type="Sprite2D" parent="."]
+position = Vector2(69, 317)
+texture = ExtResource("5_wx800")
+
+[node name="No_14" type="Sprite2D" parent="."]
+position = Vector2(-77, 571)
+texture = ExtResource("8_tdta6")

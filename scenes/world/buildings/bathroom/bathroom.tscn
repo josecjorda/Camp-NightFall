@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cioicps22gsf0"]
+[gd_scene load_steps=15 format=3 uid="uid://cioicps22gsf0"]
 
 [ext_resource type="Texture2D" uid="uid://jsmlu0abpcus" path="res://graphics/map/BathroomUpgrade/BathRoomInside.png" id="1_3v12a"]
 [ext_resource type="Texture2D" uid="uid://binhkh1rqmiir" path="res://graphics/map/BathroomUpgrade/BathroomSink.png" id="2_6nvgu"]
@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://ccjq3h2w8o57l" path="res://scenes/world/buildings/bathroom/stall_vert_wall.tscn" id="5_febso"]
 [ext_resource type="Texture2D" uid="uid://csl3hqqo0864c" path="res://graphics/map/BathroomUpgrade/BathroomFrontWall.png" id="6_wm8ha"]
 [ext_resource type="Texture2D" uid="uid://ddf1dre4o4ihv" path="res://graphics/map/BathroomUpgrade/Bathroom Roof.png" id="7_sft5g"]
+[ext_resource type="Texture2D" uid="uid://453rijek5xe3" path="res://graphics/map/Bloody_Stuff/No.1.png" id="8_t6ftq"]
+[ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="9_2fgha"]
+[ext_resource type="Texture2D" uid="uid://b0f5q1102gikd" path="res://graphics/map/Bloody_Stuff/No.4.png" id="10_oflvv"]
+[ext_resource type="Texture2D" uid="uid://bwjuom6ktj1xr" path="res://graphics/map/Bloody_Stuff/No.3.png" id="11_01a5x"]
+[ext_resource type="Texture2D" uid="uid://dp72477vux4s6" path="res://graphics/map/Bloody_Stuff/No.6.png" id="12_gm5gu"]
+[ext_resource type="Texture2D" uid="uid://dhu63rwxaxcua" path="res://graphics/map/Bloody_Stuff/No.5.png" id="13_2qk64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7xjw"]
 size = Vector2(1018, 733)
@@ -41,6 +47,108 @@ position = Vector2(-487, 485)
 
 [node name="StallVertWall" parent="InsideView" instance=ExtResource("5_febso")]
 position = Vector2(-50, -310)
+
+[node name="Blood" type="Node2D" parent="."]
+
+[node name="No_1" type="Sprite2D" parent="Blood"]
+position = Vector2(443, -211)
+texture = ExtResource("8_t6ftq")
+
+[node name="No_2" type="Sprite2D" parent="Blood"]
+position = Vector2(457, -219)
+texture = ExtResource("9_2fgha")
+
+[node name="No_4" type="Sprite2D" parent="Blood"]
+position = Vector2(453, -197)
+texture = ExtResource("10_oflvv")
+
+[node name="No_3" type="Sprite2D" parent="Blood"]
+position = Vector2(-320, -103)
+texture = ExtResource("11_01a5x")
+
+[node name="No_5" type="Sprite2D" parent="Blood"]
+position = Vector2(-279, -74)
+texture = ExtResource("8_t6ftq")
+
+[node name="No_6" type="Sprite2D" parent="Blood"]
+position = Vector2(-352, -82)
+texture = ExtResource("9_2fgha")
+
+[node name="No_7" type="Sprite2D" parent="Blood"]
+position = Vector2(235, 185)
+texture = ExtResource("12_gm5gu")
+
+[node name="No_8" type="Sprite2D" parent="Blood"]
+position = Vector2(280, 147)
+texture = ExtResource("13_2qk64")
+
+[node name="No_9" type="Sprite2D" parent="Blood"]
+position = Vector2(297, 172)
+texture = ExtResource("11_01a5x")
+
+[node name="No_10" type="Sprite2D" parent="Blood"]
+position = Vector2(-361, 294)
+texture = ExtResource("10_oflvv")
+
+[node name="No_11" type="Sprite2D" parent="Blood"]
+position = Vector2(-282, 315)
+texture = ExtResource("10_oflvv")
+
+[node name="No_12" type="Sprite2D" parent="Blood"]
+position = Vector2(-374, 316)
+texture = ExtResource("11_01a5x")
+
+[node name="No_13" type="Sprite2D" parent="Blood"]
+position = Vector2(72, 40)
+texture = ExtResource("12_gm5gu")
+
+[node name="No_14" type="Sprite2D" parent="Blood"]
+position = Vector2(102, 75)
+texture = ExtResource("13_2qk64")
+
+[node name="No_15" type="Sprite2D" parent="Blood"]
+position = Vector2(41, 87)
+texture = ExtResource("9_2fgha")
+
+[node name="No_16" type="Sprite2D" parent="Blood"]
+position = Vector2(95, 447)
+texture = ExtResource("8_t6ftq")
+
+[node name="No_17" type="Sprite2D" parent="Blood"]
+position = Vector2(129, 423)
+texture = ExtResource("13_2qk64")
+
+[node name="No_18" type="Sprite2D" parent="Blood"]
+position = Vector2(171, 457)
+texture = ExtResource("12_gm5gu")
+
+[node name="No_19" type="Sprite2D" parent="Blood"]
+position = Vector2(-113, 428)
+texture = ExtResource("11_01a5x")
+
+[node name="No_20" type="Sprite2D" parent="Blood"]
+position = Vector2(-86, 450)
+texture = ExtResource("9_2fgha")
+
+[node name="No_21" type="Sprite2D" parent="Blood"]
+position = Vector2(-144, 465)
+texture = ExtResource("8_t6ftq")
+
+[node name="No_22" type="Sprite2D" parent="Blood"]
+position = Vector2(292, 297)
+texture = ExtResource("8_t6ftq")
+
+[node name="No_23" type="Sprite2D" parent="Blood"]
+position = Vector2(236, 304)
+texture = ExtResource("9_2fgha")
+
+[node name="No_24" type="Sprite2D" parent="Blood"]
+position = Vector2(287, 327)
+texture = ExtResource("13_2qk64")
+
+[node name="No_25" type="Sprite2D" parent="Blood"]
+position = Vector2(137, -135)
+texture = ExtResource("8_t6ftq")
 
 [node name="OutsideView" type="Node2D" parent="."]
 visible = false

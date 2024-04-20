@@ -32,8 +32,10 @@
 script = ExtResource("1_6g48g")
 
 [node name="MapBackground" parent="." instance=ExtResource("2_xiv42")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="buildings" type="Node2D" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 scale = Vector2(0.4, 0.4)
 
 [node name="MessHall" parent="buildings" instance=ExtResource("2_g57io")]
@@ -55,9 +57,11 @@ position = Vector2(3305, 2930)
 scale = Vector2(0.4, 0.4)
 
 [node name="Archery" parent="other_locations" instance=ExtResource("11_05xry")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 position = Vector2(-11005, 3540)
 
 [node name="Maze" parent="other_locations" instance=ExtResource("9_mmkqd")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 position = Vector2(-2800, 2280)
 
 [node name="Campfire" parent="other_locations" instance=ExtResource("10_0m2ns")]
@@ -65,6 +69,7 @@ position = Vector2(-11000, -270)
 scale = Vector2(2, 2)
 
 [node name="item_components" type="Node2D" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="axe_collectable" parent="item_components" instance=ExtResource("5_t8et1")]
 position = Vector2(3552, -1064)
@@ -104,6 +109,7 @@ position = Vector2(1282, 1200)
 position = Vector2(915, -1215)
 
 [node name="player" parent="." instance=ExtResource("3_scpwk")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 position = Vector2(-4401, 121)
 
 [node name="timer" parent="player" instance=ExtResource("4_526bm")]
@@ -111,6 +117,7 @@ position = Vector2(438, -296)
 scale = Vector2(0.2, 0.2)
 
 [node name="NPCs" type="Node2D" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 
 [node name="NPC_Anna" parent="NPCs" instance=ExtResource("25_4mlm5")]
 position = Vector2(-1153, -1292)
