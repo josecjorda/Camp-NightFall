@@ -47,7 +47,7 @@ func _unhandled_input(event):
 			###########################################################
 			## 1. also need the movement where she gets up out of there
 			move = true
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(3.0).timeout
 			## 2. add await() timer as well after each movement
 			self.queue_free() # make Anna disappear
 			Global.kids_saved[0] = 1 # store Anna as a saved kid in the global array
@@ -59,7 +59,7 @@ func _physics_process(delta):
 		direction = Vector2.DOWN.normalized()
 		velocity = (direction * speed)
 		move_and_slide()
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(3.0).timeout
 		
 		#$AnimatedSprite2D.stop()
 		#velocity = Vector2.ZERO

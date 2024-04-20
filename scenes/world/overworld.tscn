@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=28 format=3 uid="uid://cvb5qbjy87lv0"]
 
 [ext_resource type="Script" path="res://scripts/world/overworld.gd" id="1_6g48g"]
 [ext_resource type="PackedScene" uid="uid://bg885u8xisglu" path="res://scenes/world/buildings/mess_hall/mess_hall.tscn" id="2_g57io"]
@@ -24,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://mx36pos08tto" path="res://scenes/item_interactions/rope_collectable.tscn" id="14_16rxf"]
 [ext_resource type="PackedScene" uid="uid://du4qgpfn6osqj" path="res://scenes/item_interactions/shotgun_collectable.tscn" id="15_dpuib"]
 [ext_resource type="PackedScene" uid="uid://ubareqsij5wv" path="res://scenes/item_interactions/soda_collectable.tscn" id="16_m5mep"]
+[ext_resource type="PackedScene" uid="uid://whg8xgwvsgm5" path="res://scenes/NPCs/npc_anna.tscn" id="25_4mlm5"]
+[ext_resource type="PackedScene" uid="uid://be5tnmn21fans" path="res://scenes/NPCs/npc_beth.tscn" id="26_gnoyr"]
+[ext_resource type="PackedScene" uid="uid://bm7d0hkkhovlp" path="res://scenes/NPCs/npc_ethan.tscn" id="27_japts"]
 
 [node name="overworld" type="Node2D"]
 script = ExtResource("1_6g48g")
@@ -74,7 +77,7 @@ position = Vector2(-617, 1226)
 position = Vector2(-149, -1614)
 
 [node name="bandages_collectable" parent="item_components" instance=ExtResource("8_7hivn")]
-position = Vector2(1348, 1193)
+position = Vector2(1354, 1200)
 
 [node name="chocolate_collectable" parent="item_components" instance=ExtResource("9_uy8aj")]
 position = Vector2(-1406, -1084)
@@ -95,7 +98,7 @@ position = Vector2(-2729, 1164)
 position = Vector2(-3934, 1140)
 
 [node name="shotgun_collectable" parent="item_components" instance=ExtResource("15_dpuib")]
-position = Vector2(1290, 1192)
+position = Vector2(1282, 1200)
 
 [node name="soda_collectable" parent="item_components" instance=ExtResource("16_m5mep")]
 position = Vector2(915, -1215)
@@ -106,3 +109,14 @@ position = Vector2(-4401, 121)
 [node name="timer" parent="player" instance=ExtResource("4_526bm")]
 position = Vector2(438, -296)
 scale = Vector2(0.2, 0.2)
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="NPC_Anna" parent="NPCs" instance=ExtResource("25_4mlm5")]
+position = Vector2(-1153, -1292)
+
+[node name="NPC_Beth" parent="NPCs" instance=ExtResource("26_gnoyr")]
+position = Vector2(-3786, -1131)
+
+[node name="NPC_Ethan" parent="NPCs" instance=ExtResource("27_japts")]
+position = Vector2(4061, 754)

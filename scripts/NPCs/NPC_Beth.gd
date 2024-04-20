@@ -50,7 +50,7 @@ func _unhandled_input(event):
 			await get_tree().create_timer(3.0).timeout
 			move = true
 			cauterize_wound = true
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(3.0).timeout
 			self.queue_free()
 			Global.kids_saved[1] = 1
 		else: ## perform the "wrong" condition if player doesn't have "Bandages" item
@@ -61,7 +61,7 @@ func _unhandled_input(event):
 			await get_tree().create_timer(3.0).timeout
 			move = true
 			cauterize_wound = false
-			await get_tree().create_timer(4.0).timeout
+			await get_tree().create_timer(15.0).timeout
 			self.queue_free()
 			Global.kids_saved[1] = 0
 
@@ -71,14 +71,14 @@ func _physics_process(delta):
 		velocity = (direction * speed)
 		$AnimatedSprite2D.play("forwards_bandaged")
 		move_and_slide()
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(3.0).timeout
 	elif move and !cauterize_wound: ## performs pathing without bandages
-		speed = 50
+		speed = 75
 		direction = Vector2.LEFT.normalized()
 		velocity = (direction * speed)
 		$AnimatedSprite2D.play("left")
 		move_and_slide()
-		await get_tree().create_timer(4.0).timeout
+		await get_tree().create_timer(15.0).timeout
 		
 func _process(delta):
 	if player_is_near == false and interaction_finished == false:
