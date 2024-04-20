@@ -52,6 +52,7 @@ func _unhandled_input(event):
 			cauterize_wound = true
 			await get_tree().create_timer(2.0).timeout
 			self.queue_free()
+			Global.kids_saved[1] = 1
 		else: ## perform the "wrong" condition if player doesn't have "Bandages" item
 			interaction_finished = true
 			$Sprite2D.visible = false
@@ -62,6 +63,7 @@ func _unhandled_input(event):
 			cauterize_wound = false
 			await get_tree().create_timer(4.0).timeout
 			self.queue_free()
+			Global.kids_saved[1] = 0
 
 func _physics_process(delta):
 	if move and cauterize_wound: ## performs the pathing to move off of the map with bandages

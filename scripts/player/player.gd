@@ -27,6 +27,7 @@ var prefix = gender + "-" + hair + "-"
 func _ready():
 	$saved_kids_indicator/Anna_indicator.visible = false
 	$saved_kids_indicator/Ethan_indicator.visible = false
+	$saved_kids_indicator/Beth_indicator.visible = false
 	$AnimatedSprite2D.animation = prefix + "Run-Right-Animation"
 	
 func get_input():
@@ -50,10 +51,13 @@ func get_input():
 		_animated_sprite.stop()
 		direction = Vector2.ZERO
 
+
 #normalize the directional movement
 	direction = direction.normalized()
 # setup the actual movement
 	velocity = (direction * speed)
+	
+	
 
 func _physics_process(delta):
 	get_input()
@@ -63,6 +67,8 @@ func _process(delta):
 	## constantly checks for when a kid is saved to display indicator on UI
 	if Global.kids_saved[0] == 1:
 		$saved_kids_indicator/Anna_indicator.visible = true
+	if Global.kids_saved[1] == 1:
+		$saved_kids_indicator/Beth_indicator.visible = true
 	if Global.kids_saved[2] == 1:
 		$saved_kids_indicator/Ethan_indicator.visible = true
 	
@@ -80,5 +86,8 @@ func player():
 ## collection function to be passed on to the inventory scripts to handle
 func collect(item): 
 	inv.insert(item)
+	$audio_components/pick_up_item.play()
+	await get_tree().create_timer(1.0).timeout
+	$audio_components/pick_up_item.stop()
 
 
