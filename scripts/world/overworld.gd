@@ -12,6 +12,7 @@ extends Node2D
 func _ready():
 	## Connects signals to buildings.
 	$MapBackground.get_node("map").play("default")
+	$other_locations/Campfire.get_node("Fire/fire").play("default")
 	$other_locations/Archery.get_node("AnimatedSprite2D").play("default")
 	for building in $buildings.get_children():
 		building.get_node("OutsideView").visible = true

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c87h2ysmlp44s"]
+
+[ext_resource type="Texture2D" uid="uid://cgss0n8p6exct" path="res://graphics/map/Campfire/BackLogs.png" id="1_pmne8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jc1i"]
+size = Vector2(281.808, 46.0229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7lq0"]
+size = Vector2(50.1077, 280.075)
+
+[node name="BackLogs" type="Node2D"]
+
+[node name="left" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="left"]
+position = Vector2(-261.776, -0.186062)
+rotation = -0.593412
+shape = SubResource("RectangleShape2D_8jc1i")
+
+[node name="right" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2(262.849, -4.32482)
+rotation = -0.977384
+shape = SubResource("RectangleShape2D_q7lq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pmne8")

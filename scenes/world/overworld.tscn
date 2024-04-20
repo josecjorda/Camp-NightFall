@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cvb5qbjy87lv0"]
+[gd_scene load_steps=25 format=3 uid="uid://cvb5qbjy87lv0"]
 
 [ext_resource type="Script" path="res://scripts/world/overworld.gd" id="1_6g48g"]
 [ext_resource type="PackedScene" uid="uid://bg885u8xisglu" path="res://scenes/world/buildings/mess_hall/mess_hall.tscn" id="2_g57io"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cen3dhul4tlj5" path="res://scenes/item_interactions/bandages_collectable.tscn" id="8_7hivn"]
 [ext_resource type="PackedScene" uid="uid://bplobu3pyfubu" path="res://scenes/world/other_locations/maze/maze.tscn" id="9_mmkqd"]
 [ext_resource type="PackedScene" uid="uid://bd7n3k8fd30tw" path="res://scenes/item_interactions/chocolate.tscn" id="9_uy8aj"]
+[ext_resource type="PackedScene" uid="uid://tymynq7fww71" path="res://scenes/world/other_locations/campfire/campfire.tscn" id="10_0m2ns"]
 [ext_resource type="PackedScene" uid="uid://cnpkyybc5phdt" path="res://scenes/item_interactions/crackers_collectable.tscn" id="10_tb8m2"]
 [ext_resource type="PackedScene" uid="uid://dapo7ck7k5ex7" path="res://scenes/world/other_locations/archery/archery.tscn" id="11_05xry"]
 [ext_resource type="PackedScene" uid="uid://byfap8pf4f5us" path="res://scenes/item_interactions/knife_collectable.tscn" id="11_v6npk"]
@@ -56,6 +57,10 @@ position = Vector2(-11005, 3540)
 [node name="Maze" parent="other_locations" instance=ExtResource("9_mmkqd")]
 position = Vector2(-2800, 2280)
 
+[node name="Campfire" parent="other_locations" instance=ExtResource("10_0m2ns")]
+position = Vector2(-11000, -270)
+scale = Vector2(2, 2)
+
 [node name="item_components" type="Node2D" parent="."]
 
 [node name="axe_collectable" parent="item_components" instance=ExtResource("5_t8et1")]
@@ -96,7 +101,7 @@ position = Vector2(1290, 1192)
 position = Vector2(915, -1215)
 
 [node name="player" parent="." instance=ExtResource("3_scpwk")]
-position = Vector2(-4411, -3)
+position = Vector2(-4401, 121)
 
 [node name="timer" parent="player" instance=ExtResource("4_526bm")]
 position = Vector2(438, -296)
