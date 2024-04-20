@@ -1,0 +1,236 @@
+[gd_scene load_steps=42 format=3 uid="uid://be5tnmn21fans"]
+
+[ext_resource type="Script" path="res://scripts/NPCs/NPC_Beth.gd" id="1_dmwrn"]
+[ext_resource type="Texture2D" uid="uid://d0xetqknfh5i1" path="res://graphics/NPC/Beth/backwards/Beth-Backwards-0.png" id="2_h7onp"]
+[ext_resource type="Texture2D" uid="uid://boto55jsyrjka" path="res://graphics/NPC/Beth/backwards/Beth-Backwards-1.png" id="3_s6cre"]
+[ext_resource type="Texture2D" uid="uid://kxk6g1qd6k4w" path="res://graphics/NPC/Beth/backwards/Beth-Backwards-2.png" id="4_mjwba"]
+[ext_resource type="Texture2D" uid="uid://u2g10qqguyvp" path="res://graphics/NPC/Beth/backwards/Beth-Backwards-3.png" id="5_nw8cr"]
+[ext_resource type="Texture2D" uid="uid://dibv3wbfcf1qu" path="res://graphics/NPC/Beth/backwards_bandaged/Beth-Backwards-bandaged-0.png" id="6_cjxo0"]
+[ext_resource type="Texture2D" uid="uid://caqm1v5ba4cir" path="res://graphics/NPC/Beth/backwards_bandaged/Beth-Backwards-bandaged-1.png" id="7_3pkyh"]
+[ext_resource type="Texture2D" uid="uid://rsxlxnxwv17y" path="res://graphics/NPC/Beth/backwards_bandaged/Beth-Backwards-bandaged-2.png" id="8_o7jv5"]
+[ext_resource type="Texture2D" uid="uid://cbonfbfnpcq0t" path="res://graphics/NPC/Beth/backwards_bandaged/Beth-Backwards-bandaged-3.png" id="9_yx53l"]
+[ext_resource type="Texture2D" uid="uid://c2hg7are4nu0y" path="res://graphics/NPC/Beth/forwards/Beth-Forward-0.png" id="10_k5xy8"]
+[ext_resource type="Texture2D" uid="uid://dy8kw77vyqir1" path="res://graphics/NPC/Beth/forwards/Beth-Forward-1.png" id="11_3erw0"]
+[ext_resource type="Texture2D" uid="uid://rquepwj00aj" path="res://graphics/NPC/Beth/forwards/Beth-Forward-2.png" id="12_nv3j4"]
+[ext_resource type="Texture2D" uid="uid://etgnhubavkf3" path="res://graphics/NPC/Beth/forwards/Beth-Forward-3.png" id="13_01co2"]
+[ext_resource type="Texture2D" uid="uid://ctraj48mejg5e" path="res://graphics/NPC/Beth/forwards_bandaged/Beth-Forward-Bandaged-0.png" id="14_gavv1"]
+[ext_resource type="Texture2D" uid="uid://bs67jpj3pu0la" path="res://graphics/NPC/Beth/forwards_bandaged/Beth-Forward-Bandaged-1.png" id="15_hay4a"]
+[ext_resource type="Texture2D" uid="uid://b2tbfeqjcsyh2" path="res://graphics/NPC/Beth/forwards_bandaged/Beth-Forward-Bandaged-2.png" id="16_3pnq5"]
+[ext_resource type="Texture2D" uid="uid://dx3dhdtuqjq4v" path="res://graphics/NPC/Beth/forwards_bandaged/Beth-Forward-Bandaged-3.png" id="17_5n4h0"]
+[ext_resource type="Texture2D" uid="uid://b24xlbfb44yn4" path="res://graphics/NPC/Beth/getting_up/Beth-Getting Up-0.png" id="18_alxb2"]
+[ext_resource type="Texture2D" uid="uid://b0bagual7yl1y" path="res://graphics/NPC/Beth/getting_up/Beth-Getting Up-1.png" id="19_ykxdj"]
+[ext_resource type="Texture2D" uid="uid://cfslabfhxsjv4" path="res://graphics/NPC/Beth/getting_up/Beth-Getting Up-2.png" id="20_vby36"]
+[ext_resource type="Texture2D" uid="uid://dkxrmvcd2qhua" path="res://graphics/NPC/Beth/getting_up_bandaged/Beth-Getting Up-Bandaged-0.png" id="21_kb6ef"]
+[ext_resource type="Texture2D" uid="uid://c2dewe12ox6rm" path="res://graphics/NPC/Beth/getting_up_bandaged/Beth-Getting Up-Bandaged-1.png" id="22_wq1pg"]
+[ext_resource type="Texture2D" uid="uid://ced2y8b6gwqu5" path="res://graphics/NPC/Beth/getting_up_bandaged/Beth-Getting Up-Bandaged-2.png" id="23_xfrw7"]
+[ext_resource type="Texture2D" uid="uid://blmi73yu1dl3b" path="res://graphics/NPC/Beth/left/Beth-Left-0.png" id="24_iyovu"]
+[ext_resource type="Texture2D" uid="uid://bdyt81r7yw21m" path="res://graphics/NPC/Beth/left/Beth-Left-1.png" id="25_mxd72"]
+[ext_resource type="Texture2D" uid="uid://dioigqndyy8n7" path="res://graphics/NPC/Beth/left/Beth-Left-2.png" id="26_k756m"]
+[ext_resource type="Texture2D" uid="uid://cmp8q6udn23i5" path="res://graphics/NPC/Beth/left/Beth-Left-3.png" id="27_rkri0"]
+[ext_resource type="Texture2D" uid="uid://cf44c8pmttiqi" path="res://graphics/NPC/Beth/left_bandaged/Beth-Left-Bandaged-0.png" id="28_0qbnt"]
+[ext_resource type="Texture2D" uid="uid://bvbfh755mu5y6" path="res://graphics/NPC/Beth/left_bandaged/Beth-Left-Bandaged-1.png" id="29_oxn1s"]
+[ext_resource type="Texture2D" uid="uid://c7dr1860p73x2" path="res://graphics/NPC/Beth/left_bandaged/Beth-Left-Bandaged-2.png" id="30_81exu"]
+[ext_resource type="Texture2D" uid="uid://cui5rgely66fj" path="res://graphics/NPC/Beth/left_bandaged/Beth-Left-Bandaged-3.png" id="31_rrnv2"]
+[ext_resource type="Texture2D" uid="uid://fqudxv8quqn0" path="res://graphics/NPC/Beth/right/Beth-Right-0.png" id="32_54lfy"]
+[ext_resource type="Texture2D" uid="uid://bdois3ptymu1f" path="res://graphics/NPC/Beth/right/Beth-Right-1.png" id="33_qjb41"]
+[ext_resource type="Texture2D" uid="uid://dexdcx7ds7adq" path="res://graphics/NPC/Beth/right/Beth-Right-2.png" id="34_ycecd"]
+[ext_resource type="Texture2D" uid="uid://c44i2mun1masx" path="res://graphics/NPC/Beth/right/Beth-Right-3.png" id="35_xjjwi"]
+[ext_resource type="Texture2D" uid="uid://d14i6dsqoxoqq" path="res://graphics/NPC/Beth/right_bandaged/Beth-Right-Bandaged-0.png" id="36_1fadd"]
+[ext_resource type="Texture2D" uid="uid://by8cke6lohsui" path="res://graphics/NPC/Beth/right_bandaged/Beth-Right-Bandaged-1.png" id="37_oi1oo"]
+[ext_resource type="Texture2D" uid="uid://cjajuvsboxadu" path="res://graphics/NPC/Beth/right_bandaged/Beth-Right-Bandaged-2.png" id="38_2nwqd"]
+[ext_resource type="Texture2D" uid="uid://conmhgue0fol" path="res://graphics/NPC/Beth/right_bandaged/Beth-Right-Bandaged-3.png" id="39_ojea6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wedd"]
+radius = 41.1947
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmvy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h7onp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s6cre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mjwba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nw8cr")
+}],
+"loop": true,
+"name": &"backwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cjxo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3pkyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o7jv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yx53l")
+}],
+"loop": true,
+"name": &"backwards_bandaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_k5xy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3erw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nv3j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_01co2")
+}],
+"loop": true,
+"name": &"forwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_gavv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hay4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3pnq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_5n4h0")
+}],
+"loop": true,
+"name": &"forwards_bandaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_alxb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ykxdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vby36")
+}],
+"loop": true,
+"name": &"getting_up",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_kb6ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_wq1pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xfrw7")
+}],
+"loop": true,
+"name": &"getting_up_bandaged",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_iyovu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_mxd72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_k756m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_rkri0")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_0qbnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_oxn1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_81exu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_rrnv2")
+}],
+"loop": true,
+"name": &"left_bandaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_54lfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_qjb41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ycecd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_xjjwi")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_1fadd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_oi1oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_2nwqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ojea6")
+}],
+"loop": true,
+"name": &"right_bandaged",
+"speed": 5.0
+}]
+
+[node name="NPC_Beth" type="CharacterBody2D"]
+script = ExtResource("1_dmwrn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("18_alxb2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8wedd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dmvy8")
+animation = &"getting_up"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -249.0
+offset_top = -65.0
+offset_right = 249.0
+offset_bottom = -42.0
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

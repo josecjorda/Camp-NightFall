@@ -8,6 +8,7 @@
 radius = 22.0
 
 [node name="machete_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_pyrc4")
 item = ExtResource("2_88j28")
 

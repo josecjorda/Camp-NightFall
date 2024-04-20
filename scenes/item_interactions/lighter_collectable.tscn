@@ -8,6 +8,7 @@
 radius = 15.0
 
 [node name="lighter_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_lr4mx")
 item = ExtResource("2_yirdf")
 

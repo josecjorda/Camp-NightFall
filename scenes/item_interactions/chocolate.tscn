@@ -8,6 +8,7 @@
 radius = 18.0
 
 [node name="chocolate_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_yftqe")
 item = ExtResource("2_lcjtp")
 

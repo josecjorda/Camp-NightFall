@@ -1,0 +1,175 @@
+[gd_scene load_steps=32 format=3 uid="uid://bm7d0hkkhovlp"]
+
+[ext_resource type="Script" path="res://scripts/NPCs/NPC_Ethan.gd" id="1_eo6y3"]
+[ext_resource type="Texture2D" uid="uid://dk5uv6y6wd2pr" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-0.png" id="2_cidd1"]
+[ext_resource type="Texture2D" uid="uid://6c1p840rxl40" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-1.png" id="3_6ox68"]
+[ext_resource type="Texture2D" uid="uid://l2j2bjrmdrev" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-2.png" id="4_ih1w0"]
+[ext_resource type="Texture2D" uid="uid://cycx5s3sankmx" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-3.png" id="5_px8sn"]
+[ext_resource type="Texture2D" uid="uid://cjw6bjnw6mllr" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-0.png" id="6_ixro2"]
+[ext_resource type="Texture2D" uid="uid://nuvl4cbp7h0y" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-1.png" id="7_li73s"]
+[ext_resource type="Texture2D" uid="uid://jtnrx28iigoe" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-2.png" id="8_ahchq"]
+[ext_resource type="Texture2D" uid="uid://bmrg1mxqove7a" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-3.png" id="9_82gfq"]
+[ext_resource type="Texture2D" uid="uid://bmgeqlbn7b4io" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-4.png" id="10_7meay"]
+[ext_resource type="Texture2D" uid="uid://dr483t1w0sx5c" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-5.png" id="11_4kcjd"]
+[ext_resource type="Texture2D" uid="uid://ymcvlfruwn" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-6.png" id="12_gsi16"]
+[ext_resource type="Texture2D" uid="uid://vuy4gj1na8sr" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-7.png" id="13_p5ra2"]
+[ext_resource type="Texture2D" uid="uid://v06kyqr38int" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-0.png" id="14_0uccp"]
+[ext_resource type="Texture2D" uid="uid://c6mbfw276mr4t" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-1.png" id="15_s3os3"]
+[ext_resource type="Texture2D" uid="uid://kfdn1cep7q4f" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-2.png" id="16_i5idq"]
+[ext_resource type="Texture2D" uid="uid://dorckt6bcq3m0" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-3.png" id="17_dbdvr"]
+[ext_resource type="Texture2D" uid="uid://b6ixbfvdadug3" path="res://graphics/NPC/Ethan/left/Ethan-Left-0.png" id="18_g56bg"]
+[ext_resource type="Texture2D" uid="uid://dka0pweh78rog" path="res://graphics/NPC/Ethan/left/Ethan-Left-1.png" id="19_5ehjs"]
+[ext_resource type="Texture2D" uid="uid://ct6kiwqc4ujk1" path="res://graphics/NPC/Ethan/left/Ethan-Left-2.png" id="20_d47xt"]
+[ext_resource type="Texture2D" uid="uid://dbc3vw34eb4n3" path="res://graphics/NPC/Ethan/left/Ethan-Left-3.png" id="21_dv7y0"]
+[ext_resource type="Texture2D" uid="uid://bw4j7f4soxlah" path="res://graphics/NPC/Ethan/right/Ethan-Right-0.png" id="22_ja56h"]
+[ext_resource type="Texture2D" uid="uid://dm3vnkxbmudqb" path="res://graphics/NPC/Ethan/right/Ethan-Right-1.png" id="23_m4iym"]
+[ext_resource type="Texture2D" uid="uid://b1b5mjvxt601k" path="res://graphics/NPC/Ethan/right/Ethan-Right-2.png" id="24_i2red"]
+[ext_resource type="Texture2D" uid="uid://umnw34n2ayvh" path="res://graphics/NPC/Ethan/right/Ethan-Right-3.png" id="25_nhtc1"]
+[ext_resource type="Texture2D" uid="uid://di0l3wxxo6xnb" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-0.png" id="26_5abi8"]
+[ext_resource type="Texture2D" uid="uid://vpwv6h2hql3u" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-1.png" id="27_1rvjd"]
+[ext_resource type="Texture2D" uid="uid://bm5e851qo5cmu" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-2.png" id="28_jydt6"]
+[ext_resource type="Texture2D" uid="uid://bvglr07p6hj4m" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-3.png" id="29_c5e0p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ougeg"]
+radius = 41.3038
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udirt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cidd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6ox68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ih1w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_px8sn")
+}],
+"loop": true,
+"name": &"backwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ixro2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_li73s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ahchq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_82gfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7meay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4kcjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gsi16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p5ra2")
+}],
+"loop": true,
+"name": &"drowning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_0uccp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s3os3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_i5idq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dbdvr")
+}],
+"loop": true,
+"name": &"forwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_g56bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5ehjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_d47xt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_dv7y0")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_ja56h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_m4iym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_i2red")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_nhtc1")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_5abi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1rvjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_jydt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_c5e0p")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 5.0
+}]
+
+[node name="NPC_Ethan" type="CharacterBody2D"]
+script = ExtResource("1_eo6y3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ougeg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_udirt")
+animation = &"backwards"
+frame = 2
+frame_progress = 0.421522
+
+[node name="Label" type="Label" parent="."]
+offset_left = -157.0
+offset_top = -67.0
+offset_right = 158.0
+offset_bottom = -44.0
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
