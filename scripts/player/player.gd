@@ -71,10 +71,13 @@ func _process(delta):
 		$saved_kids_indicator/Beth_indicator.visible = true
 	if Global.kids_saved[2] == 1:
 		$saved_kids_indicator/Ethan_indicator.visible = true
-	
-	
 
-
+	if velocity.x != 0 or velocity.y != 0:
+		if !$audio_components/footsteps.playing:
+			$audio_components/footsteps.pitch_scale = 1.75
+			$audio_components/footsteps.play()
+	elif $audio_components/footsteps.playing:
+		$audio_components/footsteps.stop()
 
 
 # Interaction methods

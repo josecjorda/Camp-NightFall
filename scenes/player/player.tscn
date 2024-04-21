@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ciup8qftrwho6"]
+[gd_scene load_steps=12 format=3 uid="uid://ciup8qftrwho6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_khy8f"]
 [ext_resource type="PackedScene" uid="uid://bbrlj75jmuo1e" path="res://scenes/player/animated_sprite_2d.tscn" id="2_dgolf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bg7facjyofphm" path="res://graphics/NPC/Beth/Beth-indicator.png" id="7_vmf3s"]
 [ext_resource type="AudioStream" uid="uid://etnxj17pr2s3" path="res://audio/player/item_pickup.wav" id="8_hiaxf"]
 [ext_resource type="AudioStream" uid="uid://bpo44345114vl" path="res://audio/player/spooky_background.wav" id="9_q7nyf"]
+[ext_resource type="AudioStream" uid="uid://tb0027yr6bgy" path="res://audio/player/walking.wav" id="10_xkykt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmcgy"]
 radius = 20.025
@@ -57,3 +58,6 @@ stream = ExtResource("8_hiaxf")
 stream = ExtResource("9_q7nyf")
 volume_db = -10.0
 autoplay = true
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="audio_components"]
+stream = ExtResource("10_xkykt")
