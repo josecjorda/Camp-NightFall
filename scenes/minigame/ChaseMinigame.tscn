@@ -1,15 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://dosv0t8rhcn86"]
+[gd_scene load_steps=19 format=3 uid="uid://dosv0t8rhcn86"]
 
 [ext_resource type="Script" path="res://scripts/minigame/ChaseMinigameMaster.gd" id="1_3bm0v"]
 [ext_resource type="Script" path="res://scripts/minigame/SliderMinigame.gd" id="1_goqic"]
 [ext_resource type="AudioStream" uid="uid://cru7lodjlpd5p" path="res://audio/combat/Water1.wav" id="2_nycm0"]
 [ext_resource type="Texture2D" uid="uid://bfaxtxjx83g7a" path="res://graphics/charactercreationmenu/background/background_5.png" id="2_x8ogb"]
 [ext_resource type="AudioStream" uid="uid://b6ekiqpuhxow3" path="res://audio/combat/Victory.wav" id="3_ru71g"]
+[ext_resource type="AudioStream" uid="uid://hg4n88fe3itd" path="res://audio/combat/Augh.wav" id="4_4063s"]
 [ext_resource type="Texture2D" uid="uid://bgfbc0ee8ii53" path="res://graphics/charactercreationmenu/background/background_2.png" id="4_sdolq"]
+[ext_resource type="AudioStream" uid="uid://cl1oqihey2nn" path="res://audio/combat/Blow3.wav" id="5_eafkc"]
 [ext_resource type="Texture2D" uid="uid://c27dhordav5cx" path="res://graphics/player/F_FADE/right/F-FADE-Run-Right-0.png" id="5_gkpp4"]
 [ext_resource type="Texture2D" uid="uid://cukv6b1e1530x" path="res://graphics/enemy/Demon.png" id="5_y208v"]
 [ext_resource type="Texture2D" uid="uid://cb5hc7oaubkxn" path="res://graphics/charactercreationmenu/signs/wooden_background.png" id="7_5a4ss"]
 [ext_resource type="Texture2D" uid="uid://kk38yutqpftg" path="res://victory.jpg" id="10_ulybs"]
+[ext_resource type="SpriteFrames" uid="uid://t5wy7p87ifvd" path="res://Ethan Drowning.gif" id="11_v0ffi"]
+[ext_resource type="Texture2D" uid="uid://ba77j25l07k2u" path="res://You Died (1).png" id="13_qk6p8"]
 
 [sub_resource type="Gradient" id="Gradient_4om5m"]
 colors = PackedColorArray(0.568627, 0.678431, 0.835294, 1, 0.721569, 0.466667, 0.807843, 1)
@@ -35,7 +39,16 @@ volume_db = -20.0
 
 [node name="Victory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ru71g")
-volume_db = -20.0
+volume_db = -10.0
+
+[node name="Augh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4063s")
+volume_db = -10.0
+pitch_scale = 0.8
+
+[node name="Blow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eafkc")
+volume_db = -10.0
 
 [node name="Aesthetics" type="Control" parent="."]
 layout_mode = 3
@@ -132,17 +145,20 @@ color = Color(0.666667, 0, 0, 1)
 [node name="Actors" type="Node" parent="."]
 
 [node name="You" type="Sprite2D" parent="Actors"]
-position = Vector2(120, 488)
+position = Vector2(112, 600)
 texture = ExtResource("5_gkpp4")
 
-[node name="Ethan" type="Sprite2D" parent="Actors"]
-position = Vector2(864, 488)
-texture = ExtResource("5_gkpp4")
-flip_h = true
+[node name="Ethan" type="AnimatedSprite2D" parent="Actors"]
+position = Vector2(728, 488)
+scale = Vector2(0.79, 0.77)
+sprite_frames = ExtResource("11_v0ffi")
+animation = &"gif"
+autoplay = "gif"
+frame_progress = 0.356135
 
 [node name="Monster" type="Sprite2D" parent="Actors"]
 modulate = Color(0, 0, 0, 0.556863)
-position = Vector2(1360, 264)
+position = Vector2(1224, 520)
 scale = Vector2(0.0408505, 0.0416155)
 texture = ExtResource("5_y208v")
 
@@ -162,9 +178,20 @@ texture = ExtResource("7_5a4ss")
 [node name="VictoryScreen" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(577.5, 326.25)
-scale = Vector2(2.42405, 2.78571)
+position = Vector2(576, 320)
+scale = Vector2(2.46413, 2.90909)
 texture = ExtResource("10_ulybs")
+
+[node name="DieScreen" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(592, 328)
+scale = Vector2(2.04633, 2.02707)
+texture = ExtResource("13_qk6p8")
+
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [connection signal="hitTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_hit_timing_target"]
 [connection signal="missedTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_missed_timing_target"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
