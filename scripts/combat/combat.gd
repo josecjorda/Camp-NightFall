@@ -66,36 +66,23 @@ func _ready():
 		var image = load(image_path)
 		button.texture_normal = image
 		button.tooltip_text = player.actions.get(item).get("tool_tip")
-	var amt_kids_saved = Global.kids_saved.count(1)
-	## Adds child saved buffs to enemy and player
-	if amt_kids_saved > 0: 
-		# Enemy buff
-		var health_increase = 25 * amt_kids_saved
-		enemy.max_health += health_increase
-		enemy.health += health_increase
-		var child_buff = {"name" : "children_saved", "health_increase": health_increase}
-		enemy.buffs.append(child_buff.duplicate())
-		var buff_icon = ColorRect.new() ## Adds buff icon
-		buff_icon.name = child_buff.name
-		buff_icon.color = Color.LAWN_GREEN
-		buff_icon.custom_minimum_size = Vector2(25,0)
-		buff_icon.tooltip_text = ""
-		for key in child_buff.keys():
-			buff_icon.tooltip_text += key + ": " + str(child_buff[key]) + "\n"
-		$EnemyStatusBar.add_child(buff_icon)
-		set_health($EnemyHealthBar, enemy.health, enemy.max_health)
-		# Player buff
-		var damage_increase = 1 * amt_kids_saved
-		child_buff = {"name" : "children_saved", "damage_increase": damage_increase}
-		player.buffs.append(child_buff.duplicate())
-		buff_icon = ColorRect.new() ## Adds buff icon
-		buff_icon.name = child_buff.name
-		buff_icon.color = Color.LAWN_GREEN
-		buff_icon.custom_minimum_size = Vector2(25,0)
-		buff_icon.tooltip_text = ""
-		for key in child_buff.keys():
-			buff_icon.tooltip_text += key + ": " + str(child_buff[key]) + "\n"
-		$StatusBar.add_child(buff_icon)
+	var amt_kids_unsaved = Global.kids_saved.count(0)
+	## Adds child unsaved buff to enemy
+	var health_increase = 25 * amt_kids_unsaved
+	enemy.max_health += health_increase
+	enemy.health += health_increase
+	var child_buff = {"name" : "children_unsaved", "children_unsaved" : amt_kids_unsaved, "health_increase": health_increase}
+	enemy.buffs.append(child_buff.duplicate())
+	var buff_icon = ColorRect.new() ## Adds buff icon
+	buff_icon.name = child_buff.name
+	buff_icon.color = Color.LAWN_GREEN
+	buff_icon.custom_minimum_size = Vector2(25,0)
+	buff_icon.tooltip_text = ""
+	for key in child_buff.keys():
+		buff_icon.tooltip_text += key + ": " + str(child_buff[key]) + "\n"
+	$EnemyStatusBar.add_child(buff_icon)
+	set_health($EnemyHealthBar, enemy.health, enemy.max_health)
+
 ## Looks for input. Is used as a way to close textboxes and switch between player and enemy turn.
 func _input(event):
 	## Closes textbox and goes to enemy turn if was players turn
