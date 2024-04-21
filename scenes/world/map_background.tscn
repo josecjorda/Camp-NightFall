@@ -1,13 +1,13 @@
 [gd_scene load_steps=19 format=3 uid="uid://ceijciv4usyqm"]
 
-[ext_resource type="Texture2D" uid="uid://4vu2sjr2me2r" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence1.png" id="1_qhob3"]
-[ext_resource type="Texture2D" uid="uid://bvbc6am8riw78" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence2.png" id="2_k2au0"]
-[ext_resource type="Texture2D" uid="uid://dwbvdw2h3cm2t" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence3.png" id="3_uwlvh"]
-[ext_resource type="Texture2D" uid="uid://bcec7odf40f4t" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence4.png" id="4_qar2d"]
-[ext_resource type="Texture2D" uid="uid://brtqv6tu00q64" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence5.png" id="5_rdlqx"]
-[ext_resource type="Texture2D" uid="uid://dbxqy1wimu17c" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence6.png" id="6_jdmib"]
-[ext_resource type="Texture2D" uid="uid://bb1t2cmvtra65" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence7.png" id="7_dyixx"]
-[ext_resource type="Texture2D" uid="uid://106ifyaujoky" path="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence8.png" id="8_4wgu5"]
+[ext_resource type="Texture2D" uid="uid://c1ukyl5ac6nso" path="res://graphics/map/MapBackground/ForSlides1.png" id="1_jkgpv"]
+[ext_resource type="Texture2D" uid="uid://bd3l5ygk7jtjg" path="res://graphics/map/MapBackground/ForSlides2.png" id="2_fxrox"]
+[ext_resource type="Texture2D" uid="uid://cn4hlxjf6533d" path="res://graphics/map/MapBackground/ForSlides3.png" id="3_a0sd8"]
+[ext_resource type="Texture2D" uid="uid://cgwp5eg141up0" path="res://graphics/map/MapBackground/ForSlides4.png" id="4_cr2wl"]
+[ext_resource type="Texture2D" uid="uid://bko36t35403bh" path="res://graphics/map/MapBackground/ForSlides5.png" id="5_mmjto"]
+[ext_resource type="Texture2D" uid="uid://kmit7susma8k" path="res://graphics/map/MapBackground/ForSlides6.png" id="6_ns0aw"]
+[ext_resource type="Texture2D" uid="uid://bsh7ok0hy785t" path="res://graphics/map/MapBackground/ForSlides7.png" id="7_ucojd"]
+[ext_resource type="Texture2D" uid="uid://dy3ymrdklq7cr" path="res://graphics/map/MapBackground/ForSlides8.png" id="8_pdmpw"]
 [ext_resource type="Texture2D" uid="uid://ektm83kq5aj8" path="res://graphics/map/MapBackground/BackGroundTrees.png" id="9_bnchd"]
 [ext_resource type="Texture2D" uid="uid://8v0h8l5q6jo8" path="res://graphics/map/MapBackground/ForeGroundTrees.png" id="10_8vlsb"]
 [ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="11_wd7yo"]
@@ -21,28 +21,28 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_qhob3")
+"texture": ExtResource("1_jkgpv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_k2au0")
+"texture": ExtResource("2_fxrox")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_uwlvh")
+"texture": ExtResource("3_a0sd8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_qar2d")
+"texture": ExtResource("4_cr2wl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_rdlqx")
+"texture": ExtResource("5_mmjto")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_jdmib")
+"texture": ExtResource("6_ns0aw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_dyixx")
+"texture": ExtResource("7_ucojd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_4wgu5")
+"texture": ExtResource("8_pdmpw")
 }],
 "loop": true,
 "name": &"default",
@@ -58,7 +58,6 @@ collision_layer = 4
 [node name="map" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -9)
 sprite_frames = SubResource("SpriteFrames_v2jtc")
-frame = 3
 
 [node name="BackGroundTrees" type="Sprite2D" parent="."]
 position = Vector2(70, 18)

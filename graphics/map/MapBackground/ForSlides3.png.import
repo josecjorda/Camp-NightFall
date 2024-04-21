@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvbc6am8riw78"
-path="res://.godot/imported/Bckgnd Skeleton Referrence2.png-dbf73aee0b4b0ea575002e2c18d489da.ctex"
+uid="uid://cn4hlxjf6533d"
+path="res://.godot/imported/ForSlides3.png-248e47bb8a2bcac3e0e9c89efd8c0952.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/map/MapBackground/Bckgnd Skeleton Referrence2.png"
-dest_files=["res://.godot/imported/Bckgnd Skeleton Referrence2.png-dbf73aee0b4b0ea575002e2c18d489da.ctex"]
+source_file="res://graphics/map/MapBackground/ForSlides3.png"
+dest_files=["res://.godot/imported/ForSlides3.png-248e47bb8a2bcac3e0e9c89efd8c0952.ctex"]
 
 [params]
 
