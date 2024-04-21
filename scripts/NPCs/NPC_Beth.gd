@@ -42,7 +42,7 @@ func _on_area_2d_body_exited(body):
 
 func _unhandled_input(event):
 	if player_is_near and event.is_action_pressed("interact"): ## is the player in the collision box and has the "f" key been pressed
-		if "Bandages" in Global.invArr or "Lighter" in Global.invArr: ## does the player have the "Bandages" or "Lighter" item
+		if "Bandages" in Global.invArr and "Lighter" in Global.invArr: ## does the player have the "Bandages" or "Lighter" item
 			interaction_finished = true
 			$Sprite2D.visible = false
 			$AnimatedSprite2D.play("getting_up_bandaged")
