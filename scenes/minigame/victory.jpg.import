@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba77j25l07k2u"
-path="res://.godot/imported/You Died (1).png-870e023b5e84fb069383bc59252236bf.ctex"
+uid="uid://kk38yutqpftg"
+path="res://.godot/imported/victory.jpg-7c960197078cdf7c9e5d67f5aeaaf75c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://You Died (1).png"
-dest_files=["res://.godot/imported/You Died (1).png-870e023b5e84fb069383bc59252236bf.ctex"]
+source_file="res://scenes/minigame/victory.jpg"
+dest_files=["res://.godot/imported/victory.jpg-7c960197078cdf7c9e5d67f5aeaaf75c.ctex"]
 
 [params]
 

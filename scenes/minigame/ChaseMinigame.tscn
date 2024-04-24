@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c27dhordav5cx" path="res://graphics/player/F_FADE/right/F-FADE-Run-Right-0.png" id="5_gkpp4"]
 [ext_resource type="Texture2D" uid="uid://cukv6b1e1530x" path="res://graphics/enemy/Demon.png" id="5_y208v"]
 [ext_resource type="Texture2D" uid="uid://cb5hc7oaubkxn" path="res://graphics/charactercreationmenu/signs/wooden_background.png" id="7_5a4ss"]
-[ext_resource type="Texture2D" uid="uid://kk38yutqpftg" path="res://victory.jpg" id="10_ulybs"]
-[ext_resource type="SpriteFrames" uid="uid://t5wy7p87ifvd" path="res://Ethan Drowning.gif" id="11_v0ffi"]
-[ext_resource type="Texture2D" uid="uid://ba77j25l07k2u" path="res://You Died (1).png" id="13_qk6p8"]
+[ext_resource type="Texture2D" uid="uid://kk38yutqpftg" path="res://scenes/minigame/victory.jpg" id="10_ulybs"]
+[ext_resource type="SpriteFrames" uid="uid://t5wy7p87ifvd" path="res://scenes/minigame/Ethan Drowning.gif" id="11_v0ffi"]
+[ext_resource type="Texture2D" uid="uid://ba77j25l07k2u" path="res://scenes/minigame/You Died (1).png" id="13_qk6p8"]
 
 [sub_resource type="Gradient" id="Gradient_4om5m"]
 colors = PackedColorArray(0.568627, 0.678431, 0.835294, 1, 0.721569, 0.466667, 0.807843, 1)
@@ -131,6 +131,7 @@ texture = SubResource("GradientTexture2D_fcptt")
 script = ExtResource("1_goqic")
 padding = 200
 targetSize_ = Vector2(20, 50)
+graceArea = 20
 crosshairSize_ = Vector2(50, 10)
 crosshairSpeed = 500
 

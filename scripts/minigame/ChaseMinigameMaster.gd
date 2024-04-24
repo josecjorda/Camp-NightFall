@@ -26,7 +26,7 @@ func _ready():
 	
 func _process(delta):
 	monster.position += monsterSpeed * delta
-	if(monster.position.x < you.position.x && phase != 2):
+	if(monster.position.x < you.position.x && phase < 2):
 		die()
 	pass
 
