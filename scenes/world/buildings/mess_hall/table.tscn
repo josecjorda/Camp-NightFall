@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://sgrfn3dvcsya"]
+
+[ext_resource type="Texture2D" uid="uid://c4ad76xp3bxag" path="res://graphics/map/Mess_Hall_Upgrade/Table.png" id="1_0u8px"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is2ge"]
+size = Vector2(1676, 334)
+
+[node name="Table" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -77)
+shape = SubResource("RectangleShape2D_is2ge")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0u8px")

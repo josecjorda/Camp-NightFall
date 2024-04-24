@@ -8,6 +8,7 @@
 radius = 15.0333
 
 [node name="bandages_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_qstme")
 item = ExtResource("2_kmqld")
 

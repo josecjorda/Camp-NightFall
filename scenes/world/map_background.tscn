@@ -1,0 +1,192 @@
+[gd_scene load_steps=19 format=3 uid="uid://ceijciv4usyqm"]
+
+[ext_resource type="Texture2D" uid="uid://c1ukyl5ac6nso" path="res://graphics/map/MapBackground/ForSlides1.png" id="1_jkgpv"]
+[ext_resource type="Texture2D" uid="uid://bd3l5ygk7jtjg" path="res://graphics/map/MapBackground/ForSlides2.png" id="2_fxrox"]
+[ext_resource type="Texture2D" uid="uid://cn4hlxjf6533d" path="res://graphics/map/MapBackground/ForSlides3.png" id="3_a0sd8"]
+[ext_resource type="Texture2D" uid="uid://cgwp5eg141up0" path="res://graphics/map/MapBackground/ForSlides4.png" id="4_cr2wl"]
+[ext_resource type="Texture2D" uid="uid://bko36t35403bh" path="res://graphics/map/MapBackground/ForSlides5.png" id="5_mmjto"]
+[ext_resource type="Texture2D" uid="uid://kmit7susma8k" path="res://graphics/map/MapBackground/ForSlides6.png" id="6_ns0aw"]
+[ext_resource type="Texture2D" uid="uid://bsh7ok0hy785t" path="res://graphics/map/MapBackground/ForSlides7.png" id="7_ucojd"]
+[ext_resource type="Texture2D" uid="uid://dy3ymrdklq7cr" path="res://graphics/map/MapBackground/ForSlides8.png" id="8_pdmpw"]
+[ext_resource type="Texture2D" uid="uid://ektm83kq5aj8" path="res://graphics/map/MapBackground/BackGroundTrees.png" id="9_bnchd"]
+[ext_resource type="Texture2D" uid="uid://8v0h8l5q6jo8" path="res://graphics/map/MapBackground/ForeGroundTrees.png" id="10_8vlsb"]
+[ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="11_wd7yo"]
+[ext_resource type="Texture2D" uid="uid://453rijek5xe3" path="res://graphics/map/Bloody_Stuff/No.1.png" id="12_6pn2e"]
+[ext_resource type="Texture2D" uid="uid://b0f5q1102gikd" path="res://graphics/map/Bloody_Stuff/No.4.png" id="13_lketh"]
+[ext_resource type="Texture2D" uid="uid://dp72477vux4s6" path="res://graphics/map/Bloody_Stuff/No.6.png" id="14_8hf2f"]
+[ext_resource type="Texture2D" uid="uid://bwjuom6ktj1xr" path="res://graphics/map/Bloody_Stuff/No.3.png" id="15_hg0gm"]
+[ext_resource type="Texture2D" uid="uid://dhu63rwxaxcua" path="res://graphics/map/Bloody_Stuff/No.5.png" id="16_jwxtj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2jtc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jkgpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fxrox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a0sd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cr2wl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mmjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ns0aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ucojd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pdmpw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ya76"]
+size = Vector2(521, 537)
+
+[node name="MapBackground" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="map" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -9)
+sprite_frames = SubResource("SpriteFrames_v2jtc")
+
+[node name="BackGroundTrees" type="Sprite2D" parent="."]
+position = Vector2(70, 18)
+texture = ExtResource("9_bnchd")
+
+[node name="ForeGroundTrees" type="Sprite2D" parent="."]
+position = Vector2(-1779, 18)
+texture = ExtResource("10_8vlsb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5799, -1485, -5791, 55, -5778, 422, -5791, 821, -5806, 1079, -5803, 1092, -5807, 1733, -2614, 1737, -2620, 1747, -2599, 1961, 355, 1957, 350, 1449, 451, 1448, 542, 1453, 545, 1739, 1766, 1740, 1763, 1726, 1741, 1465, 1747, 981, 1770, 861, 1848, 761, 1900, 868, 2000, 1165, 2168, 1789, 2094, 1837, 2007, 1850, 2005, 1990, 2569, 1985, 2869, 1993, 2870, 1854, 2830, 1681, 2831, 1554, 2917, 1419, 2855, 1120, 2749, 919, 2807, 782, 2859, 618, 3135, 463, 3365, 310, 3591, 218, 3861, 228, 3958, 309, 4087, 379, 4090, -29, 4092, 380, 4090, 794, 4409, 793, 4407, 346, 4410, -31, 4412, 346, 4731, 344, 4914, 259, 5109, -101, 5187, -277, 5365, -341, 5441, -334, 5602, -440, 5723, -449, 5834, -443, 5904, -433, 5997, -431, 6005, -1116, 3617, -1106, 3630, -1792, 3692, -1918, 3795, -1998, 2776, -2005, 2925, -1744, 2928, -1176, 2801, -965, 1122, -958, 1167, -1821, -945, -1802, -950, -1638, -1705, -1635, -1723, -1292, -1951.96, -1130.97, -2071, -1218, -2153, -1200, -2087, -1036, -2210, -942, -2303, -999, -2284, -1201, -2475, -1230, -2537, -1031, -2695, -1092, -2613, -1413, -2714, -1483, -5787, -1463, -5777, -2040, 6166, -2134, 6159, 2132, -6119, 2140, -6036, -2044, -5785, -1999)
+
+[node name="InnerTreesBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerTreesBorder"]
+position = Vector2(611.5, 931.5)
+shape = SubResource("RectangleShape2D_4ya76")
+
+[node name="Blood" type="Node2D" parent="."]
+
+[node name="No_2" type="Sprite2D" parent="Blood"]
+position = Vector2(3638, -1023)
+texture = ExtResource("11_wd7yo")
+
+[node name="No_1" type="Sprite2D" parent="Blood"]
+position = Vector2(3570, -1049)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_4" type="Sprite2D" parent="Blood"]
+position = Vector2(3578, -1006)
+texture = ExtResource("13_lketh")
+
+[node name="No_3" type="Sprite2D" parent="Blood"]
+position = Vector2(2686, 1278)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_6" type="Sprite2D" parent="Blood"]
+position = Vector2(2642, 1242)
+texture = ExtResource("14_8hf2f")
+
+[node name="No_5" type="Sprite2D" parent="Blood"]
+position = Vector2(2622, 1287)
+texture = ExtResource("11_wd7yo")
+
+[node name="No_7" type="Sprite2D" parent="Blood"]
+position = Vector2(-4571, 644)
+texture = ExtResource("15_hg0gm")
+
+[node name="No_8" type="Sprite2D" parent="Blood"]
+position = Vector2(-2962, -248)
+texture = ExtResource("16_jwxtj")
+
+[node name="No_9" type="Sprite2D" parent="Blood"]
+position = Vector2(-1536, -485)
+texture = ExtResource("15_hg0gm")
+
+[node name="No_10" type="Sprite2D" parent="Blood"]
+position = Vector2(-5018, -223)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_11" type="Sprite2D" parent="Blood"]
+position = Vector2(-3396, 412)
+texture = ExtResource("14_8hf2f")
+
+[node name="No_12" type="Sprite2D" parent="Blood"]
+position = Vector2(762, -737)
+texture = ExtResource("13_lketh")
+
+[node name="No_13" type="Sprite2D" parent="Blood"]
+position = Vector2(-1163, -631)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_14" type="Sprite2D" parent="Blood"]
+position = Vector2(606, -712)
+scale = Vector2(0.999717, 1)
+texture = ExtResource("16_jwxtj")
+
+[node name="No_15" type="Sprite2D" parent="Blood"]
+position = Vector2(-145, -1150)
+texture = ExtResource("13_lketh")
+
+[node name="No_16" type="Sprite2D" parent="Blood"]
+position = Vector2(-115, -1120)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_17" type="Sprite2D" parent="Blood"]
+position = Vector2(2586, -490)
+texture = ExtResource("13_lketh")
+
+[node name="No_18" type="Sprite2D" parent="Blood"]
+position = Vector2(5142, -808)
+texture = ExtResource("14_8hf2f")
+
+[node name="No_19" type="Sprite2D" parent="Blood"]
+position = Vector2(5253, -859)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_20" type="Sprite2D" parent="Blood"]
+position = Vector2(5287, -797)
+texture = ExtResource("15_hg0gm")
+
+[node name="No_21" type="Sprite2D" parent="Blood"]
+position = Vector2(-5207, 611)
+texture = ExtResource("11_wd7yo")
+
+[node name="No_22" type="Sprite2D" parent="Blood"]
+position = Vector2(-5155, 651)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_23" type="Sprite2D" parent="Blood"]
+position = Vector2(-5271, 647)
+texture = ExtResource("15_hg0gm")
+
+[node name="No_24" type="Sprite2D" parent="Blood"]
+position = Vector2(1411, 1685)
+texture = ExtResource("14_8hf2f")
+
+[node name="No_25" type="Sprite2D" parent="Blood"]
+position = Vector2(1333, 1678)
+texture = ExtResource("16_jwxtj")
+
+[node name="No_26" type="Sprite2D" parent="Blood"]
+position = Vector2(1365, 1708)
+texture = ExtResource("12_6pn2e")
+
+[node name="No_27" type="Sprite2D" parent="Blood"]
+position = Vector2(1202, 1686)
+texture = ExtResource("15_hg0gm")
+
+[node name="No_28" type="Sprite2D" parent="Blood"]
+position = Vector2(1288, 1696)
+texture = ExtResource("13_lketh")

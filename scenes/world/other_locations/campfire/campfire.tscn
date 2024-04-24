@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://tymynq7fww71"]
+
+[ext_resource type="PackedScene" uid="uid://ba8u4pbfoafyj" path="res://scenes/world/other_locations/campfire/fire.tscn" id="1_xl6kt"]
+[ext_resource type="PackedScene" uid="uid://bnv1d0pid7kbb" path="res://scenes/world/other_locations/campfire/fore_logs.tscn" id="2_wepp7"]
+[ext_resource type="PackedScene" uid="uid://c87h2ysmlp44s" path="res://scenes/world/other_locations/campfire/back_logs.tscn" id="3_evl5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcr1i"]
+size = Vector2(878, 818)
+
+[node name="Campfire" type="Area2D"]
+
+[node name="Area2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 59)
+shape = SubResource("RectangleShape2D_lcr1i")
+
+[node name="Fire" parent="." instance=ExtResource("1_xl6kt")]
+
+[node name="ForeLogs" parent="." instance=ExtResource("2_wepp7")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+position = Vector2(0, 350)
+
+[node name="BackLogs" parent="." instance=ExtResource("3_evl5q")]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+position = Vector2(0, -100)

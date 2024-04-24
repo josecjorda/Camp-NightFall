@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0yd8sbbd4o1i"]
+
+[ext_resource type="Texture2D" uid="uid://cchklltq5t0pm" path="res://graphics/map/Counselor_Cabin/CounselorInside.png" id="1_5hehx"]
+[ext_resource type="Texture2D" uid="uid://cb6vk442kq04y" path="res://graphics/map/Boys_Cabin_Upgrade/Front Wall.png" id="2_j33d4"]
+[ext_resource type="Texture2D" uid="uid://b6upgfr4r2bc4" path="res://graphics/map/Boys_Cabin_Upgrade/Door.png" id="3_23oyj"]
+[ext_resource type="Texture2D" uid="uid://cibj5mweh3wyf" path="res://graphics/map/Boys_Cabin_Upgrade/Roof.png" id="4_2haji"]
+[ext_resource type="Texture2D" uid="uid://b0f5q1102gikd" path="res://graphics/map/Bloody_Stuff/No.4.png" id="5_wx800"]
+[ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="6_kdkjt"]
+[ext_resource type="Texture2D" uid="uid://453rijek5xe3" path="res://graphics/map/Bloody_Stuff/No.1.png" id="7_aag03"]
+[ext_resource type="Texture2D" uid="uid://dhu63rwxaxcua" path="res://graphics/map/Bloody_Stuff/No.5.png" id="8_tdta6"]
+[ext_resource type="Texture2D" uid="uid://dp72477vux4s6" path="res://graphics/map/Bloody_Stuff/No.6.png" id="9_6qxk6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx2id"]
+size = Vector2(1846, 1110.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sekl6"]
+size = Vector2(208, 609)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ut3up"]
+size = Vector2(199, 607)
+
+[node name="CounselorCabin" type="Area2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, 404.75)
+shape = SubResource("RectangleShape2D_gx2id")
+
+[node name="OuterBorders" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterBorders"]
+polygon = PackedVector2Array(-899, 973, -900, 828, -666, 823, -668, 228, -930, 225, -913, -123, -865.678, -123.052, -866, 86, -361, 89, -358, -122, -158.185, -122.474, -158, 6, 159, 6, 154, -122, 370.405, -122.861, 365, 102, 878, 94, 875, -125, 908, -125, 915, 217, 667, 220, 675, 818, 918, 818, 912, 977, 106, 979, 1076, 982, 1075, 346, 1177, 302, 1181, -1077, 58, -1089, 58, -1209, -66, -1211, -56, -1087, -1178, -1081, -1167, 305, -1072, 338, -1071, 978, -121, 977)
+
+[node name="InnerLeftBed" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerLeftBed"]
+position = Vector2(-257, 527.5)
+shape = SubResource("RectangleShape2D_sekl6")
+
+[node name="InnerRightBed" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerRightBed"]
+position = Vector2(254.5, 527.5)
+shape = SubResource("RectangleShape2D_ut3up")
+
+[node name="InsideView" type="Node2D" parent="."]
+
+[node name="Inside" type="Sprite2D" parent="InsideView"]
+texture = ExtResource("1_5hehx")
+
+[node name="OutsideView" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="FrontWall" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, 600)
+texture = ExtResource("2_j33d4")
+
+[node name="Door" type="Sprite2D" parent="OutsideView"]
+position = Vector2(-11, 818)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("3_23oyj")
+
+[node name="Roof" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, -380)
+texture = ExtResource("4_2haji")
+
+[node name="Blood" type="Node2D" parent="."]
+
+[node name="No_4" type="Sprite2D" parent="."]
+position = Vector2(-453, 233)
+texture = ExtResource("5_wx800")
+
+[node name="No_2" type="Sprite2D" parent="."]
+position = Vector2(-520, 293)
+texture = ExtResource("6_kdkjt")
+
+[node name="No_1" type="Sprite2D" parent="."]
+position = Vector2(-440, 296)
+texture = ExtResource("7_aag03")
+
+[node name="No_5" type="Sprite2D" parent="."]
+position = Vector2(535, 859)
+texture = ExtResource("8_tdta6")
+
+[node name="No_6" type="Sprite2D" parent="."]
+position = Vector2(550, 786)
+texture = ExtResource("5_wx800")
+
+[node name="No_3" type="Sprite2D" parent="."]
+position = Vector2(467, 826)
+texture = ExtResource("7_aag03")
+
+[node name="No_7" type="Sprite2D" parent="."]
+position = Vector2(422, 158)
+texture = ExtResource("9_6qxk6")
+
+[node name="No_8" type="Sprite2D" parent="."]
+position = Vector2(515, 203)
+texture = ExtResource("7_aag03")
+
+[node name="No_9" type="Sprite2D" parent="."]
+position = Vector2(427, 226)
+texture = ExtResource("6_kdkjt")
+
+[node name="No_10" type="Sprite2D" parent="."]
+position = Vector2(-402, 859)
+texture = ExtResource("8_tdta6")
+
+[node name="No_11" type="Sprite2D" parent="."]
+position = Vector2(-435, 813)
+texture = ExtResource("7_aag03")
+
+[node name="No_12" type="Sprite2D" parent="."]
+position = Vector2(-473, 843)
+texture = ExtResource("6_kdkjt")
+
+[node name="No_13" type="Sprite2D" parent="."]
+position = Vector2(69, 317)
+texture = ExtResource("5_wx800")
+
+[node name="No_14" type="Sprite2D" parent="."]
+position = Vector2(-77, 571)
+texture = ExtResource("8_tdta6")

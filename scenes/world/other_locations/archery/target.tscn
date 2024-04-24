@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1g0p6pykgskl"]
+
+[ext_resource type="Texture2D" uid="uid://bwbv6on5b5kob" path="res://graphics/map/Archery_Upgrade/Target.png" id="1_3igoi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7dro"]
+radius = 121.066
+
+[node name="Target" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i7dro")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3igoi")

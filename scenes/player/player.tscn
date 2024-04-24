@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciup8qftrwho6"]
+[gd_scene load_steps=12 format=3 uid="uid://ciup8qftrwho6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_khy8f"]
 [ext_resource type="PackedScene" uid="uid://bbrlj75jmuo1e" path="res://scenes/player/animated_sprite_2d.tscn" id="2_dgolf"]
 [ext_resource type="Resource" uid="uid://yppossesyuyq" path="res://scripts/inventory/playerinv_res/playerinv.tres" id="2_ybtgj"]
 [ext_resource type="PackedScene" uid="uid://w2tf0qcqr5fb" path="res://scenes/inventory/inv_ui.tscn" id="4_s83e3"]
+[ext_resource type="Texture2D" uid="uid://c0mr86fxx17lx" path="res://graphics/NPC/Anna/forwards/Anna-Forward-0.png" id="5_hjt75"]
+[ext_resource type="Texture2D" uid="uid://v06kyqr38int" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-0.png" id="6_h8ake"]
+[ext_resource type="Texture2D" uid="uid://bg7facjyofphm" path="res://graphics/NPC/Beth/Beth-indicator.png" id="7_vmf3s"]
+[ext_resource type="AudioStream" uid="uid://etnxj17pr2s3" path="res://audio/player/item_pickup.wav" id="8_hiaxf"]
+[ext_resource type="AudioStream" uid="uid://bpo44345114vl" path="res://audio/player/spooky_background.wav" id="9_q7nyf"]
+[ext_resource type="AudioStream" uid="uid://tb0027yr6bgy" path="res://audio/player/walking.wav" id="10_xkykt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmcgy"]
-radius = 24.0208
+radius = 20.025
 
 [node name="player" type="CharacterBody2D"]
+z_index = 2
+collision_mask = 7
 script = ExtResource("1_khy8f")
 inv = ExtResource("2_ybtgj")
 
@@ -16,7 +24,7 @@ inv = ExtResource("2_ybtgj")
 animation = &"M-SH-Run-Forward-Animation"
 
 [node name="player_hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 30)
+position = Vector2(-1, 19)
 shape = SubResource("CircleShape2D_qmcgy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -26,3 +34,30 @@ offset_left = -288.0
 offset_top = 253.0
 offset_right = 287.0
 offset_bottom = 316.0
+
+[node name="saved_kids_indicator" type="Node2D" parent="."]
+
+[node name="Anna_indicator" type="Sprite2D" parent="saved_kids_indicator"]
+position = Vector2(-532, -280)
+texture = ExtResource("5_hjt75")
+
+[node name="Ethan_indicator" type="Sprite2D" parent="saved_kids_indicator"]
+position = Vector2(-468, -283)
+texture = ExtResource("6_h8ake")
+
+[node name="Beth_indicator" type="Sprite2D" parent="saved_kids_indicator"]
+position = Vector2(-410, -283)
+texture = ExtResource("7_vmf3s")
+
+[node name="audio_components" type="Node2D" parent="."]
+
+[node name="pick_up_item" type="AudioStreamPlayer2D" parent="audio_components"]
+stream = ExtResource("8_hiaxf")
+
+[node name="background_music" type="AudioStreamPlayer2D" parent="audio_components"]
+stream = ExtResource("9_q7nyf")
+volume_db = -10.0
+autoplay = true
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="audio_components"]
+stream = ExtResource("10_xkykt")

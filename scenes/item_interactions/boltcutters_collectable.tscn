@@ -8,6 +8,7 @@
 radius = 20.025
 
 [node name="boltcutters_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_wxvto")
 item = ExtResource("2_dmprq")
 

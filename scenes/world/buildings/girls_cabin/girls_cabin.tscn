@@ -1,0 +1,192 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsmqhs1u0tj17"]
+
+[ext_resource type="Texture2D" uid="uid://dttai0lmne47x" path="res://graphics/map/Girls_Cabin/InsideGirls.png" id="1_45iyb"]
+[ext_resource type="Texture2D" uid="uid://cb6vk442kq04y" path="res://graphics/map/Boys_Cabin_Upgrade/Front Wall.png" id="2_vajnm"]
+[ext_resource type="Texture2D" uid="uid://b6upgfr4r2bc4" path="res://graphics/map/Boys_Cabin_Upgrade/Door.png" id="3_6nwvw"]
+[ext_resource type="Texture2D" uid="uid://cibj5mweh3wyf" path="res://graphics/map/Boys_Cabin_Upgrade/Roof.png" id="4_k4iaq"]
+[ext_resource type="Texture2D" uid="uid://bwjuom6ktj1xr" path="res://graphics/map/Bloody_Stuff/No.3.png" id="5_egyr6"]
+[ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="6_132pl"]
+[ext_resource type="Texture2D" uid="uid://453rijek5xe3" path="res://graphics/map/Bloody_Stuff/No.1.png" id="7_lxnqu"]
+[ext_resource type="Texture2D" uid="uid://dhu63rwxaxcua" path="res://graphics/map/Bloody_Stuff/No.5.png" id="8_b7uxp"]
+[ext_resource type="Texture2D" uid="uid://dp72477vux4s6" path="res://graphics/map/Bloody_Stuff/No.6.png" id="9_drrgn"]
+[ext_resource type="Texture2D" uid="uid://b0f5q1102gikd" path="res://graphics/map/Bloody_Stuff/No.4.png" id="10_jnlqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx2id"]
+size = Vector2(1846, 1083)
+
+[node name="GirlsCabin" type="Area2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 418.5)
+shape = SubResource("RectangleShape2D_gx2id")
+
+[node name="OuterBorders" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterBorders"]
+polygon = PackedVector2Array(-899, 973, -904, 784, -683, 782, -676, 39, -340, 39, -338, 808, -164, 808, -157, -14, 163, -6, 171, 823, 340, 818, 352, 64, 688, 59, 690, 813, 902, 811, 912, 977, 106, 979, 1075, 980, 1075, 340, 1177, 302, 1181, -1077, 58, -1089, 58, -1209, -66, -1211, -56, -1087, -1178, -1081, -1167, 305, -1073, 340, -1074, 990, -121, 977)
+
+[node name="InsideView" type="Node2D" parent="."]
+
+[node name="Inside" type="Sprite2D" parent="InsideView"]
+texture = ExtResource("1_45iyb")
+
+[node name="OutsideView" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="FrontWall" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, 600)
+texture = ExtResource("2_vajnm")
+
+[node name="Door" type="Sprite2D" parent="OutsideView"]
+position = Vector2(-11, 818)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("3_6nwvw")
+
+[node name="Roof" type="Sprite2D" parent="OutsideView"]
+position = Vector2(0, -380)
+texture = ExtResource("4_k4iaq")
+
+[node name="Blood" type="Node2D" parent="."]
+
+[node name="No_3" type="Sprite2D" parent="."]
+position = Vector2(-586, 718)
+texture = ExtResource("5_egyr6")
+
+[node name="No_2" type="Sprite2D" parent="."]
+position = Vector2(-602, 590)
+texture = ExtResource("6_132pl")
+
+[node name="No_1" type="Sprite2D" parent="."]
+position = Vector2(-515, 519)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_5" type="Sprite2D" parent="."]
+position = Vector2(-532, 634)
+texture = ExtResource("8_b7uxp")
+
+[node name="No_6" type="Sprite2D" parent="."]
+position = Vector2(-463, 685)
+texture = ExtResource("8_b7uxp")
+
+[node name="No_7" type="Sprite2D" parent="."]
+position = Vector2(-425, 189)
+texture = ExtResource("9_drrgn")
+
+[node name="No_4" type="Sprite2D" parent="."]
+position = Vector2(-566, 131)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_8" type="Sprite2D" parent="."]
+position = Vector2(-537, 185)
+texture = ExtResource("5_egyr6")
+
+[node name="No_9" type="Sprite2D" parent="."]
+position = Vector2(114, 77)
+texture = ExtResource("9_drrgn")
+
+[node name="No_10" type="Sprite2D" parent="."]
+position = Vector2(129, 133)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_11" type="Sprite2D" parent="."]
+position = Vector2(40, 99)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_12" type="Sprite2D" parent="."]
+position = Vector2(-79, 82)
+texture = ExtResource("5_egyr6")
+
+[node name="No_13" type="Sprite2D" parent="."]
+position = Vector2(621, 149)
+texture = ExtResource("8_b7uxp")
+
+[node name="No_14" type="Sprite2D" parent="."]
+position = Vector2(513, 93)
+texture = ExtResource("9_drrgn")
+
+[node name="No_15" type="Sprite2D" parent="."]
+position = Vector2(502, 153)
+texture = ExtResource("10_jnlqx")
+
+[node name="No_16" type="Sprite2D" parent="."]
+position = Vector2(790, 589)
+texture = ExtResource("10_jnlqx")
+
+[node name="No_17" type="Sprite2D" parent="."]
+position = Vector2(776, 625)
+texture = ExtResource("8_b7uxp")
+
+[node name="No_18" type="Sprite2D" parent="."]
+position = Vector2(666, 948)
+texture = ExtResource("9_drrgn")
+
+[node name="No_19" type="Sprite2D" parent="."]
+position = Vector2(778, 896)
+texture = ExtResource("10_jnlqx")
+
+[node name="No_20" type="Sprite2D" parent="."]
+position = Vector2(767, 944)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_21" type="Sprite2D" parent="."]
+position = Vector2(-618, 201)
+texture = ExtResource("5_egyr6")
+
+[node name="No_22" type="Sprite2D" parent="."]
+position = Vector2(-477, 140)
+texture = ExtResource("10_jnlqx")
+
+[node name="No_23" type="Sprite2D" parent="."]
+position = Vector2(-474, 207)
+texture = ExtResource("5_egyr6")
+
+[node name="No_24" type="Sprite2D" parent="."]
+position = Vector2(-553, 243)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_25" type="Sprite2D" parent="."]
+position = Vector2(-452, 241)
+texture = ExtResource("5_egyr6")
+
+[node name="No_26" type="Sprite2D" parent="."]
+position = Vector2(-591, 263)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_27" type="Sprite2D" parent="."]
+position = Vector2(-488, 270)
+texture = ExtResource("8_b7uxp")
+
+[node name="No_28" type="Sprite2D" parent="."]
+position = Vector2(-421, 275)
+texture = ExtResource("9_drrgn")
+
+[node name="No_29" type="Sprite2D" parent="."]
+position = Vector2(-524, 293)
+texture = ExtResource("5_egyr6")
+
+[node name="No_30" type="Sprite2D" parent="."]
+position = Vector2(-607, 299)
+texture = ExtResource("8_b7uxp")
+
+[node name="No_31" type="Sprite2D" parent="."]
+position = Vector2(-786, 918)
+texture = ExtResource("10_jnlqx")
+
+[node name="No_32" type="Sprite2D" parent="."]
+position = Vector2(-594, 931)
+texture = ExtResource("7_lxnqu")
+
+[node name="No_33" type="Sprite2D" parent="."]
+position = Vector2(-226, 357)
+texture = ExtResource("5_egyr6")
+
+[node name="No_34" type="Sprite2D" parent="."]
+position = Vector2(-797, 322)
+texture = ExtResource("8_b7uxp")
+
+[node name="No_35" type="Sprite2D" parent="."]
+position = Vector2(-776, 386)
+texture = ExtResource("7_lxnqu")

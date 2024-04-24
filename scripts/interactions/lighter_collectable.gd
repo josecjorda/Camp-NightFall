@@ -1,4 +1,9 @@
 extends StaticBody2D
+## Describes how the "lighter" item is picked up by the player
+##
+## [b]Notes:[/b][br]
+## - calls the global variable invArr to store that this item is picked up by the user to later
+## be passed on to the final boss fight and possible as determinates for saving the kid NPCs.
 
 @export var item: InvItem
 var player = null

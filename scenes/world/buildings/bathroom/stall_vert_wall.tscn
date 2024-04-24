@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccjq3h2w8o57l"]
+
+[ext_resource type="Texture2D" uid="uid://do02phpcc0i10" path="res://graphics/map/BathroomUpgrade/StallVertWall.png" id="1_k6uml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7311"]
+size = Vector2(31, 480)
+
+[node name="StallVertWall" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_u7311")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k6uml")

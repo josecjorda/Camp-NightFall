@@ -10,7 +10,7 @@ extends Control
 ##
 ## [b]Rules:[/b][br]
 ## - Can only do 1 thing per turn (attack or use item)
-## - When the weapon is used, the Break Die is rolled and if lands on effect break, the weapon breaks and can no longer be used (disappears from the item bar). 
+## - When the weapon is used, the Effect Die is rolled and if lands on effect break, the weapon breaks and can no longer be used (disappears from the item bar). 
 ## - Each Troika roll is a D8
 ## - Dice rolls effect outcome of damage and action effects
 ## - Dots activate at beginning of a entitiy's turn[br]
@@ -32,15 +32,19 @@ var entities = preload("res://scripts/combat/entities.gd")
 var enemy = entities.monster_class.new() 
 var player = entities.player_class.new()
 ## Array of items in inventory
-#var item_bar = ["Fist", "Axe", "test", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
+#var item_bar = ["Fist", "Axe", "Shotgun", "Machete", "knife", "Boltcutters", "Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var item_bar = Global.invArr
 var consumables = ["Soda", "Crackers", "Bandages", "Alcohol", "Chocolate"]
 var player_turn = true
 
-
+## Plays animations. Adds items to itembar.
 func _ready():
+	## Adds fist to inventory
 	if "Fist" not in item_bar:
-		item_bar.append("Fist") # Adds fist to inventory
+		item_bar.append("Fist")
+	## Plays animations and music
+	$Cutscene.visible = true
+	$Cutscene.play("default")
 	$Enemy.play("default")
 	$Player.play(Global.gender + "_"+ "default")
 	hide_text()
@@ -48,10 +52,12 @@ func _ready():
 	set_health($EnemyHealthBar, enemy.health, enemy.max_health)
 	set_health($PlayerHealthBar, player.health, player.max_health)
 	var item_buttons = $Itembar/HBoxContainer.get_children() 
-	for item in item_bar: ## Removes unusuable items from item_bar
+	## Removes unusuable items from item_bar
+	for item in item_bar:
 		if item not in player.actions.keys():
 			item_bar.erase(item)
-	for index in range(item_bar.size()): ## Connects buttons to signal and adds textures based on inventory
+	## Connects buttons to signal and adds textures based on inventory
+	for index in range(item_bar.size()):
 		var button = item_buttons[index]
 		var item = item_bar[index]
 		button.set_name(item)
@@ -60,7 +66,22 @@ func _ready():
 		var image = load(image_path)
 		button.texture_normal = image
 		button.tooltip_text = player.actions.get(item).get("tool_tip")
-
+	var amt_kids_unsaved = Global.kids_saved.count(0)
+	## Adds child unsaved buff to enemy
+	var health_increase = 25 * amt_kids_unsaved
+	enemy.max_health += health_increase
+	enemy.health += health_increase
+	var child_buff = {"name" : "children_unsaved", "children_unsaved" : amt_kids_unsaved, "health_increase": health_increase}
+	enemy.buffs.append(child_buff.duplicate())
+	var buff_icon = ColorRect.new() ## Adds buff icon
+	buff_icon.name = child_buff.name
+	buff_icon.color = Color.LAWN_GREEN
+	buff_icon.custom_minimum_size = Vector2(25,0)
+	buff_icon.tooltip_text = ""
+	for key in child_buff.keys():
+		buff_icon.tooltip_text += key + ": " + str(child_buff[key]) + "\n"
+	$EnemyStatusBar.add_child(buff_icon)
+	set_health($EnemyHealthBar, enemy.health, enemy.max_health)
 
 ## Looks for input. Is used as a way to close textboxes and switch between player and enemy turn.
 func _input(event):
@@ -124,8 +145,8 @@ func enemy_action_choice():
 func roll(source, roll_values):
 	var roll = randi()%roll_values.size()
 	for debuff in source.debuffs:
-		if "roll_decrease" in debuff:
-			roll -= debuff.roll_decrease
+		if "damage_roll_decrease" in debuff:
+			roll -= debuff.damage_roll_decrease
 			debuff.turns -= 1
 			var debuff_icon = get_node("StatusBar/" + debuff.name)
 			debuff_icon.tooltip_text = ""
@@ -153,11 +174,11 @@ func roll(source, roll_values):
 
 
 ## Rolls dice to choose effects
-func break_roll(source, roll_values):
+func effect_roll(source, roll_values):
 	var roll = randi()%roll_values.size()
 	for debuff in source.debuffs:
-		if "break_roll_decrease" in debuff:
-			roll -= debuff.break_roll_decrease
+		if "effect_roll_decrease" in debuff:
+			roll -= debuff.effect_roll_decrease
 			debuff.turns -= 1
 			var debuff_icon = get_node("StatusBar/" + debuff.name)
 			debuff_icon.tooltip_text = ""
@@ -167,8 +188,8 @@ func break_roll(source, roll_values):
 				debuff_icon.queue_free()
 				source.debuffs.erase(debuff)
 	for buff in source.buffs:
-		if "break_roll_increase" in buff:
-			roll += buff.break_roll_increase
+		if "effect_roll_increase" in buff:
+			roll += buff.effect_roll_increase
 			buff.turns -= 1
 			var buff_icon = get_node("StatusBar/" + buff.name)
 			buff_icon.tooltip_text = ""
@@ -240,25 +261,30 @@ func remove_item(action_name):
 ## Calculates damage target takes
 func calculate_damage(source, target, action_info, action_name):
 	var damage = roll(source, action_info.damage)
+	var no_damage = false
+	if damage == 0:
+		no_damage = true
 	if action_info.effect != null:
-		var effect = break_roll(source, action_info.effect)
+		var effect = effect_roll(source, action_info.effect)
 		if effect == "Double Damage":
 			display_text("Rolled double damage. ")
 			damage *= 2
 		elif effect == "Break":
-			display_text(action_name + " broke :(. ")
+			display_text(action_name + " broke. ")
 			remove_item(action_name)
 	for buff in source.buffs:
-		if "damage_increase" in buff:
-			damage += buff.damage_increase
-			buff.turns -= 1
-			var buff_icon = get_node("StatusBar/" + buff.name)
-			buff_icon.tooltip_text = ""
-			for key in buff.keys():
-				buff_icon.tooltip_text += key + ": " +  str(buff[key]) + "\n"
-			if buff.turns == 0:
-				buff_icon.queue_free()
-				source.buffs.erase(buff)
+		if no_damage == false:
+			if "damage_increase" in buff:
+				damage += buff.damage_increase
+				if "turns" in buff:
+					buff.turns -= 1
+				var buff_icon = get_node("StatusBar/" + buff.name)
+				buff_icon.tooltip_text = ""
+				for key in buff.keys():
+					buff_icon.tooltip_text += key + ": " +  str(buff[key]) + "\n"
+				if "turns" in buff and buff.turns == 0:
+					buff_icon.queue_free()
+					source.buffs.erase(buff)
 	return damage
 
 
@@ -321,3 +347,8 @@ func finish_battle(target):
 	elif target == enemy: ## Win
 		var next_scene = "res://scenes/end_screens/win_screen.tscn"
 		get_tree().change_scene_to_file(next_scene)
+
+
+## Plays cutscene then removes it
+func _on_cutscene_animation_finished():
+	$Cutscene.queue_free()

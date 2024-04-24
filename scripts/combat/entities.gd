@@ -9,7 +9,7 @@ extends Node
 class monster_class:
 	var name = "Monster"
 	var health_name = "Enemy" ## Correlates to health bar name
-	var max_health = 100 + 25*Global.kids_saved.count(1)
+	var max_health = 100
 	var health = max_health
 	var buffs = []
 	var debuffs = []
@@ -18,7 +18,7 @@ class monster_class:
 			"damage" : null,
 			"effect" : null,
 			"heal" : null,
-			"debuff" : {"name" : "fear", "turns" : 4, "roll_decrease" : 1},
+			"debuff" : {"name" : "fear", "turns" : 4, "damage_roll_decrease" : 1},
 			"buff" : null,
 			"cleanse" : null,
 			"cool_down" : 8,
@@ -57,16 +57,16 @@ class player_class:
 	var debuffs = []
 	var actions = { ## Index of damage and effect arrays will correlate with dice rolls
 		"Fist": {
-			"damage" : [0, 0, 1, 1, 1, 1, 2, 2],
+			"damage" : [0, 0, 2, 2, 2, 2, 3, 3],
 			"effect" : ["Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
 			"heal" : null,
 			"debuff" : null,
 			"buff" : null,
 			"cleanse" : null,
-			"tool_tip" : "Low risk low reward"
+			"tool_tip" : "Low reward"
 		},
 		"Axe": {
-			"damage" : [0, 0, 0, 6, 6, 7, 8, 9],
+			"damage" : [0, 0, 0, 7, 7, 8, 9, 10],
 			"effect" : ["Break", "Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
 			"heal" : null,
 			"debuff" : null,
@@ -75,7 +75,7 @@ class player_class:
 			"tool_tip" : "High risk high reward"
 		},
 		"Shotgun": {
-			"damage" : [0, 0, 9, 9, 9, 10, 10, 11],
+			"damage" : [0, 0, 10, 10, 10, 11, 11, 12],
 			"effect" : null,
 			"heal" : null,
 			"debuff" : null,
@@ -85,7 +85,7 @@ class player_class:
 			"attacks_left" : 2
 		},
 		"Machete": {
-			"damage" : [0, 0, 3, 3, 4, 4, 4, 5],
+			"damage" : [0, 0, 4, 4, 5, 5, 5, 6],
 			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
 			"heal" : null,
 			"debuff" : null,
@@ -94,7 +94,7 @@ class player_class:
 			"tool_tip" : "Low risk medium reward"
 		},
 		"knife": {
-			"damage" : [0, 0, 3, 3, 3, 3, 4, 4],
+			"damage" : [0, 0, 4, 4, 4, 4, 5, 5],
 			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
 			"heal" : null,
 			"debuff" : null,
@@ -103,7 +103,7 @@ class player_class:
 			"tool_tip" : "Low risk medium reward"
 		},
 		"Boltcutters": {
-			"damage" : [0, 0, 3, 3, 3, 3, 4, 4],
+			"damage" : [0, 0, 4, 4, 4, 4, 5, 5],
 			"effect" : ["Break", "Break", "Nothing", "Nothing", "Nothing", "Nothing", "Nothing", "Double Damage"],
 			"heal" : null,
 			"debuff" : null,
@@ -152,7 +152,7 @@ class player_class:
 			"effect" : null,
 			"heal" : 2.0/5.0,
 			"debuff" : null,
-			"buff" : {"name" : "chocolate bar", "turns": 3, "break_roll_increase": 1},
+			"buff" : {"name" : "chocolate bar", "turns": 3, "effect_roll_increase": 1},
 			"cleanse" : null,
 			"tool_tip" : "Heals for moderate amount and increases effect rolls"
 		}

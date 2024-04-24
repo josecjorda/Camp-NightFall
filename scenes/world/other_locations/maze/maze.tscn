@@ -1,0 +1,221 @@
+[gd_scene load_steps=9 format=3 uid="uid://bplobu3pyfubu"]
+
+[ext_resource type="Texture2D" uid="uid://dt5g8pv26t5du" path="res://graphics/map/MazeUpgrade/TopBothUnCut.png" id="1_nr753"]
+[ext_resource type="Texture2D" uid="uid://1kcs67d0ouke" path="res://graphics/map/Bloody_Stuff/No.2.png" id="2_lty0s"]
+[ext_resource type="Texture2D" uid="uid://bwjuom6ktj1xr" path="res://graphics/map/Bloody_Stuff/No.3.png" id="3_bsten"]
+[ext_resource type="Texture2D" uid="uid://dhu63rwxaxcua" path="res://graphics/map/Bloody_Stuff/No.5.png" id="4_wyr6a"]
+[ext_resource type="Texture2D" uid="uid://453rijek5xe3" path="res://graphics/map/Bloody_Stuff/No.1.png" id="5_k7otk"]
+[ext_resource type="Texture2D" uid="uid://b0f5q1102gikd" path="res://graphics/map/Bloody_Stuff/No.4.png" id="6_g0b2e"]
+[ext_resource type="Texture2D" uid="uid://dp72477vux4s6" path="res://graphics/map/Bloody_Stuff/No.6.png" id="7_17623"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp8ux"]
+size = Vector2(7237.62, 4952.48)
+
+[node name="Maze" type="Area2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10.891, -35.6434)
+shape = SubResource("RectangleShape2D_kp8ux")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nr753")
+
+[node name="UncuttableBushes" type="Node2D" parent="."]
+visible = false
+
+[node name="Top" type="StaticBody2D" parent="UncuttableBushes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UncuttableBushes/Top"]
+polygon = PackedVector2Array(-3217.82, -2566.34, -3216.83, -887.129, -2294.06, -899.01, -2305.94, -194.059, -2072.28, -201.98, -2072.28, -895.049, 232.673, -891.089, 228.713, -700.99, 2.9703, -712.871, 5.94059, -445.545, 462.376, -439.604, 454.455, -665.347, 684.158, -665.347, 696.04, -1809.9, 1155.45, -1805.94, 1155.45, -1631.68, 925.743, -1635.64, 925.743, -1346.53, 1155.45, -1346.53, 1155.45, -1132.67, 1393.07, -1124.75, 1381.19, -1817.82, 2991.09, -1803.96, 2987.13, -1341.58, 3217.82, -1344.55, 3213.86, -2103.96, 463.366, -2097.03, 463.366, -1171.29, -239.604, -1174.26, -222.772, -2100, -452.475, -2097.03, -455.446, -1174.26, -1149.51, -1168.32, -1149.51, -2108.91, -1370.3, -2098.02, -1378.22, -1163.37, -2997.03, -1174.26, -2980.2, -1812.87, -2075.25, -1818.81, -2071.29, -2100.99, -2986.14, -2098.02, -2983.17, -2274.26, -1835.64, -2277.23, -1829.7, -1635.64, -2756.44, -1632.67, -2760.4, -1359.41, -1605.94, -1355.45, -1613.86, -2280.2, -914.852, -2273.27, -921.782, -1348.51, -682.178, -1352.48, -696.04, -2280.2, 8.91089, -2277.23, 5.94059, -1341.58, 235.644, -1352.48, 231.683, -2277.23, 3446.53, -2261.39, 3461.39, 672.277, 3216.83, 667.327, 3226.73, -1179.21, 2059.41, -1163.37, 2079.21, -470.297, 1620.79, -485.149, 1609.9, -20.7921, 1151.49, -20.7921, 1156.44, 218.812, 916.832, 207.921, 926.733, 493.069, 1400.99, 488.119, 1391.09, 258.416, 1844.55, 253.465, 1854.46, -215.842, 2308.91, -200.99, 2299.01, -889.109, 2977.23, -879.208, 2998.02, 452.475, 2533.66, 437.624, 2546.53, 898.02, 2064.36, 897.03, 2079.21, 1181.19, 2748.51, 1171.29, 2763.37, 717.822, 2982.18, 737.624, 3007.92, 1829.7, 2508.91, 1809.9, 2528.71, 1341.58, 916.832, 1351.49, 926.733, 1824.75, 238.614, 1809.9, 222.772, 2114.85, 2066.34, 2087.13, 2066.34, 1821.78, 1151.49, 1809.9, 1151.49, 1640.59, 2303.96, 1657.43, 2299.01, 2094.06, 3226.73, 2094.06, 3211.88, 941.584, 3716.83, 944.554, 3691.09, -2576.24)
+
+[node name="Bottom" type="StaticBody2D" parent="UncuttableBushes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UncuttableBushes/Bottom"]
+polygon = PackedVector2Array(-3697.03, -2576.24, -3451.49, -2576.24, -3455.45, -718.812, -2524.75, -718.812, -2520.79, -21.7822, -1598.02, -25.7426, -1609.9, -718.812, -916.832, -722.772, -904.951, -247.525, -441.584, -243.564, -453.465, -433.663, -691.089, -433.663, -691.089, -710.891, -235.644, -710.891, -227.723, 37.6238, -924.753, 41.5842, -920.792, 251.485, -1138.61, 251.485, -1138.61, -425.743, -1392.08, -425.743, -1380.2, 263.366, -2766.34, 251.485, -2754.46, -433.663, -3455.45, -429.703, -3455.45, 897.03, -2994.06, 891.089, -2994.06, 1177.23, -3228.71, 1189.11, -3224.75, 1633.66, -3459.41, 1633.66, -3451.49, 2276.24, -2519.8, 2263.37, -2525.74, 1636.63, -2766.34, 1633.66, -2757.43, 2094.06, -3224.75, 2096.04, -3203.96, 1805.94, -2971.29, 1814.85, -2985.15, 1348.51, -2297.03, 1348.51, -2309.9, 2280.2, -2071.29, 2276.24, -2071.29, 2028.71, -1839.6, 2036.63, -1827.72, 2280.2, -1156.44, 2272.28, -1139.6, 2036.63, -916.832, 2041.58, -920.792, 2272.28, -220.792, 2276.24, -215.842, 1348.51, 463.366, 1361.39, 467.327, 1117.82, 694.059, 1126.73, 694.059, 1642.57, -1.9802, 1646.53, 5.94059, 2272.28, 3453.47, 2280.2, 3451.49, 1135.64, 3684.16, 1130.69, 3699.01, 2567.33, -3686.14, 2557.43)
+
+[node name="MidLeft" type="StaticBody2D" parent="UncuttableBushes"]
+position = Vector2(10.891, -35.6434)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UncuttableBushes/MidLeft"]
+polygon = PackedVector2Array(-3008.91, -219.802, -3229.7, -223.762, -3225.74, 771.287, -2765.35, 763.366, -2773.27, 1226.73, -2070.3, 1215.84, -2082.18, 1451.48, -1150.49, 1440.59, -1166.34, 988.119, -922.772, 988.119, -930.693, 752.475, -459.406, 756.435, -452.475, 525.742, 224.753, 516.832, 216.832, -218.812, -9.90088, -220.792, -17.8217, 230.693, -705.94, 243.564, -692.079, 463.366, -1154.46, 474.257, -1154.46, 711.881, -1393.07, 708.911, -1385.15, 1164.36, -1850.49, 1166.34, -1852.48, 925.742, -2537.62, 928.713, -2542.57, 463.366, -3004.95, 468.317)
+
+[node name="SmallMidLeft" type="StaticBody2D" parent="UncuttableBushes"]
+position = Vector2(10.891, -35.6434)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UncuttableBushes/SmallMidLeft"]
+polygon = PackedVector2Array(-2306.93, 471.287, -2316.83, 758.416, -1623.76, 753.465, -1625.74, 469.307)
+
+[node name="Mid" type="StaticBody2D" parent="UncuttableBushes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UncuttableBushes/Mid"]
+polygon = PackedVector2Array(-917.822, 1117.82, -921.782, 1419.8, -449.505, 1413.86, -449.505, 1174.26, 8.91089, 1178.22, 2.9703, 941.584, 144.554, 941.584, 144.554, 655.446, -229.703, 665.347, -223.762, 892.079, -682.178, 900.99, -682.178, 1146.53)
+
+[node name="MidRight" type="StaticBody2D" parent="UncuttableBushes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UncuttableBushes/MidRight"]
+polygon = PackedVector2Array(2756.44, -1638.61, 1617.82, -1628.71, 1617.82, -946.535, 1148.51, -942.574, 1145.54, -483.168, 689.109, -483.168, 692.079, -246.535, 462.376, -253.465, 466.337, 666.337, 366.337, 666.337, 365.347, 952.475, 918.812, 955.446, 914.852, 1182.18, 1847.52, 1185.15, 1844.55, 715.842, 2300.99, 718.812, 2294.06, 256.436, 2294.06, 256.436, 2760.4, 256.436, 2756.44, -720.792, 2531.68, -711.881, 2536.63, -26.7327, 2080.2, -26.7327, 2071.29, 435.644, 1615.84, 433.663, 1620.79, 899.01, 1142.57, 899.01, 1150.49, 658.416, 691.089, 666.337, 688.119, 26.7327, 925.743, 29.703, 920.792, -200.99, 1383.17, -193.069, 1381.19, -663.366, 1840.59, -655.446, 1837.62, -1353.47, 2763.37, -1345.54)
+
+[node name="MidBottom" type="StaticBody2D" parent="UncuttableBushes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UncuttableBushes/MidBottom"]
+polygon = PackedVector2Array(-2065.35, 1582.18, -2072.28, 1869.31, -1611.88, 1876.24, -1609.9, 2102.97, -1376.24, 2102.97, -1381.19, 1862.38, -696.04, 1865.35, -690.099, 2102.97, -456.436, 2102.97, -463.366, 1585.15)
+
+[node name="CuttableBushes" type="Node2D" parent="."]
+visible = false
+
+[node name="TopBush" type="StaticBody2D" parent="CuttableBushes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CuttableBushes/TopBush"]
+polygon = PackedVector2Array(2.9703, -445.545, -0.990099, -264.356, 227.723, -264.356, 225.743, -442.574)
+
+[node name="BottomBush" type="StaticBody2D" parent="CuttableBushes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CuttableBushes/BottomBush"]
+polygon = PackedVector2Array(143.564, 656.436, 146.535, 949.505, 375.248, 949.505, 366.337, 656.436)
+
+[node name="Blood" type="Node2D" parent="."]
+
+[node name="No_2" type="Sprite2D" parent="Blood"]
+position = Vector2(-3267, -2284)
+texture = ExtResource("2_lty0s")
+
+[node name="No_3" type="Sprite2D" parent="Blood"]
+position = Vector2(-3312, -2390)
+texture = ExtResource("3_bsten")
+
+[node name="No_5" type="Sprite2D" parent="Blood"]
+position = Vector2(-3349, -2318)
+texture = ExtResource("4_wyr6a")
+
+[node name="No_4" type="Sprite2D" parent="Blood"]
+position = Vector2(-3384, -1340)
+texture = ExtResource("3_bsten")
+
+[node name="No_1" type="Sprite2D" parent="Blood"]
+position = Vector2(-3077, -836)
+texture = ExtResource("5_k7otk")
+
+[node name="No_6" type="Sprite2D" parent="Blood"]
+position = Vector2(-2603, -791)
+texture = ExtResource("2_lty0s")
+
+[node name="No_7" type="Sprite2D" parent="Blood"]
+position = Vector2(-2483, -783)
+texture = ExtResource("5_k7otk")
+
+[node name="No_8" type="Sprite2D" parent="Blood"]
+position = Vector2(-2384, -667)
+texture = ExtResource("6_g0b2e")
+
+[node name="No_9" type="Sprite2D" parent="Blood"]
+position = Vector2(-1450, 328)
+texture = ExtResource("4_wyr6a")
+
+[node name="No_10" type="Sprite2D" parent="Blood"]
+position = Vector2(-1208, -372)
+texture = ExtResource("5_k7otk")
+
+[node name="No_11" type="Sprite2D" parent="Blood"]
+position = Vector2(-1264, -307)
+texture = ExtResource("2_lty0s")
+
+[node name="No_12" type="Sprite2D" parent="Blood"]
+position = Vector2(-3421, 363)
+texture = ExtResource("4_wyr6a")
+
+[node name="No_13" type="Sprite2D" parent="Blood"]
+position = Vector2(-1526, 1512)
+texture = ExtResource("3_bsten")
+
+[node name="No_14" type="Sprite2D" parent="Blood"]
+position = Vector2(1881, 1245)
+texture = ExtResource("5_k7otk")
+
+[node name="No_15" type="Sprite2D" parent="Blood"]
+position = Vector2(2939, 822)
+texture = ExtResource("6_g0b2e")
+
+[node name="No_16" type="Sprite2D" parent="Blood"]
+position = Vector2(2838, 777)
+texture = ExtResource("4_wyr6a")
+
+[node name="No_17" type="Sprite2D" parent="Blood"]
+position = Vector2(344, 525)
+texture = ExtResource("5_k7otk")
+
+[node name="No_18" type="Sprite2D" parent="Blood"]
+position = Vector2(-1455, 2178)
+texture = ExtResource("2_lty0s")
+
+[node name="No_19" type="Sprite2D" parent="Blood"]
+position = Vector2(-1496, -1904)
+texture = ExtResource("3_bsten")
+
+[node name="No_20" type="Sprite2D" parent="Blood"]
+position = Vector2(314, -2082)
+texture = ExtResource("5_k7otk")
+
+[node name="No_21" type="Sprite2D" parent="Blood"]
+position = Vector2(3315, -1355)
+texture = ExtResource("2_lty0s")
+
+[node name="No_22" type="Sprite2D" parent="Blood"]
+position = Vector2(1953, -592)
+texture = ExtResource("7_17623")
+
+[node name="No_23" type="Sprite2D" parent="Blood"]
+position = Vector2(-2900, -1690)
+texture = ExtResource("5_k7otk")
+
+[node name="No_24" type="Sprite2D" parent="Blood"]
+position = Vector2(834, -1640)
+texture = ExtResource("2_lty0s")
+
+[node name="No_25" type="Sprite2D" parent="Blood"]
+position = Vector2(1312, 776)
+texture = ExtResource("5_k7otk")
+
+[node name="No_26" type="Sprite2D" parent="Blood"]
+position = Vector2(1192, 740)
+texture = ExtResource("2_lty0s")
+
+[node name="No_27" type="Sprite2D" parent="Blood"]
+position = Vector2(1242, 827)
+texture = ExtResource("3_bsten")
+
+[node name="No_28" type="Sprite2D" parent="Blood"]
+position = Vector2(1236, 777)
+texture = ExtResource("6_g0b2e")
+
+[node name="No_29" type="Sprite2D" parent="Blood"]
+position = Vector2(1310, 824)
+texture = ExtResource("4_wyr6a")
+
+[node name="No_30" type="Sprite2D" parent="Blood"]
+position = Vector2(1305, 742)
+texture = ExtResource("5_k7otk")
+
+[node name="No_31" type="Sprite2D" parent="Blood"]
+position = Vector2(1191, 818)
+texture = ExtResource("2_lty0s")
+
+[node name="No_32" type="Sprite2D" parent="Blood"]
+position = Vector2(1274, 808)
+texture = ExtResource("4_wyr6a")
+
+[node name="No_33" type="Sprite2D" parent="Blood"]
+position = Vector2(1244, 728)
+texture = ExtResource("2_lty0s")
+
+[node name="No_34" type="Sprite2D" parent="Blood"]
+position = Vector2(3400, 555)
+texture = ExtResource("3_bsten")
+
+[node name="No_35" type="Sprite2D" parent="Blood"]
+position = Vector2(3340, 499)
+texture = ExtResource("2_lty0s")
+
+[node name="No_36" type="Sprite2D" parent="Blood"]
+position = Vector2(3302, 595)
+texture = ExtResource("5_k7otk")

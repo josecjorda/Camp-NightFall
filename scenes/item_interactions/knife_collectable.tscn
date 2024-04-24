@@ -8,6 +8,7 @@
 radius = 17.0294
 
 [node name="knife_collectable" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_kt11p")
 item = ExtResource("2_foqu5")
 
