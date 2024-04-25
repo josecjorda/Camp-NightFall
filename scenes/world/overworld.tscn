@@ -110,7 +110,7 @@ position = Vector2(915, -1215)
 
 [node name="player" parent="." instance=ExtResource("3_scpwk")]
 modulate = Color(0.501961, 0.501961, 0.501961, 1)
-position = Vector2(-4401, 121)
+position = Vector2(-4406, 87)
 
 [node name="timer" parent="player" instance=ExtResource("4_526bm")]
 position = Vector2(438, -296)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://t5wy7p87ifvd"
+path="res://.godot/imported/Ethan Drowning.gif-961beb04d6b41a8b3c34ebe201f7d33d.tres"
+
+[deps]
+
+source_file="res://scenes/minigame/Ethan Drowning.gif"
+dest_files=["res://.godot/imported/Ethan Drowning.gif-961beb04d6b41a8b3c34ebe201f7d33d.tres"]
+
+[params]
+
+frames_per_second=30

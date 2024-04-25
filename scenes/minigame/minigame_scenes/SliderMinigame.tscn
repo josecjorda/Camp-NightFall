@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hiu6hpg5s423"]
+
+[ext_resource type="Script" path="res://scenes/minigame/minigame_scripts/SliderMinigame.gd" id="1_4tsxm"]
+
+[node name="SliderMinigame" type="Node2D"]
+script = ExtResource("1_4tsxm")
+
+[node name="PlayArea" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.254902)
+offset_right = 122.0
+offset_bottom = 246.0

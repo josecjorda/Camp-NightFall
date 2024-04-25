@@ -1,0 +1,341 @@
+[gd_scene load_steps=47 format=3 uid="uid://dosv0t8rhcn86"]
+
+[ext_resource type="Script" path="res://scenes/minigame/minigame_scripts/ChaseMinigameMaster.gd" id="1_3bm0v"]
+[ext_resource type="Script" path="res://scenes/minigame/minigame_scripts/SliderMinigame.gd" id="1_goqic"]
+[ext_resource type="AudioStream" uid="uid://cxl3yi6ll4rf" path="res://audio/minigame_audio/Water1.wav" id="2_nycm0"]
+[ext_resource type="Texture2D" uid="uid://bfaxtxjx83g7a" path="res://graphics/charactercreationmenu/background/background_5.png" id="2_x8ogb"]
+[ext_resource type="AudioStream" uid="uid://21kgjlaj3rc0" path="res://audio/minigame_audio/Victory.wav" id="3_ru71g"]
+[ext_resource type="Texture2D" uid="uid://bgfbc0ee8ii53" path="res://graphics/charactercreationmenu/background/background_2.png" id="4_sdolq"]
+[ext_resource type="AudioStream" uid="uid://dt1puyvf0oydx" path="res://audio/minigame_audio/Augh.wav" id="5_eafkc"]
+[ext_resource type="AudioStream" uid="uid://cq3nt8tlav6vi" path="res://audio/minigame_audio/Blow3.wav" id="5_ev16c"]
+[ext_resource type="Texture2D" uid="uid://c27dhordav5cx" path="res://graphics/player/F_FADE/right/F-FADE-Run-Right-0.png" id="5_gkpp4"]
+[ext_resource type="Texture2D" uid="uid://cukv6b1e1530x" path="res://graphics/enemy/Demon.png" id="5_y208v"]
+[ext_resource type="Texture2D" uid="uid://cb5hc7oaubkxn" path="res://graphics/charactercreationmenu/signs/wooden_background.png" id="7_5a4ss"]
+[ext_resource type="Texture2D" uid="uid://dk5uv6y6wd2pr" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-0.png" id="10_gbjdo"]
+[ext_resource type="Texture2D" uid="uid://kk38yutqpftg" path="res://scenes/minigame/victory.jpg" id="10_ulybs"]
+[ext_resource type="Texture2D" uid="uid://6c1p840rxl40" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-1.png" id="11_1i8pm"]
+[ext_resource type="Texture2D" uid="uid://l2j2bjrmdrev" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-2.png" id="12_c5ax1"]
+[ext_resource type="Texture2D" uid="uid://ba77j25l07k2u" path="res://scenes/minigame/You Died (1).png" id="13_qk6p8"]
+[ext_resource type="Texture2D" uid="uid://cycx5s3sankmx" path="res://graphics/NPC/Ethan/backwards/Ethan-Backwards-3.png" id="13_yqvo5"]
+[ext_resource type="Texture2D" uid="uid://cjw6bjnw6mllr" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-0.png" id="14_oasgw"]
+[ext_resource type="Texture2D" uid="uid://nuvl4cbp7h0y" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-1.png" id="15_ujtv7"]
+[ext_resource type="Texture2D" uid="uid://jtnrx28iigoe" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-2.png" id="16_mmk5k"]
+[ext_resource type="Texture2D" uid="uid://bmrg1mxqove7a" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-3.png" id="17_t8i6l"]
+[ext_resource type="Texture2D" uid="uid://bmgeqlbn7b4io" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-4.png" id="18_tpuxc"]
+[ext_resource type="Texture2D" uid="uid://dr483t1w0sx5c" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-5.png" id="19_efti5"]
+[ext_resource type="Texture2D" uid="uid://ymcvlfruwn" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-6.png" id="20_vi3hl"]
+[ext_resource type="Texture2D" uid="uid://vuy4gj1na8sr" path="res://graphics/NPC/Ethan/drowning/Ethan Drowning-7.png" id="21_1iwn2"]
+[ext_resource type="Texture2D" uid="uid://v06kyqr38int" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-0.png" id="22_g2h78"]
+[ext_resource type="Texture2D" uid="uid://c6mbfw276mr4t" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-1.png" id="23_xli0i"]
+[ext_resource type="Texture2D" uid="uid://kfdn1cep7q4f" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-2.png" id="24_5cral"]
+[ext_resource type="Texture2D" uid="uid://dorckt6bcq3m0" path="res://graphics/NPC/Ethan/forwards/Ethan-Forward-3.png" id="25_srvnc"]
+[ext_resource type="Texture2D" uid="uid://b6ixbfvdadug3" path="res://graphics/NPC/Ethan/left/Ethan-Left-0.png" id="26_j6ywx"]
+[ext_resource type="Texture2D" uid="uid://dka0pweh78rog" path="res://graphics/NPC/Ethan/left/Ethan-Left-1.png" id="27_coki3"]
+[ext_resource type="Texture2D" uid="uid://ct6kiwqc4ujk1" path="res://graphics/NPC/Ethan/left/Ethan-Left-2.png" id="28_5dwlk"]
+[ext_resource type="Texture2D" uid="uid://dbc3vw34eb4n3" path="res://graphics/NPC/Ethan/left/Ethan-Left-3.png" id="29_5ehrr"]
+[ext_resource type="Texture2D" uid="uid://bw4j7f4soxlah" path="res://graphics/NPC/Ethan/right/Ethan-Right-0.png" id="30_5wlg2"]
+[ext_resource type="Texture2D" uid="uid://dm3vnkxbmudqb" path="res://graphics/NPC/Ethan/right/Ethan-Right-1.png" id="31_bo04a"]
+[ext_resource type="Texture2D" uid="uid://b1b5mjvxt601k" path="res://graphics/NPC/Ethan/right/Ethan-Right-2.png" id="32_8a11e"]
+[ext_resource type="Texture2D" uid="uid://umnw34n2ayvh" path="res://graphics/NPC/Ethan/right/Ethan-Right-3.png" id="33_crdbl"]
+[ext_resource type="Texture2D" uid="uid://di0l3wxxo6xnb" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-0.png" id="34_x54ku"]
+[ext_resource type="Texture2D" uid="uid://vpwv6h2hql3u" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-1.png" id="35_2qat0"]
+[ext_resource type="Texture2D" uid="uid://bm5e851qo5cmu" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-2.png" id="36_t7ewk"]
+[ext_resource type="Texture2D" uid="uid://bvglr07p6hj4m" path="res://graphics/NPC/Ethan/swimming/Ethan-Swimming-3.png" id="37_yuqph"]
+
+[sub_resource type="Gradient" id="Gradient_4om5m"]
+colors = PackedColorArray(0.568627, 0.678431, 0.835294, 1, 0.721569, 0.466667, 0.807843, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fcptt"]
+gradient = SubResource("Gradient_4om5m")
+fill_from = Vector2(0.983516, 0.549451)
+fill_to = Vector2(1, 0.243902)
+
+[sub_resource type="Gradient" id="Gradient_h88wk"]
+colors = PackedColorArray(0, 0.0156863, 0.180392, 1, 0, 0, 0.407843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6brwi"]
+gradient = SubResource("Gradient_h88wk")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjswu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gbjdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1i8pm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c5ax1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yqvo5")
+}],
+"loop": true,
+"name": &"backwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_oasgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ujtv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mmk5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_t8i6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tpuxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_efti5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vi3hl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1iwn2")
+}],
+"loop": true,
+"name": &"drowning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_g2h78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xli0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5cral")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_srvnc")
+}],
+"loop": true,
+"name": &"forwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_j6ywx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_coki3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_5dwlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_5ehrr")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_5wlg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_bo04a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_8a11e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_crdbl")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_x54ku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_2qat0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_t7ewk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_yuqph")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 5.0
+}]
+
+[node name="ChaseMinigame" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_3bm0v")
+
+[node name="SwimSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nycm0")
+volume_db = -20.0
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ru71g")
+volume_db = -10.0
+
+[node name="Augh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eafkc")
+volume_db = -10.0
+pitch_scale = 0.8
+
+[node name="Blow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ev16c")
+volume_db = -10.0
+
+[node name="Aesthetics" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sky" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 384.0
+texture = SubResource("GradientTexture2D_fcptt")
+
+[node name="Water" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 384.0
+offset_right = 1417.0
+offset_bottom = 1538.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_6brwi")
+
+[node name="Tree" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 136.0
+offset_right = 1304.0
+offset_bottom = 384.0
+texture = ExtResource("2_x8ogb")
+
+[node name="Grass" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 320.0
+offset_right = 1216.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass2" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 344.0
+offset_right = 840.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass3" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 320.0
+offset_right = 64.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Grass4" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 344.0
+offset_right = 184.0
+offset_bottom = 384.0
+texture = ExtResource("4_sdolq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="PlayAreaBackground" type="TextureRect" parent="Aesthetics"]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 56.0
+offset_right = 1096.0
+offset_bottom = 584.0
+texture = SubResource("GradientTexture2D_fcptt")
+
+[node name="SliderMinigame" type="Node2D" parent="."]
+script = ExtResource("1_goqic")
+padding = 200
+targetSize_ = Vector2(20, 50)
+graceArea = 20
+crosshairSize_ = Vector2(50, 10)
+crosshairSpeed = 500
+
+[node name="PlayArea" type="ColorRect" parent="SliderMinigame"]
+modulate = Color(1, 1, 1, 0.254902)
+offset_left = 960.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 573.0
+color = Color(0.666667, 0, 0, 1)
+
+[node name="Actors" type="Node" parent="."]
+
+[node name="You" type="Sprite2D" parent="Actors"]
+position = Vector2(112, 600)
+texture = ExtResource("5_gkpp4")
+
+[node name="Monster" type="Sprite2D" parent="Actors"]
+modulate = Color(0, 0, 0, 0.556863)
+position = Vector2(1242, 523)
+scale = Vector2(0.0408505, 0.0416155)
+texture = ExtResource("5_y208v")
+
+[node name="Ethan" type="AnimatedSprite2D" parent="Actors"]
+position = Vector2(678, 493)
+sprite_frames = SubResource("SpriteFrames_bjswu")
+animation = &"drowning"
+autoplay = "drowning"
+
+[node name="WoodenBackground" type="Sprite2D" parent="."]
+position = Vector2(-133.513, 628.236)
+scale = Vector2(0.477313, 0.668215)
+skew = 1.48353
+texture = ExtResource("7_5a4ss")
+
+[node name="WoodenBackground2" type="Sprite2D" parent="."]
+position = Vector2(-19.0439, 668.72)
+rotation = 1.5708
+scale = Vector2(0.142357, 0.698155)
+skew = -0.0872665
+texture = ExtResource("7_5a4ss")
+
+[node name="VictoryScreen" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(576, 320)
+scale = Vector2(2.46413, 2.90909)
+texture = ExtResource("10_ulybs")
+
+[node name="DieScreen" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(592, 328)
+scale = Vector2(2.04633, 2.02707)
+texture = ExtResource("13_qk6p8")
+
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="hitTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_hit_timing_target"]
+[connection signal="missedTimingTarget" from="SliderMinigame" to="." method="_on_slider_minigame_missed_timing_target"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]

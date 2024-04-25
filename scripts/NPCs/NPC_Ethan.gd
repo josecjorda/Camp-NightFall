@@ -55,7 +55,7 @@ func _unhandled_input(event):
 			Global.kids_saved[2] = 1 # store Ethan as a saved kid in the global array
 		else: ## transition to minigame if the player does not have the "Rope" item
 			interaction_finished = true
-			get_tree().paused = true # pauses the state of the Overworld Scene
+			#get_tree().paused = true # pauses the state of the Overworld Scene
 			go_to_ethan_minigame()
 			print("ethan minigame works") # testing
 			self.queue_free()
@@ -74,9 +74,15 @@ func _physics_process(delta):
 
 ## performs the scene transition to the Ethan saving minigame
 func go_to_ethan_minigame():
-	# change this to the path of the minigame scene
-	#var next_scene = "res://scenes/combat/combat.tscn"
-	#get_tree().change_scene_to_file(next_scene) # switches over to the minigame scene
+	
+	var next_scene = "res://scenes/minigame/minigame_scenes/ChaseMinigame.tscn"
+	var currRoot = get_tree().root
+	var overworldNode = currRoot.get_node("overworld")
+	currRoot.remove_child(overworldNode)
+	ResourceLoader.load_threaded_request(next_scene)
+	var gameNode = ResourceLoader.load_threaded_get(next_scene).instantiate()
+	gameNode.sender = overworldNode
+	currRoot.add_child(gameNode)
 	pass
 	
 func _process(delta):

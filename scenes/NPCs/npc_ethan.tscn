@@ -160,9 +160,7 @@ shape = SubResource("CircleShape2D_ougeg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_udirt")
-animation = &"backwards"
-frame = 2
-frame_progress = 0.421522
+animation = &"swimming"
 
 [node name="Label" type="Label" parent="."]
 offset_left = -157.0
