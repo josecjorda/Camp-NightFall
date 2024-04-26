@@ -18,21 +18,26 @@ func _ready():
 	$MapBackground.get_node("map").play("default")
 	$other_locations/Campfire.get_node("Fire/fire").play("default")
 	$other_locations/Archery.get_node("AnimatedSprite2D").play("default")
+	
 	var dialogue = preload('res://dialogue/Campfire_Start.dialogue') 
 	DialogueManager.show_dialogue_balloon(\
 	 dialogue)
+	SoundFx.discover_dead_kid()
 	for building in $buildings.get_children():
 		building.get_node("OutsideView").visible = true
 		building.body_entered.connect(building_entered.bind(building))
 		building.body_exited.connect(building_exited.bind(building))
+	
 
 ## Makes interiror of building visible
 func building_entered(player, building):
 	building.get_node("OutsideView").visible = false
 	dim_except_for(building)
 
+
 ## Shows outside view of building
 func building_exited(player, building):
+	
 	building.get_node("OutsideView").visible = true
 	undim_all()
 

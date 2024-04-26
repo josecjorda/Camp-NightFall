@@ -157,4 +157,5 @@ func _on_continue_pressed():
 	var next_scene = "res://scenes/world/overworld.tscn"
 	var time_start =  Time.get_ticks_msec()
 	Global.time_start = time_start
+	SoundFx.title_waiting_end()
 	get_tree().change_scene_to_file(next_scene)

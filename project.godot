@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 Global="*res://scripts/Global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 WorldBrightness="*res://scenes/menus/options/worldBrightness.tscn"
+SoundFx="*res://scenes/world/SoundFX.tscn"
 
 [display]
 

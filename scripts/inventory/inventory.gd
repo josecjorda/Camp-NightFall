@@ -17,6 +17,20 @@ func insert(item: InvItem):
 		emptyslots[0].item = item
 		#emptyslots[0].amount = 1
 		Global.invArr.append(item.name)
+	if item.name == 'lighter':
+		Global.lighters = true
+	if item.name == 'rope':
+		Global.rope_bait = true
+	if item.name == 'boltcutters':
+		Global.bolt_cutters = true
+	if item.name == 'axe':
+		Global.axe = true
+	if item.name == ' knife':
+		Global.knife = true
+	if item.name == ' machete':
+		Global.machete = true
+	if item.name =='bandages':
+		Global.bandages = true
 	update.emit()
 
 

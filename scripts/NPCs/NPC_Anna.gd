@@ -22,24 +22,29 @@ var speed = 200
 
 func _ready():
 	$AnimatedSprite2D.play("crying_on_ground")
+	
 
 ## if the player is within the NPC's collision box
 func _on_area_2d_body_entered(body):
 	if body.has_method("player"):
+		SoundFx.roaming_stop()
+		SoundFx.save_kids()
 		var dialogue = preload('res://dialogue/Find_Anna.dialogue') 
 		DialogueManager.show_dialogue_balloon(\
 		 dialogue)
 		player_is_near = true
-
+		
+		
 ## if the player is out of the NPC's collision box
 func _on_area_2d_body_exited(body):
 	if body.has_method("player"):
 		$Label.text = ""
 		player_is_near = false
-
+		SoundFx.save_kids_stop()
+		SoundFx.roaming()
 func _unhandled_input(event):
 	if player_is_near and event.is_action_pressed("interact"): ## is the player in the collision box and has the "f" key been pressed
-		if "boltcutters" in Global.invArr or "knife" in Global.invArr or "machete" in Global.invArr or "axe" in Global.invArr:
+		if Global.bolt_cutters == true or Global.knife == true or Global.machete == true or Global.axe == true:
 			# play getting up animation
 			interaction_finished = true
 			var dialogue = preload('res://dialogue/Save_Anna.dialogue') 

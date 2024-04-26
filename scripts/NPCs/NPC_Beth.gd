@@ -31,6 +31,8 @@ func _ready():
 ## if the player is within the NPC's collision box
 func _on_area_2d_body_entered(body):
 	if body.has_method("player"):
+		SoundFx.roaming_stop()
+		SoundFx.save_kids()
 		var dialogue = preload('res://dialogue/Find_Beth.dialogue') 
 		DialogueManager.show_dialogue_balloon(\
 		 dialogue)
@@ -39,12 +41,14 @@ func _on_area_2d_body_entered(body):
 ## if the player is out of the NPC's collision box
 func _on_area_2d_body_exited(body):
 	if body.has_method("player"):
+		SoundFx.save_kids_stop()
 		$Label.text = ""
 		player_is_near = false
+		SoundFx.roaming()
 
 func _unhandled_input(event):
 	if player_is_near and event.is_action_pressed("interact"): ## is the player in the collision box and has the "f" key been pressed
-		if "bandages" in Global.invArr and "lighter" in Global.invArr: ## does the player have the "Bandages" or "Lighter" item
+		if Global.bandages == true and Global.lighters ==true: ## does the player have the "Bandages" or "Lighter" item
 			interaction_finished = true
 			$Sprite2D.visible = false
 			$AnimatedSprite2D.play("getting_up_bandaged")
