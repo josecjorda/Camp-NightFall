@@ -344,7 +344,7 @@ func action(source, target, action_info, action_name):
 ## Ends battle and switches to next scene
 func finish_battle(target):
 	if target == player: ## Lose
-		var next_scene = "res://scenes/end_screen/lose_screen.tscn"
+		var next_scene = "res://scenes/end_screens/lose_screen.tscn"
 		get_tree().change_scene_to_file(next_scene)
 	elif target == enemy: ## Win
 		var next_scene = "res://scenes/end_screens/win_screen.tscn"
