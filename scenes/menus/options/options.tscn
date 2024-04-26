@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbc2tp307ef7x"]
+
+[ext_resource type="Script" path="res://scripts/menus/options.gd" id="1_cbpy6"]
+[ext_resource type="Texture2D" uid="uid://ws7ge8yaibtd" path="res://graphics/main_menu/settings screen.png" id="2_3kogg"]
+[ext_resource type="Texture2D" uid="uid://c8umrp5ulphar" path="res://graphics/main_menu/arrow-removebg-preview.png" id="3_bcgj0"]
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cbpy6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(581, 360.25)
+scale = Vector2(1.57007, 0.97606)
+texture = ExtResource("2_3kogg")
+
+[node name="audioButton" type="TextureButton" parent="Sprite2D"]
+offset_left = -101.0
+offset_top = 35.0
+offset_right = 49.0
+offset_bottom = 88.0
+
+[node name="brightNessButton" type="TextureButton" parent="Sprite2D"]
+offset_left = -59.0
+offset_top = 105.0
+offset_right = 97.0
+offset_bottom = 159.0
+
+[node name="resolutionButton" type="TextureButton" parent="Sprite2D"]
+offset_left = -113.0
+offset_top = 179.0
+offset_right = 48.0
+offset_bottom = 242.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(113, 86)
+scale = Vector2(0.805, 0.62)
+texture = ExtResource("3_bcgj0")
+
+[node name="backButton" type="TextureButton" parent="Sprite2D2"]
+offset_left = -101.0
+offset_top = -56.0
+offset_right = 112.0
+offset_bottom = 60.0
+
+[connection signal="pressed" from="Sprite2D/audioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="Sprite2D/brightNessButton" to="." method="_on_bright_ness_button_pressed"]
+[connection signal="pressed" from="Sprite2D/resolutionButton" to="." method="_on_resolution_button_pressed"]
+[connection signal="pressed" from="Sprite2D2/backButton" to="." method="_on_back_button_pressed"]

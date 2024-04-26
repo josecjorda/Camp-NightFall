@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b37la5uxxhuhx"]
+
+[ext_resource type="Script" path="res://scenes/world/SoundFX.gd" id="1_mtyxw"]
+[ext_resource type="AudioStream" uid="uid://bgb8nx7cnrqbk" path="res://audio/player/discover_dead.wav" id="2_7arv0"]
+[ext_resource type="AudioStream" uid="uid://dcycnsak41xux" path="res://audio/menu_waiting/TitleWaiting.wav" id="3_xqyva"]
+[ext_resource type="AudioStream" uid="uid://dj5c8eqj2h5w" path="res://audio/player/Roaming.wav" id="4_pkg5g"]
+[ext_resource type="AudioStream" uid="uid://bi20w31nrc226" path="res://audio/player/SaveTheKids.wav" id="5_urywd"]
+
+[node name="SoundFx" type="Node2D"]
+script = ExtResource("1_mtyxw")
+
+[node name="discover_dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7arv0")
+
+[node name="Title_Waiting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xqyva")
+
+[node name="SaveTheKids" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_urywd")
+
+[node name="Roaming" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pkg5g")

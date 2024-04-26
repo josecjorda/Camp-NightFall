@@ -1,0 +1,14 @@
+~ Find_Anna
+
+Anna: *screaming* Please Please Please. I can't move. Somebody! Anybody! Get me out of here
+You: Anna? Anna listen to me
+Anna: I saw it. That thing. He stepped on Emily. Just stomped on her face. I can't. I can't
+You look next to Anna and see what remains of Emily. Her face is unrecognizable at this point.
+Anna is directly in front of her best friend's body. Trapped. 
+- Comfort Her
+	You: Anna I'm gonna get you outta here okay 
+- Panic
+	You: Oh shit...Okay Okay let me think[shake rate=20 level=10][/shake]
+
+
+=> END

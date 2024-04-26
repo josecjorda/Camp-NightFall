@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0hmca6y8xu1f"]
+
+[ext_resource type="Texture2D" uid="uid://b6jibtcfmadl1" path="res://graphics/main_menu/title_screen.png" id="1_il2yx"]
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_pve14"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 305.0
+offset_top = -1.0
+offset_right = -69.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pve14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(278, 335)
+scale = Vector2(1.58571, 0.902445)
+texture = ExtResource("1_il2yx")
+
+[node name="StartButton" type="TextureButton" parent="Sprite2D"]
+offset_left = -78.1984
+offset_top = -2.21619
+offset_right = 75.8016
+offset_bottom = 38.7838
+rotation = -0.0360373
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+
+[node name="SaveButton" type="TextureButton" parent="Sprite2D"]
+offset_left = -78.9044
+offset_top = 55.7212
+offset_right = 75.0956
+offset_bottom = 96.7212
+rotation = -0.0410072
+toggle_mode = true
+button_pressed = true
+
+[node name="LoadButton" type="TextureButton" parent="Sprite2D"]
+offset_left = -77.9183
+offset_top = 118.561
+offset_right = 76.0817
+offset_bottom = 159.561
+rotation = -0.0360373
+
+[node name="Options" type="TextureButton" parent="Sprite2D"]
+offset_left = -73.9821
+offset_top = 179.437
+offset_right = 80.0179
+offset_bottom = 220.437
+rotation = -0.0360373
+
+[node name="Quit" type="TextureButton" parent="Sprite2D"]
+offset_left = -70.0461
+offset_top = 237.367
+offset_right = 83.9539
+offset_bottom = 278.367
+rotation = -0.0360373
+
+[connection signal="pressed" from="Sprite2D/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Sprite2D/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Sprite2D/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Sprite2D/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Sprite2D/Quit" to="." method="_on_quit_pressed"]

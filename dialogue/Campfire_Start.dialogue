@@ -1,0 +1,15 @@
+~ Campfire_Start
+
+You: *cough* *cough*  Jesus did I swallow a cigarette? 
+You touch your throbbing forehead only to see a sticky spattering of blood on your fingers. 
+You: What the fuck??!
+You check your body for any injuries, but you find none. Whose blood is this?
+You look around the campfire, suddenly noticing that familiar camper uniform peeking out from behind the flames. 
+You: Oh god...
+You see the fragile limbs of a 3rd year camper; a boy named Billy Loomis set together in a pile that burns alongside the fire
+You fall to your knees, trying to hold back the bile rising within you 
+You: No, No...Get up. Get up[shake rate=20 level=10][/shake]
+do SoundFx.roaming()
+
+
+=> END

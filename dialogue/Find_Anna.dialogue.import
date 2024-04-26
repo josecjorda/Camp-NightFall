@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dfyrfosoyla05"
+path="res://.godot/imported/Find_Anna.dialogue-977162444eaedc06c7e685c487ee0f08.tres"
+
+[deps]
+
+source_file="res://dialogue/Find_Anna.dialogue"
+dest_files=["res://.godot/imported/Find_Anna.dialogue-977162444eaedc06c7e685c487ee0f08.tres"]
+
+[params]
+
+defaults=true

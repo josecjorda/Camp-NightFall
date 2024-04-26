@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://o66numl57ym7"]
+
+[ext_resource type="Texture2D" uid="uid://t8qpfr748arf" path="res://graphics/1.png" id="1_nw1ql"]
+[ext_resource type="AudioStream" uid="uid://bgb8nx7cnrqbk" path="res://audio/player/discover_dead.wav" id="2_ptbx2"]
+
+[node name="LoseScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 323)
+scale = Vector2(1.83706, 1.849)
+texture = ExtResource("1_nw1ql")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ptbx2")
+autoplay = true

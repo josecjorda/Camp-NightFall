@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://caidrmore88vl"
+path="res://.godot/imported/Save_Beth.dialogue-30da7064a637417d3f129a9800c2b90d.tres"
+
+[deps]
+
+source_file="res://dialogue/Save_Beth.dialogue"
+dest_files=["res://.godot/imported/Save_Beth.dialogue-30da7064a637417d3f129a9800c2b90d.tres"]
+
+[params]
+
+defaults=true

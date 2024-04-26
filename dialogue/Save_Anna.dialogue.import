@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://b551vrj4ds2jh"
+path="res://.godot/imported/Save_Anna.dialogue-4cdaf502b10297349e579e576533992a.tres"
+
+[deps]
+
+source_file="res://dialogue/Save_Anna.dialogue"
+dest_files=["res://.godot/imported/Save_Anna.dialogue-4cdaf502b10297349e579e576533992a.tres"]
+
+[params]
+
+defaults=true

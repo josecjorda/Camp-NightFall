@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bkf03cp3rjak8"
+path="res://.godot/imported/Find_Ethan.dialogue-eb2d3d3922ad7ee80c9abc25e43db1a0.tres"
+
+[deps]
+
+source_file="res://dialogue/Find_Ethan.dialogue"
+dest_files=["res://.godot/imported/Find_Ethan.dialogue-eb2d3d3922ad7ee80c9abc25e43db1a0.tres"]
+
+[params]
+
+defaults=true

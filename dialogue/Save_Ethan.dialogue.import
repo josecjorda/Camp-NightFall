@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bkc7o48lv6lg7"
+path="res://.godot/imported/Save_Ethan.dialogue-89ec8870a5102be7aad61fffc274f039.tres"
+
+[deps]
+
+source_file="res://dialogue/Save_Ethan.dialogue"
+dest_files=["res://.godot/imported/Save_Ethan.dialogue-89ec8870a5102be7aad61fffc274f039.tres"]
+
+[params]
+
+defaults=true

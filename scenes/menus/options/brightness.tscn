@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbd8aabtigs3m"]
+
+[ext_resource type="Texture2D" uid="uid://bmsrlu4sd3goq" path="res://graphics/main_menu/blank.png" id="1_clinx"]
+[ext_resource type="Script" path="res://scripts/menus/brightness.gd" id="2_abwta"]
+[ext_resource type="Texture2D" uid="uid://cm53va7k65w8n" path="res://graphics/items/Machete.png" id="3_q3sdb"]
+[ext_resource type="Texture2D" uid="uid://c8umrp5ulphar" path="res://graphics/main_menu/arrow-removebg-preview.png" id="4_o2xn2"]
+
+[node name="brightness" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(605, 385)
+scale = Vector2(1.64184, 1.056)
+texture = ExtResource("1_clinx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sprite2D"]
+
+[node name="brightness" type="HSlider" parent="Sprite2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.297959
+anchor_top = -0.135802
+anchor_right = 0.196832
+offset_left = 599.249
+offset_top = 504.0
+offset_right = 607.249
+offset_bottom = 520.0
+size_flags_horizontal = 4
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_abwta")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Sprite2D/CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.035
+offset_left = 201.0
+offset_top = 308.0
+offset_right = 967.68
+offset_bottom = 386.32
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Move the Slider to the Machete for intended viewing"
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-130.557, 168.56)
+rotation = -0.507659
+scale = Vector2(2.10044, 2.10614)
+texture = ExtResource("3_q3sdb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-315.5, -298.295)
+scale = Vector2(0.496955, 0.457386)
+texture = ExtResource("4_o2xn2")
+
+[node name="backButton" type="TextureButton" parent="Sprite2D/Sprite2D2"]
+offset_left = -115.0
+offset_top = -106.0
+offset_right = 141.0
+offset_bottom = 79.0
+
+[connection signal="value_changed" from="Sprite2D/CanvasLayer/brightness" to="Sprite2D/CanvasLayer/brightness" method="_on_value_changed"]
+[connection signal="pressed" from="Sprite2D/Sprite2D2/backButton" to="Sprite2D/CanvasLayer/brightness" method="_on_back_button_pressed"]

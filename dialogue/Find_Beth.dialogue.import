@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://co0cd4q2a1vue"
+path="res://.godot/imported/Find_Beth.dialogue-01a6504333ff4e10a05a26d421483d19.tres"
+
+[deps]
+
+source_file="res://dialogue/Find_Beth.dialogue"
+dest_files=["res://.godot/imported/Find_Beth.dialogue-01a6504333ff4e10a05a26d421483d19.tres"]
+
+[params]
+
+defaults=true

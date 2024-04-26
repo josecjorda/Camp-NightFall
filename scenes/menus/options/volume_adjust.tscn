@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://u6vkhkj6m2v0"]
+
+[ext_resource type="Texture2D" uid="uid://bmsrlu4sd3goq" path="res://graphics/main_menu/blank.png" id="1_dnar2"]
+[ext_resource type="Script" path="res://scenes/menus/options/volume_slider.gd" id="2_hd5de"]
+[ext_resource type="Texture2D" uid="uid://c8umrp5ulphar" path="res://graphics/main_menu/arrow-removebg-preview.png" id="3_c5hvh"]
+
+[node name="VolumeAdjust" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(587, 356)
+scale = Vector2(1.62041, 0.988372)
+texture = ExtResource("1_dnar2")
+
+[node name="volume_slider" type="HSlider" parent="Sprite2D"]
+offset_left = -180.819
+offset_top = -9.10588
+offset_right = 191.181
+offset_bottom = 15.8941
+max_value = 1.0
+step = 0.05
+ticks_on_borders = true
+script = ExtResource("2_hd5de")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(79.5, 56)
+scale = Vector2(0.885, 0.64)
+texture = ExtResource("3_c5hvh")
+
+[node name="backButton" type="TextureButton" parent="Sprite2D2"]
+anchors_preset = -1
+anchor_right = 20.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -78.0
+offset_right = -3886.0
+offset_bottom = -131.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 291.0
+offset_top = 248.0
+offset_right = 592.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Volume Adjustment"
+
+[connection signal="pressed" from="Sprite2D2/backButton" to="Sprite2D/volume_slider" method="_on_back_button_pressed"]

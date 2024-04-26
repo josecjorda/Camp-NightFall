@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce174esg5xt5t"]
+
+[ext_resource type="PackedScene" uid="uid://dwywpibhepuii" path="res://scenes/menus/options/Options_Display_Button.tscn" id="1_iqrjw"]
+[ext_resource type="Script" path="res://scripts/menus/Window_Mode.gd" id="2_5raxk"]
+
+[node name="Window_Mode" instance=ExtResource("1_iqrjw")]
+offset_top = 228.0
+offset_right = -723.0
+script = ExtResource("2_5raxk")
+
+[node name="HBoxContainer" parent="." index="0"]
+offset_left = -176.48
+offset_top = -127.518
+offset_right = 617.52
+offset_bottom = -63.518
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Window_Mode
+"

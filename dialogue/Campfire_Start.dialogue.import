@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://8vjbtxkeisb5"
+path="res://.godot/imported/Campfire_Start.dialogue-4b6693a1dc5bc8cd9addee33da7d8ad1.tres"
+
+[deps]
+
+source_file="res://dialogue/Campfire_Start.dialogue"
+dest_files=["res://.godot/imported/Campfire_Start.dialogue-4b6693a1dc5bc8cd9addee33da7d8ad1.tres"]
+
+[params]
+
+defaults=true

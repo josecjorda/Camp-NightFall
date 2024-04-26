@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://qmj6v7unyo3i"]
+
+[ext_resource type="Texture2D" uid="uid://bmsrlu4sd3goq" path="res://graphics/main_menu/blank.png" id="1_hrnp8"]
+[ext_resource type="PackedScene" uid="uid://ce174esg5xt5t" path="res://scenes/menus/options/window_mode.tscn" id="2_ii3yj"]
+[ext_resource type="PackedScene" uid="uid://c5l77pd2qv1v7" path="res://scenes/menus/options/resolution_mode.tscn" id="3_novf5"]
+[ext_resource type="Texture2D" uid="uid://c8umrp5ulphar" path="res://graphics/main_menu/arrow-removebg-preview.png" id="4_ljfgt"]
+
+[node name="OptionsRes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -2.0
+offset_right = 14.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(564, 329)
+scale = Vector2(1.57415, 0.876881)
+texture = ExtResource("1_hrnp8")
+
+[node name="TabContainer" type="TabContainer" parent="Sprite2D"]
+offset_left = -329.0
+offset_top = -138.0
+offset_right = 226.0
+offset_bottom = 182.0
+tooltip_text = "H"
+tabs_visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite2D/TabContainer"]
+layout_mode = 2
+tooltip_text = "Graphics
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Sprite2D/TabContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="Window_Mode" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_ii3yj")]
+layout_mode = 2
+
+[node name="HBoxContainer" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/Window_Mode" index="0"]
+offset_left = -264.336
+offset_top = 7.99373
+offset_right = 551.664
+offset_bottom = 71.9937
+
+[node name="Label" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/Window_Mode/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(100, 0)
+
+[node name="OptionButton" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/Window_Mode/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(265, 64)
+
+[node name="resolution_mode" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_novf5")]
+layout_mode = 2
+
+[node name="HBoxContainer" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/resolution_mode" index="0"]
+offset_left = -240.831
+offset_top = 3.0889
+offset_right = 553.169
+offset_bottom = 67.0889
+
+[node name="Label" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/resolution_mode/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(100, 0)
+
+[node name="OptionButton" parent="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/resolution_mode/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(265, 64)
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -283.963
+offset_top = 45.6162
+offset_right = -118.963
+offset_bottom = 90.6162
+theme_override_font_sizes/font_size = 32
+text = "Resolution"
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+offset_left = -310.009
+offset_top = -110.619
+offset_right = -73.0086
+offset_bottom = -65.6193
+theme_override_font_sizes/font_size = 32
+text = "Windows Mode"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(67, 63)
+scale = Vector2(0.635, 0.515)
+texture = ExtResource("4_ljfgt")
+
+[node name="backButton" type="TextureButton" parent="Sprite2D2"]
+offset_left = -102.0
+offset_top = -83.0
+offset_right = 124.0
+offset_bottom = 89.0
+
+[connection signal="pressed" from="Sprite2D2/backButton" to="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/Window_Mode" method="_on_back_button_pressed"]
+
+[editable path="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/Window_Mode"]
+[editable path="Sprite2D/TabContainer/MarginContainer/ScrollContainer/VBoxContainer/resolution_mode"]
