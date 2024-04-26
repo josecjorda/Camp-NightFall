@@ -34,7 +34,9 @@ func _ready():
 ## if the player is within the NPC's collision box
 func _on_area_2d_body_entered(body):
 	if body.has_method("player"):
-		$Label.text = "Counselor!!.. The wautoar.. It's too deep for me!"
+		var dialogue = preload('res://dialogue/Find_Ethan.dialogue') 
+		DialogueManager.show_dialogue_balloon(\
+		 dialogue)
 		player_is_near = true
 
 ## if the player is out of the NPC's collision box
@@ -45,9 +47,11 @@ func _on_area_2d_body_exited(body):
 
 func _unhandled_input(event):
 	if player_is_near and event.is_action_pressed("interact"): ## is the player in the collision box and has the "f" key been pressed
-		if "Rope" in Global.invArr: ## does the player have the "Rope" item
+		if "rope" in Global.invArr: ## does the player have the "Rope" item
 			interaction_finished = true
-			$Label.text = "Thank you so much Counselor!"
+			var dialogue = preload('res://dialogue/Save_Ethan.dialogue') 
+			DialogueManager.show_dialogue_balloon(\
+		 	dialogue)
 			await get_tree().create_timer(2.0).timeout
 			move = true
 			await get_tree().create_timer(4.0).timeout
@@ -57,7 +61,7 @@ func _unhandled_input(event):
 			interaction_finished = true
 			#get_tree().paused = true # pauses the state of the Overworld Scene
 			go_to_ethan_minigame()
-			print("ethan minigame works") # testing
+			
 			self.queue_free()
 			Global.kids_saved[2] = 1
 			

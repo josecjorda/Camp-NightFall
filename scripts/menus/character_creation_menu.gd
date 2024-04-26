@@ -155,4 +155,6 @@ func _on_continue_pressed():
 	Global.hair = currHair
 	
 	var next_scene = "res://scenes/world/overworld.tscn"
+	var time_start =  Time.get_ticks_msec()
+	Global.time_start = time_start
 	get_tree().change_scene_to_file(next_scene)

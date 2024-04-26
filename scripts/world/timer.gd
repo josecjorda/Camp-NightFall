@@ -3,7 +3,7 @@ extends Node2D
 ## Changes rotation of needle on clock asset based on time and checks if it's time to fight.
 ## Time is saved in minutes.
 
-var end_time = 15 ## Time to switch to combat
+var end_time = 7 ## Time to switch to combat
 func _process(delta):
 	var time = Global.elapsed_time
 	$clock_hand.rotation_degrees = 360/end_time * time

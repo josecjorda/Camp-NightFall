@@ -26,7 +26,9 @@ func _ready():
 ## if the player is within the NPC's collision box
 func _on_area_2d_body_entered(body):
 	if body.has_method("player"):
-		$Label.text = "Counselor! Please I'm stuck could you cut the bed frame out?!"
+		var dialogue = preload('res://dialogue/Find_Anna.dialogue') 
+		DialogueManager.show_dialogue_balloon(\
+		 dialogue)
 		player_is_near = true
 
 ## if the player is out of the NPC's collision box
@@ -37,10 +39,12 @@ func _on_area_2d_body_exited(body):
 
 func _unhandled_input(event):
 	if player_is_near and event.is_action_pressed("interact"): ## is the player in the collision box and has the "f" key been pressed
-		if "Boltcutters" in Global.invArr or "knife" in Global.invArr or "Machete" in Global.invArr or "Axe" in Global.invArr:
+		if "boltcutters" in Global.invArr or "knife" in Global.invArr or "machete" in Global.invArr or "axe" in Global.invArr:
 			# play getting up animation
 			interaction_finished = true
-			$Label.text = "Thank you so much Counselor!"
+			var dialogue = preload('res://dialogue/Save_Anna.dialogue') 
+			DialogueManager.show_dialogue_balloon(\
+		 	dialogue)
 			$AnimatedSprite2D.play("getting_up")
 			await get_tree().create_timer(4.0).timeout
 			$AnimatedSprite2D.stop()
