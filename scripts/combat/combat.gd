@@ -40,6 +40,7 @@ var player_turn = true
 ## Plays animations. Adds items to itembar.
 func _ready():
 	## Adds fist to inventory
+	SoundFx.roaming_stop()
 	if "Fist" not in item_bar:
 		item_bar.append("Fist")
 	## Plays animations and music
@@ -344,6 +345,7 @@ func action(source, target, action_info, action_name):
 func finish_battle(target):
 	if target == player: ## Lose
 		var next_scene = "res://scenes/end_screen/lose_screen.tscn"
+		get_tree().change_scene_to_file(next_scene)
 	elif target == enemy: ## Win
 		var next_scene = "res://scenes/end_screens/win_screen.tscn"
 		get_tree().change_scene_to_file(next_scene)

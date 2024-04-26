@@ -48,10 +48,15 @@ var save_dict = {
 	"time_elapsed":elapsed_time
 	}
 func _ready():
-	var time_now = Time.get_ticks_msec()
-	elapsed_time =  time_start - time_now
+	
+	pass
 	
 func _process(_delta):
+	var time_now = Time.get_ticks_msec()
+	elapsed_time =  (time_now - time_start)/60000
+	if elapsed_time == 2:
+		print(elapsed_time)
+	
 	if rope_bait==true:
 		print("Filler")
 	if bolt_cutters == true or knife == true or machete == true or axe == true :
