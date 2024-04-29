@@ -54,7 +54,8 @@ func _ready():
 	set_health($PlayerHealthBar, player.health, player.max_health)
 	var item_buttons = $Itembar/HBoxContainer.get_children() 
 	## Removes unusuable items from item_bar
-	for item in item_bar:
+	var item_bar_dupe = item_bar.duplicate()
+	for item in item_bar_dupe:
 		if item not in player.actions.keys():
 			item_bar.erase(item)
 	## Connects buttons to signal and adds textures based on inventory
